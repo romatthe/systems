@@ -39,6 +39,7 @@
           ./modules/system/common/xorg.nix
           ./modules/system/hardware/bluetooth.nix
           ./modules/system/hardware/pulseaudio.nix
+          ./modules/system/hardware/ssd.nix
             
           # Home manager modules
           home-manager.nixosModules.home-manager
