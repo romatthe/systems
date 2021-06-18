@@ -1,0 +1,4 @@
+{ pkgs, ... }:
+{
+  console.keyMap = "us";
+}
