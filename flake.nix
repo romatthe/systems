@@ -1,4 +1,6 @@
 # TODO: Set various color themes, see https://btwiusegentoo.github.io/nixconfig/#org157ee38
+# TODO: Set the various fonts to use, see https://btwiusegentoo.github.io/nixconfig/#orgd80d820
+# TODO: Basically go over the entire look and feel entry, see https://btwiusegentoo.github.io/nixconfig/#org157ee83
 
 {
   description = "NixOS system configurations for all my machines";

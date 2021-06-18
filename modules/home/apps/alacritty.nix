@@ -1,6 +1,48 @@
 {
   programs.alacritty.enable = true;
 
+  # Enable true color support
+  programs.alacritty.settings.env.TERM = "xterm-256color";
+
+  programs.alacritty.settings.window.padding = {
+    x = 12;
+    y = 0;
+  };
+
+  # Don't show any window decorations
+  programs.alacritty.settings.window.decorations = "none";
+
+  programs.alacritty.settings.window.startup_mode = "Windowed";
+
+  programs.alacritty.settings.scrolling = {
+    history = 10000;
+    multiplier = 3;
+  };
+
+  # Conventient keybindings
+  programs.alacritty.settings.key_bindings = [
+    {
+      key = "V";
+      mods = "Control|Shift";
+      action = "Paste";
+    }
+    {
+      key = "C";
+      mods = "Control|Shift";
+      action = "Copy";
+    }
+    {
+      key = "Up";
+      mods = "Control|Shift";
+      action = "ScrollPageUp";
+    }
+    {
+      key = "Down";
+      mods = "Control|Shift";
+      action = "ScrollPageDown";
+    }
+  ];
+  
   # Nord theme
   programs.alacritty.settings.colors = {
     # Default colors
