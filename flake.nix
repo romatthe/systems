@@ -37,6 +37,7 @@
           ./modules/system/common/console.nix
           ./modules/system/common/nix.nix
           ./modules/system/common/xorg.nix
+          ./modules/system/services/pulseaudio.nix
             
           # Home manager modules
           home-manager.nixosModules.home-manager
