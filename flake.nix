@@ -40,6 +40,7 @@
           ./modules/system/hardware/bluetooth.nix
           ./modules/system/hardware/pulseaudio.nix
           ./modules/system/hardware/ssd.nix
+          ./modules/system/services/oom.nix
             
           # Home manager modules
           home-manager.nixosModules.home-manager
