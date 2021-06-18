@@ -1,3 +1,5 @@
+# TODO: Set various color themes, see https://btwiusegentoo.github.io/nixconfig/#org157ee38
+
 {
   description = "NixOS system configurations for all my machines";
 
@@ -51,6 +53,7 @@
               imports = [
                 ./machines/yokohama-home.nix
                 ./modules/home/apps/alacritty.nix
+                ./modules/home/apps/utils.nix
               ];
             };
           })
