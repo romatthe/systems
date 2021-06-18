@@ -50,6 +50,7 @@
             home-manager.users.romatthe = { ... }: {
               imports = [
                 ./machines/yokohama-home.nix
+                ./modules/home/apps/alacritty.nix
               ];
             };
           })
