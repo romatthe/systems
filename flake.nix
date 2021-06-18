@@ -44,7 +44,9 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.romatthe = { ... }: {
-              imports = [ ];
+              imports = [
+                ./machines/yokohama-home.nix
+              ];
             };
           })
         ];
