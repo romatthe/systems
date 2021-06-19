@@ -2,6 +2,9 @@
 {
   console.keyMap = "us";
 
+  # Load console configurations early at initrd
+  console.earlySetup = true;
+
   # Nord theme
   console.colors = [
     "2E3440"
