@@ -16,6 +16,7 @@
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
     let
+      
       overlays = {
         # Community maintained bleeding-edge Emacs
         emacs = final: prev: {
@@ -71,6 +72,7 @@
                   ./machines/yokohama-home.nix
                   ./modules/home/apps/alacritty.nix
                   ./modules/home/apps/fish.nix
+                  ./modules/home/apps/git.nix
                   ./modules/home/apps/starship.nix
                   ./modules/home/apps/utils.nix
                 ];
