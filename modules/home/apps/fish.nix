@@ -22,5 +22,26 @@
     # Requires 'bottom' to be installed
     "top" = "btm";
     "htop" = "btm";
+    # Requires 'fd' to be installed
+    "find" = "fd";
   };
+
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+    # Use 'fd' instead of 'find', make sure to install it
+    defaultCommand = "fd --type f";
+    # TODO: Set proper colors, preferable Nord
+    defaultOptions = [
+      "--color=bg+:0,bg:#292D3E,spinner:#89DDFF,hl:#82AAFF,fg:#8796B0,header:#82AAFF,info:#FFCB6B,pointer:#89DDFF,marker:#89DDFF,fg+:#959DCB,prompt:#c792ea,hl+:#82AAFF"
+    ];
+  };
+
+  # bottom, a top/htop replacement
+  home.packages = [
+    # 'bottom', a system monitor
+    pkgs.bottom
+    # 'fd', a friendly find replacement
+    pkgs.fd
+  ];
 }
