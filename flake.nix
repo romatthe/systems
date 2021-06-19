@@ -3,6 +3,7 @@
 # TODO: Basically go over the entire look and feel entry, see https://btwiusegentoo.github.io/nixconfig/#org157ee83
 # TODO: Configure fish to work with emacs-vterm, see https://btwiusegentoo.github.io/nixconfig/#orgee21e48
 # TODO: Entire Doom config, see https://btwiusegentoo.github.io/nixconfig/#org1695984
+# TODO: Enable lightdm, see https://btwiusegentoo.github.io/nixconfig/#orgc64bf2b
 
 {
   description = "NixOS system configurations for all my machines";
@@ -61,6 +62,7 @@
             ./modules/system/hardware/pulseaudio.nix
             ./modules/system/hardware/ssd.nix
             ./modules/system/services/clam.nix
+            ./modules/system/services/dbus.nix
             ./modules/system/services/oom.nix
             ./modules/system/wm/gnome.nix
             

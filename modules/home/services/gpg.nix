@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services.gpg-agent = {
     enable = true;
@@ -7,11 +8,9 @@
       allow-emacs-pinentry
       allow-loopback-pinentry
     '';
+    # Might be necessary to set `services.dbus.packages = [ pkgs.gcr ]`
     pinentryFlavor = "gnome3";
   };
-
-  # Might be necessary to enable the Gnome3 pinetry program
-  services.dbus.packages = [ pkgs.gcr ];
   
   programs.gpg = {
     enable = true;
