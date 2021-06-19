@@ -70,11 +70,11 @@
               home-manager.users.romatthe = { ... }: {
                 imports = [
                   ./machines/yokohama-home.nix
-                  ./modules/home/apps/alacritty.nix
-                  ./modules/home/apps/fish.nix
-                  ./modules/home/apps/git.nix
-                  ./modules/home/apps/starship.nix
-                  ./modules/home/apps/utils.nix
+                  ./modules/home/terminal/alacritty.nix
+                  ./modules/home/terminal/fish.nix
+                  ./modules/home/terminal/git.nix
+                  ./modules/home/terminal/starship.nix
+                  ./modules/home/terminal/utils.nix
                 ];
               };
             })
