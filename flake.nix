@@ -75,6 +75,7 @@
                   ./modules/home/apps/emacs.nix
                   ./modules/home/apps/firefox.nix
                   ./modules/home/apps/zathura.nix
+                  ./modules/home/services/gpg.nix
                   ./modules/home/terminal/alacritty.nix
                   ./modules/home/terminal/fish.nix
                   ./modules/home/terminal/git.nix
