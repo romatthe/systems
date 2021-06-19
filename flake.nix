@@ -64,6 +64,7 @@
             ./modules/system/services/clam.nix
             ./modules/system/services/dbus.nix
             ./modules/system/services/oom.nix
+            ./modules/system/services/openssh.nix
             ./modules/system/wm/gnome.nix
             
             # Home manager modules
