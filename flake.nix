@@ -2,6 +2,7 @@
 # TODO: Set the various fonts to use, see https://btwiusegentoo.github.io/nixconfig/#orgd80d820
 # TODO: Basically go over the entire look and feel entry, see https://btwiusegentoo.github.io/nixconfig/#org157ee83
 # TODO: Configure fish to work with emacs-vterm, see https://btwiusegentoo.github.io/nixconfig/#orgee21e48
+# TODO: Entire Doom config, see https://btwiusegentoo.github.io/nixconfig/#org1695984
 
 {
   description = "NixOS system configurations for all my machines";
@@ -12,26 +13,11 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     home-manager.url = "github:nix-community/home-manager/release-21.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
     let
-      
-      overlays = {
-        # Community maintained bleeding-edge Emacs
-        emacs = final: prev: {
-          emacs = import inputs.emacs-overlay;
-        };
-        # Unstable nixpkgs
-        unstable = final: prev: {
-          unstable = import inputs.nixpkgs-unstable {
-            system = final.system;
-            config = {
-              allowUnfree = true;
-            };
-          };
-        };
-      };
       
       pkgs = (import nixpkgs) {
         system = "x86_64-linux";
@@ -39,7 +25,21 @@
           # Forgive me Stallman
           allowUnfree = true;
         };
-        overlays = builtins.attrValues overlays;
+        overlays = [
+          # Community maintained bleeding-edge Emacs
+          inputs.emacs-overlay.overlay
+          # Community packages
+          inputs.nur.overlay
+          # Unstable nixpkgs
+          (final: prev: {
+            unstable = import inputs.nixpkgs-unstable {
+              system = final.system;
+              config = {
+                allowUnfree = true;
+              };
+            };
+          })
+        ];
       };
       
     in {
@@ -61,6 +61,7 @@
             ./modules/system/hardware/pulseaudio.nix
             ./modules/system/hardware/ssd.nix
             ./modules/system/services/oom.nix
+            ./modules/system/wm/gnome.nix
             
             # Home manager modules
             home-manager.nixosModules.home-manager
@@ -70,6 +71,8 @@
               home-manager.users.romatthe = { ... }: {
                 imports = [
                   ./machines/yokohama-home.nix
+                  ./modules/home/apps/emacs.nix
+                  ./modules/home/apps/firefox.nix
                   ./modules/home/terminal/alacritty.nix
                   ./modules/home/terminal/fish.nix
                   ./modules/home/terminal/git.nix
@@ -81,5 +84,6 @@
           ];
         };
       };
+      
     };
 }
