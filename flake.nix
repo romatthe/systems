@@ -60,6 +60,7 @@
             ./modules/system/hardware/bluetooth.nix
             ./modules/system/hardware/pulseaudio.nix
             ./modules/system/hardware/ssd.nix
+            ./modules/system/services/clam.nix
             ./modules/system/services/oom.nix
             ./modules/system/wm/gnome.nix
             
