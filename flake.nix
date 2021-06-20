@@ -18,8 +18,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
-    let
-      
+    let      
       pkgs = (import nixpkgs) {
         system = "x86_64-linux";
         config = {
@@ -42,7 +41,6 @@
           })
         ];
       };
-      
     in {
       
       nixosConfigurations = {
@@ -78,6 +76,7 @@
                   ./modules/home/apps/emacs.nix
                   ./modules/home/apps/firefox.nix
                   ./modules/home/apps/zathura.nix
+                  ./modules/home/services/dunst.nix
                   ./modules/home/services/gpg.nix
                   ./modules/home/terminal/alacritty.nix
                   ./modules/home/terminal/fish.nix
