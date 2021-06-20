@@ -2,7 +2,12 @@
 {
   programs.emacs.enable = true;
   programs.emacs.package = pkgs.emacsPgtkGcc;
-  programs.emacs.extraPackages = (epkgs: [ epkgs.vterm ]);
+  programs.emacs.extraPackages = (epkgs: [ 
+    epkgs.vterm
+    epkgs.nix-mode
+  ]);
+
+  home.file.".emacs.d/init.el" = { source = ./init.el; recursive = true; };
 
   # Enable the Emacs daemon
   services.emacs = {
@@ -13,4 +18,11 @@
     };
     socketActivation.enable = false;
   };
+
+  fonts.fontconfig.enable = true;
+  
+  home.packages = with pkgs; [
+    emacs-all-the-icons-fonts
+    fira-code
+  ];
 }
