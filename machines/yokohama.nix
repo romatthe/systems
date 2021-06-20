@@ -12,11 +12,17 @@
   # Forgive me Stallman
   nixpkgs.config = { allowUnfree = true; };
 
+  # Get the latest stable kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  # Update CPU microcode
+  hardware.cpu.amd.updateMicrocode = true;
+  
   networking.hostName = "yokohama"; # Define your hostname.
 
   # Set your time zone.
@@ -42,7 +48,7 @@
   users.users.romatthe = {
     description = "Robin Mattheussen";
     isNormalUser = true;
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     extraGroups = [ "wheel" "networkmanager" ];
     hashedPassword = "$6$3jnb5.ogAjaHO7t$.bz.QVZVPTPUe75.0HuTPhThVgrH9GFyuvqUwyTvtNvKFumw3WckiOnEfmoy/Ojewf2HwH0PLnc4Hc7bKqw57/";
   };
@@ -81,6 +87,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "21.05"; # Did you read the comment?
 
 }
