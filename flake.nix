@@ -75,6 +75,7 @@
                   ./machines/yokohama-home.nix
                   ./modules/home/apps/emacs.nix
                   ./modules/home/apps/firefox.nix
+                  ./modules/home/apps/rofi.nix
                   ./modules/home/apps/zathura.nix
                   ./modules/home/services/dunst.nix
                   ./modules/home/services/gpg.nix
