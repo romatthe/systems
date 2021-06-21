@@ -22,6 +22,7 @@
 
   # Enable splash screen on boot
   boot.plymouth.enable = true;
+  boot.plymouth.theme = "spinner";
   
   # Update CPU microcode
   hardware.cpu.amd.updateMicrocode = true;

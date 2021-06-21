@@ -4,6 +4,7 @@
   programs.emacs.package = pkgs.emacsPgtkGcc;
   programs.emacs.extraPackages = (epkgs: [ 
     epkgs.vterm
+    epkgs.haskell-mode
     epkgs.nix-mode
   ]);
 
