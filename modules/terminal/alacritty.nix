@@ -21,19 +21,19 @@
 
   programs.alacritty.settings.font = {
     normal = {
-      family = "JetBrains Mono";
+      family = "JetBrainsMono Nerd Font";
       style = "Regular";
     };
     bold = {
-      family = "JetBrains Mono";
+      family = "JetBrainsMono Nerd Font";
       style = "Bold";
     };
     italic = {
-      family = "JetBrains Mono";
+      family = "JetBrainsMono Nerd Font";
       style = "Italic";
     };
     bold_italic = {
-      family = "JetBrains Mono";
+      family = "JetBrainsMono Nerd Font";
       style = "Bold Italic";
     };
   };
