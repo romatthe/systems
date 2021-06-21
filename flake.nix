@@ -63,7 +63,6 @@
             ./modules/system/services/dbus.nix
             ./modules/system/services/oom.nix
             ./modules/system/services/openssh.nix
-            ./modules/system/wm/gnome.nix
             
             # Home manager modules
             home-manager.nixosModules.home-manager
@@ -73,7 +72,8 @@
               home-manager.users.romatthe = { ... }: {
                 imports = [
                   ./machines/yokohama-home.nix
-                  #./modules/home/apps/chat.nix
+                  ./modules/home/gtk.nix
+                  ./modules/home/apps/chat.nix
                   ./modules/home/apps/emacs.nix
                   ./modules/home/apps/firefox.nix
                   ./modules/home/apps/rofi.nix
