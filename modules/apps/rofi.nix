@@ -10,5 +10,5 @@
   programs.rofi.lines = 10;
   programs.rofi.location = "center";
   programs.rofi.terminal = "${pkgs.alacritty}/bin/alacritty";
-  programs.rofi.theme = "../../../configs/rofi/nord.rasi"
+  programs.rofi.theme = "../../../configs/rofi/nord.rasi";
 }

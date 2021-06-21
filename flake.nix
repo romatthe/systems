@@ -53,16 +53,16 @@
           modules = [
             # System modules
             ./machines/yokohama.nix
-            ./modules/system/common/console.nix
-            ./modules/system/common/nix.nix
-            ./modules/system/common/xorg.nix
-            ./modules/system/hardware/bluetooth.nix
-            ./modules/system/hardware/pulseaudio.nix
-            ./modules/system/hardware/ssd.nix
-            ./modules/system/services/clam.nix
-            ./modules/system/services/dbus.nix
-            ./modules/system/services/oom.nix
-            ./modules/system/services/openssh.nix
+            ./modules/common/console.nix
+            ./modules/common/nix.nix
+            ./modules/common/xorg.nix
+            ./modules/hardware/bluetooth.nix
+            ./modules/hardware/pulseaudio.nix
+            ./modules/hardware/ssd.nix
+            ./modules/services/clam.nix
+            ./modules/services/dbus.nix
+            ./modules/services/oom.nix
+            ./modules/services/openssh.nix
             
             # Home manager modules
             home-manager.nixosModules.home-manager
@@ -72,19 +72,19 @@
               home-manager.users.romatthe = { ... }: {
                 imports = [
                   ./machines/yokohama-home.nix
-                  ./modules/home/gtk.nix
-                  ./modules/home/apps/chat.nix
-                  ./modules/home/apps/emacs.nix
-                  ./modules/home/apps/firefox.nix
-                  ./modules/home/apps/rofi.nix
-                  ./modules/home/apps/zathura.nix
-                  ./modules/home/services/dunst.nix
-                  ./modules/home/services/gpg.nix
-                  ./modules/home/terminal/alacritty.nix
-                  ./modules/home/terminal/fish.nix
-                  ./modules/home/terminal/git.nix
-                  ./modules/home/terminal/starship.nix
-                  ./modules/home/terminal/utils.nix
+                  ./modules/gtk.nix
+                  ./modules/apps/chat.nix
+                  ./modules/apps/emacs.nix
+                  ./modules/apps/firefox.nix
+                  ./modules/apps/rofi.nix
+                  ./modules/apps/zathura.nix
+                  #./modules/services/dunst.nix
+                  ./modules/services/gpg.nix
+                  ./modules/terminal/alacritty.nix
+                  ./modules/terminal/fish.nix
+                  ./modules/terminal/git.nix
+                  ./modules/terminal/starship.nix
+                  ./modules/terminal/utils.nix
                 ];
               };
             })
