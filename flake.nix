@@ -53,6 +53,7 @@
           modules = [
             # System modules
             ./machines/yokohama.nix
+            ./modules/apps/games.nix
             ./modules/common/console.nix
             ./modules/common/nix.nix
             ./modules/common/xorg.nix
