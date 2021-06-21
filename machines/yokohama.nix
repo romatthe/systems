@@ -20,6 +20,9 @@
   boot.loader.efi.canTouchEfiVariables = false;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  # Enable splash screen on boot
+  boot.plymouth.enable = true;
+  
   # Update CPU microcode
   hardware.cpu.amd.updateMicrocode = true;
   
