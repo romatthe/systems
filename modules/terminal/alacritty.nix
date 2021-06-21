@@ -19,6 +19,25 @@
     multiplier = 3;
   };
 
+  programs.alacritty.settings.font = {
+    normal = {
+      family = "JetBrains Mono";
+      style = "Regular";
+    };
+    bold = {
+      family = "JetBrains Mono";
+      style = "Bold";
+    };
+    italic = {
+      family = "JetBrains Mono";
+      style = "Italic";
+    };
+    bold_italic = {
+      family = "JetBrains Mono";
+      style = "Bold Italic";
+    };
+  };
+ 
   # Conventient keybindings
   programs.alacritty.settings.key_bindings = [
     {
