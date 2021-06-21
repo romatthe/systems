@@ -73,6 +73,7 @@
               home-manager.users.romatthe = { ... }: {
                 imports = [
                   ./machines/yokohama-home.nix
+                  #./modules/home/apps/chat.nix
                   ./modules/home/apps/emacs.nix
                   ./modules/home/apps/firefox.nix
                   ./modules/home/apps/rofi.nix
