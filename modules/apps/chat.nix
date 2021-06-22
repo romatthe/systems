@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 {
-  home.packages = [
-    pkgs.discord
-    pkgs.nheko
-    pkgs.signal-desktop
+  home.packages = with pkgs; [
+    discord
+    nheko
+    signal-desktop
+    tdesktop
   ];
 }

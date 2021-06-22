@@ -1,15 +1,30 @@
 { pkgs, ... }:
 {
-  # bat, a cat replacement
-  programs.bat = {
-    enable = true;
-    config.theme = "Nord";
-    config.italic-text = "always";
-    # Show line numbers, git modifications and file header 
-    config.style = "numbers,changes,header";
-  };
+  home.packages = with pkgs; [
+    trash-cli
+    ripgrep
+    killall
+    neofetch
+    pfetch
+    pandoc
+    chafa
 
-  # lsd, an ls replacement
-  programs.lsd.enable = true;
-  programs.lsd.enableAliases = false;
+    # System tools
+    pciutils
+
+    # Nix
+    nixfmt
+    nixpkgs-fmt
+    nixpkgs-review
+    nix-prefetch-git
+    nix-prefetch-github
+    rnix-lsp
+ 
+    # TUI apps
+    ncpamixer
+    mps-youtube
+    lazygit
+    
+    pavucontrol
+  ];
 }
