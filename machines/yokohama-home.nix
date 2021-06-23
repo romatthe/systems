@@ -7,5 +7,5 @@
   };
 
   # Display configuration
-  xsession.profileExtra = "xrandr --output HDMI-0 --off --output DP-4 --primary --mode 3440x1440 --rate 100";
+  #xsession.profileExtra = "xrandr --output HDMI-0 --off --output DP-4 --primary --mode 3440x1440 --rate 100";
 }
