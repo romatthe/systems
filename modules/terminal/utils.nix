@@ -8,7 +8,10 @@
     pfetch
     pandoc
     chafa
-    nvim
+
+    # Editors
+    neovim
+    neovide
 
     # System tools
     pciutils
