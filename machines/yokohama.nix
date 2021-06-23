@@ -57,6 +57,10 @@
     hashedPassword = "$6$3jnb5.ogAjaHO7t$.bz.QVZVPTPUe75.0HuTPhThVgrH9GFyuvqUwyTvtNvKFumw3WckiOnEfmoy/Ojewf2HwH0PLnc4Hc7bKqw57/";
   };
 
+  # We need to add our chosen shell to /etc/shells, otherwise AccountService
+  # will think we're a system user and not list us on the login screen
+  environment.shells = [ pkgs.fish ];
+  
   # Enable sound.
   sound.enable = true;
   
