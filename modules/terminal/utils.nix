@@ -8,6 +8,7 @@
     pfetch
     pandoc
     chafa
+    nvim
 
     # System tools
     pciutils
