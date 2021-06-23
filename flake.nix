@@ -77,7 +77,7 @@
                   ./modules/apps/chat.nix
                   ./modules/apps/emacs.nix
                   ./modules/apps/firefox.nix
-                  ./modules/apps/rofi.nix
+                  ./modules/apps/jetbrains.nix
                   ./modules/apps/zathura.nix
                   ./modules/common/fonts.nix
                   ./modules/common/gtk.nix
