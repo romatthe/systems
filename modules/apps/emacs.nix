@@ -3,12 +3,15 @@
   programs.emacs.enable = true;
   programs.emacs.package = pkgs.emacsPgtkGcc;
   programs.emacs.extraPackages = (epkgs: [ 
-    epkgs.vterm
-    epkgs.haskell-mode
-    epkgs.nix-mode
+    #epkgs.vterm
+    #epkgs.haskell-mode
+    #epkgs.nix-mode
   ]);
 
-  home.file.".emacs.d/init.el" = { source = ./init.el; recursive = true; };
+  home.file.".doom.d/" = { 
+    source = ../../configs/doom; 
+    recursive = true; 
+  };
 
   # Enable the Emacs daemon
   services.emacs = {
