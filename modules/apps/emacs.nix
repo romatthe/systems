@@ -3,9 +3,9 @@
   programs.emacs.enable = true;
   programs.emacs.package = pkgs.emacsPgtkGcc;
   programs.emacs.extraPackages = (epkgs: [ 
-    #epkgs.vterm
-    #epkgs.haskell-mode
-    #epkgs.nix-mode
+    epkgs.vterm
+    epkgs.pdf-tools
+    epkgs.org-pdftools
   ]);
 
   home.file.".doom.d/" = { 
@@ -28,5 +28,7 @@
   home.packages = with pkgs; [
     emacs-all-the-icons-fonts
     fira-code
+    # Believe it or not, this is required for nov.el
+    unzip
   ];
 }
