@@ -58,6 +58,7 @@
             ./modules/common/nix.nix
             ./modules/common/xorg.nix
             ./modules/hardware/bluetooth.nix
+            ./modules/hardware/ntfs.nix
             ./modules/hardware/pulseaudio.nix
             ./modules/hardware/ssd.nix
             ./modules/services/clam.nix
