@@ -8,23 +8,54 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-amd" "amdgpu" ];
   boot.extraModulePackages = [ ];
 
+  boot.initrd.luks.devices."nixos-crypted".device = "/dev/disk/by-uuid/1b1982c2-deb8-4509-8a7c-e6a10217511c";
+
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c1131fca-df0d-47c6-a3e5-0d66bc89c5e4";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/738a7e8f-499a-4d3d-92d9-db3cabd08cbf";
+      fsType = "btrfs";
+      options = [ "subvol=root" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/738a7e8f-499a-4d3d-92d9-db3cabd08cbf";
+      fsType = "btrfs";
+      options = [ "subvol=home" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/738a7e8f-499a-4d3d-92d9-db3cabd08cbf";
+      fsType = "btrfs";
+      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/persist" =
+    { device = "/dev/disk/by-uuid/738a7e8f-499a-4d3d-92d9-db3cabd08cbf";
+      fsType = "btrfs";
+      options = [ "subvol=persist" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/var/log" =
+    { device = "/dev/disk/by-uuid/738a7e8f-499a-4d3d-92d9-db3cabd08cbf";
+      fsType = "btrfs";
+      options = [ "subvol=log" "compress=zstd" "noatime" ];
+      # We need to mount this subvolume as soon as possible to correctly register logs
+      neededForBoot = true;
     };
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/8DDD-C3FF";
+    { device = "/dev/disk/by-uuid/FFA6-9AC3";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/e6526f13-9e3a-4258-bd71-9133a73e54a6"; }
+    [ { device = "/dev/disk/by-uuid/1b372b92-011b-4251-9620-e22daf19e67e"; }
     ];
 
+  # high-resolution display
+  hardware.video.hidpi.enable = lib.mkDefault true;
 }

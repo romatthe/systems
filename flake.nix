@@ -53,7 +53,7 @@
           modules = [
             # System modules
             ./machines/yokohama.nix
-            ./modules/apps/games.nix
+            #./modules/apps/games.nix
             ./modules/common/console.nix
             ./modules/common/nix.nix
             ./modules/common/xorg.nix
@@ -74,11 +74,11 @@
               home-manager.users.romatthe = { ... }: {
                 imports = [
                   ./machines/yokohama-home.nix
-                  ./machines/yokohama-randr.nix
+                  #./machines/yokohama-randr.nix
                   ./modules/apps/chat.nix
                   ./modules/apps/emacs.nix
                   ./modules/apps/firefox.nix
-                  ./modules/apps/jetbrains.nix
+                  #./modules/apps/jetbrains.nix
                   ./modules/apps/music.nix
                   ./modules/apps/zathura.nix
                   ./modules/common/fonts.nix
