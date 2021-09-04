@@ -2,10 +2,14 @@
 
 ## Get a working system with Nix Flakes
 
-Get a Nix shell with flakes support: `nix-shell -p nixFlakes`
+Get a Nix shell with flakes support: 
+```
+nix-shell -p nixFlakes
+```
 
 ## Format the system
 
+```
 [nix-shell:~/systems]$ sudo gdisk /dev/nvme1n1
 GPT fdisk (gdisk) version 1.0.7
 
@@ -69,9 +73,11 @@ PARTITIONS!!
 Do you want to proceed? (Y/N): Y
 OK; writing new GUID partition table (GPT) to /dev/nvme1n1.
 The operation has completed successfully.
+```
 
 ## LUKS/LVM
 
+```
 [nix-shell:~/systems]$ sudo cryptsetup --verify-passphrase -v luksFormat --type luks1 /dev/nvme1n1p3
 
 WARNING!
@@ -120,9 +126,11 @@ Setting up swapspace version 1, size = 16 GiB (17179865088 bytes)
 no label, UUID=79476089-be84-4878-ab1f-11977f82a63c
 
 [nix-shell:~/systems]$ sudo swapon /dev/nvme1n1p2
+```
 
 ## Subvolumes
 
+```
 [nix-shell:~/systems]$ sudo mount -t btrfs /dev/mapper/nixos /mnt
 
 [nix-shell:~/systems]$ sudo btrfs subvolume create /mnt/nixos
@@ -145,10 +153,13 @@ Create a readonly snapshot of '/mnt/nixos' in '/mnt/nixos-blank'
 [nix-shell:~/systems]$ sudo mount -o subvol=home,compress=zstd,noatime /dev/mapper/nixos /mnt/home
 
 [nix-shell:~/systems]$ sudo mount /dev/nvme1n1p1 /mnt/boot/efi
+```
 
 ## Generating and changing the config
 
+```
 [nix-shell:~/systems]$ sudo nixos-generate-config --root /mnt
+```
 
 The generated hardware config will not have detected the required BTRFS mount options, so we need to add these manually. For example, change
 
@@ -172,7 +183,8 @@ fileSystems."/" =
 
 ## Building the system
 
+```
 [nix-shell:~/systems]$ nix --experimental-features 'nix-command flakes' build .#nixosConfigurations.yokohama.config.system.build.toplevel
 [nix-shell:~/systems]$ sudo nixos-install --system ./result --root /mnt
-
+```
 
