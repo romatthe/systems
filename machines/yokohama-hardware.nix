@@ -13,47 +13,27 @@
   boot.kernelModules = [ "kvm-amd" "amdgpu" ];
   boot.extraModulePackages = [ ];
 
-  boot.initrd.luks.devices."nixos-crypted".device = "/dev/disk/by-uuid/1b1982c2-deb8-4509-8a7c-e6a10217511c";
+  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/e3bc00e6-9b21-4e6d-aaae-d425920e5f6f";
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/738a7e8f-499a-4d3d-92d9-db3cabd08cbf";
+    { device = "/dev/disk/by-uuid/6b9bbe6c-408b-4fa2-9a9b-dcd836b1d645";
       fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" "noatime" ];
+      options = [ "subvol=nixos" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/738a7e8f-499a-4d3d-92d9-db3cabd08cbf";
+    { device = "/dev/disk/by-uuid/6b9bbe6c-408b-4fa2-9a9b-dcd836b1d645";
       fsType = "btrfs";
       options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/738a7e8f-499a-4d3d-92d9-db3cabd08cbf";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime" ];
-    };
-
-  fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/738a7e8f-499a-4d3d-92d9-db3cabd08cbf";
-      fsType = "btrfs";
-      options = [ "subvol=persist" "compress=zstd" "noatime" ];
-    };
-
-  fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/738a7e8f-499a-4d3d-92d9-db3cabd08cbf";
-      fsType = "btrfs";
-      options = [ "subvol=log" "compress=zstd" "noatime" ];
-      # We need to mount this subvolume as soon as possible to correctly register logs
-      neededForBoot = true;
-    };
-
-  fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/FFA6-9AC3";
+ fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-uuid/FC86-D307";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/1b372b92-011b-4251-9620-e22daf19e67e"; }
+    [ { device = "/dev/disk/by-uuid/79476089-be84-4878-ab1f-11977f82a63c"; }
     ];
 
   # high-resolution display
