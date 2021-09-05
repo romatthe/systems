@@ -27,11 +27,12 @@
 
   home.packages = with pkgs; [
     # Specify all nerd-fonts here
-    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" "RobotoMono" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" "JetBrainsMono" "RobotoMono" ]; })
 
     # Regular fonts
     emacs-all-the-icons-fonts
     fira-code
+    jetbrains-mono
     roboto
     roboto-mono
 
