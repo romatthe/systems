@@ -8,10 +8,10 @@
     epkgs.org-pdftools
   ]);
 
-  home.file.".doom.d/" = { 
-    source = ../../configs/doom; 
-    recursive = true; 
-  };
+  #home.file.".doom.d/" = { 
+  #  source = ../../configs/doom; 
+  #  recursive = true; 
+  #};
 
   # Enable the Emacs daemon
   services.emacs = {
