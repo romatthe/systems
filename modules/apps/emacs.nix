@@ -2,15 +2,15 @@
 {
   programs.emacs.enable = true;
   programs.emacs.package = pkgs.emacsPgtkGcc;
-  programs.emacs.extraPackages = (epkgs: [ 
+  programs.emacs.extraPackages = (epkgs: [
     epkgs.vterm
     epkgs.pdf-tools
     epkgs.org-pdftools
   ]);
 
-  #home.file.".doom.d/" = { 
-  #  source = ../../configs/doom; 
-  #  recursive = true; 
+  #home.file.".doom.d/" = {
+  #  source = ../../configs/doom;
+  #  recursive = true;
   #};
 
   # Enable the Emacs daemon
@@ -24,10 +24,17 @@
   };
 
   fonts.fontconfig.enable = true;
-  
+
   home.packages = with pkgs; [
+    # Specify all nerd-fonts here
+    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" "RobotoMono" ]; })
+
+    # Regular fonts
     emacs-all-the-icons-fonts
     fira-code
+    roboto
+    roboto-mono
+
     # Believe it or not, this is required for nov.el
     unzip
   ];
