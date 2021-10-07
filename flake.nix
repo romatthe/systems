@@ -18,7 +18,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
-    let      
+    let
       pkgs = (import nixpkgs) {
         system = "x86_64-linux";
         config = {
@@ -42,14 +42,14 @@
         ];
       };
     in {
-      
+
       nixosConfigurations = {
-        
+
         # Main home workstation
         yokohama = nixpkgs.lib.nixosSystem {
           inherit pkgs;
           system = "x86_64-linux";
-          
+
           modules = [
             # System modules
             ./machines/yokohama.nix
@@ -65,7 +65,7 @@
             ./modules/services/dbus.nix
             ./modules/services/oom.nix
             ./modules/services/openssh.nix
-            
+
             # Home manager modules
             home-manager.nixosModules.home-manager
             ({
@@ -76,10 +76,12 @@
                   ./machines/yokohama-home.nix
                   #./machines/yokohama-randr.nix
                   ./modules/apps/chat.nix
+                  ./modules/apps/common.nix
                   ./modules/apps/emacs.nix
                   ./modules/apps/firefox.nix
-                  #./modules/apps/jetbrains.nix
+                  ./modules/apps/jetbrains.nix
                   ./modules/apps/music.nix
+                  ./modules/apps/security.nix
                   ./modules/apps/zathura.nix
                   ./modules/common/fonts.nix
                   ./modules/common/gtk.nix
@@ -96,6 +98,6 @@
           ];
         };
       };
-      
+
     };
 }

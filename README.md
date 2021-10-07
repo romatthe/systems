@@ -188,3 +188,7 @@ fileSystems."/" =
 [nix-shell:~/systems]$ sudo nixos-install --system ./result --root /mnt
 ```
 
+## Some issues
+
+* Currently, one annoying issue is that, because no channels were added, `command-not-found` does not work for reasons that I cannot comprehend. See: https://discourse.nixos.org/t/command-not-found-unable-to-open-database/3807
+* If too many packages are configured, building the entire system on a small live USB stick may fail
