@@ -81,7 +81,6 @@
                   ./modules/apps/firefox.nix
                   ./modules/apps/jetbrains.nix
                   ./modules/apps/music.nix
-                  ./modules/apps/security.nix
                   ./modules/apps/zathura.nix
                   ./modules/common/fonts.nix
                   ./modules/common/gtk.nix
