@@ -53,7 +53,7 @@
           modules = [
             # System modules
             ./machines/yokohama.nix
-            #./modules/apps/games.nix
+            ./modules/apps/games.nix
             ./modules/common/console.nix
             ./modules/common/nix.nix
             ./modules/common/xorg.nix
@@ -84,7 +84,7 @@
                   ./modules/apps/zathura.nix
                   ./modules/common/fonts.nix
                   ./modules/common/gtk.nix
-                  ./modules/lang/go.nix
+                  ./modules/programming/lang.nix
                   ./modules/services/gpg.nix
                   ./modules/terminal/alacritty.nix
                   ./modules/terminal/fish.nix
