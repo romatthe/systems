@@ -41,6 +41,40 @@
           })
         ];
       };
+
+      # Common modules
+      modules-common = [
+        ./modules/common/console.nix
+        ./modules/common/nix.nix
+        ./modules/common/xorg.nix
+        ./modules/hardware/bluetooth.nix
+        ./modules/hardware/ntfs.nix
+        ./modules/hardware/pulseaudio.nix
+        ./modules/services/dbus.nix
+        ./modules/services/oom.nix
+        ./modules/services/openssh.nix
+      ];
+
+      # Common home modules
+      modules-common-home = [
+        ./modules/apps/chat.nix
+        ./modules/apps/common.nix
+        ./modules/apps/emacs.nix
+        ./modules/apps/firefox.nix
+        ./modules/apps/jetbrains.nix
+        ./modules/apps/music.nix
+        ./modules/apps/zathura.nix
+        ./modules/common/fonts.nix
+        ./modules/common/gtk.nix
+        ./modules/programming/tools.nix
+        ./modules/programming/lang.nix
+        ./modules/services/gpg.nix
+        ./modules/terminal/alacritty.nix
+        ./modules/terminal/fish.nix
+        ./modules/terminal/git.nix
+        ./modules/terminal/starship.nix
+        ./modules/terminal/utils.nix
+      ];
     in {
 
       nixosConfigurations = {
@@ -50,21 +84,12 @@
           inherit pkgs;
           system = "x86_64-linux";
 
-          modules = [
+          modules = modules-common ++ [
             # System modules
             ./machines/yokohama.nix
             ./modules/apps/games.nix
-            ./modules/common/console.nix
-            ./modules/common/nix.nix
-            ./modules/common/xorg.nix
-            ./modules/hardware/bluetooth.nix
-            ./modules/hardware/ntfs.nix
-            ./modules/hardware/pulseaudio.nix
             ./modules/hardware/ssd.nix
             ./modules/services/clam.nix
-            ./modules/services/dbus.nix
-            ./modules/services/oom.nix
-            ./modules/services/openssh.nix
 
             # Home manager modules
             home-manager.nixosModules.home-manager
@@ -72,25 +97,31 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.romatthe = { ... }: {
-                imports = [
+                imports = modules-common-home ++ [
                   ./machines/yokohama-home.nix
-                  #./machines/yokohama-randr.nix
-                  ./modules/apps/chat.nix
-                  ./modules/apps/common.nix
-                  ./modules/apps/emacs.nix
-                  ./modules/apps/firefox.nix
-                  ./modules/apps/jetbrains.nix
-                  ./modules/apps/music.nix
-                  ./modules/apps/zathura.nix
-                  ./modules/common/fonts.nix
-                  ./modules/common/gtk.nix
-                  ./modules/programming/lang.nix
-                  ./modules/services/gpg.nix
-                  ./modules/terminal/alacritty.nix
-                  ./modules/terminal/fish.nix
-                  ./modules/terminal/git.nix
-                  ./modules/terminal/starship.nix
-                  ./modules/terminal/utils.nix
+                ];
+              };
+            })
+          ];
+        };
+
+        # Work laptop
+        osaka = nixpkgs.lib.nixosSystem {
+          inherit pkgs;
+          system = "x86_64-linux";
+
+          modules = modules-common ++ [
+            # System modules
+            ./machines/osaka.nix
+
+            # Home manager modules
+            home-manager.nixosModules.home-manager
+            ({
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.romatthe = { ... }: {
+                imports = modules-common-home ++ [
+                  ./machines/osaka-home.nix
                 ];
               };
             })
