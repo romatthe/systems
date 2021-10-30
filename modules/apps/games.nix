@@ -4,7 +4,7 @@
 
   environment.systemPackages = with pkgs; [
     # Steam
-    steam
+    unstable.steam
 
     # Lutris
     lutris

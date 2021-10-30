@@ -5,13 +5,9 @@
   programs.emacs.extraPackages = (epkgs: [
     epkgs.vterm
     epkgs.pdf-tools
-    epkgs.org-pdftools
+    # TODO: currently fails to build
+    #epkgs.org-pdftools
   ]);
-
-  #home.file.".doom.d/" = {
-  #  source = ../../configs/doom;
-  #  recursive = true;
-  #};
 
   # Enable the Emacs daemon
   services.emacs = {
