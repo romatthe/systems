@@ -14,7 +14,7 @@
 
   # Get the latest stable kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
@@ -23,10 +23,10 @@
   # Enable splash screen on boot
   boot.plymouth.enable = true;
   boot.plymouth.theme = "spinner";
-  
+
   # Update CPU microcode
   hardware.cpu.amd.updateMicrocode = true;
-  
+
   networking.hostName = "yokohama"; # Define your hostname.
 
   # Set your time zone.
@@ -44,7 +44,7 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  
+
   # Configure keymap in X11
   services.xserver.layout = "us";
 
@@ -60,10 +60,13 @@
   # We need to add our chosen shell to /etc/shells, otherwise AccountService
   # will think we're a system user and not list us on the login screen
   environment.shells = [ pkgs.fish ];
-  
+
+  # Looks like we also need to enable fish here to make sure we set some env variables correctly
+  programs.fish.enable = true;
+
   # Enable sound.
   sound.enable = true;
-  
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
