@@ -1,8 +1,12 @@
 { config, lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    #navidrome
     spotify
+
+    # Subsonic clients
     sublime-music
+
+    # Transcoding
+    freac
   ];
 }
