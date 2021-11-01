@@ -8,5 +8,9 @@
 
     # Transcoding
     freac
+
+    # Tagging
+    picard
+    puddletag
   ];
 }
