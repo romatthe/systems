@@ -69,8 +69,6 @@
         ./modules/apps/zathura.nix
         ./modules/common/fonts.nix
         ./modules/common/gtk.nix
-        ./modules/programming/tools.nix
-        ./modules/programming/lang.nix
         ./modules/services/gpg.nix
         ./modules/terminal/alacritty.nix
         ./modules/terminal/fish.nix
