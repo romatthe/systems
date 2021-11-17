@@ -44,6 +44,12 @@
           version = "0.2.809";
           sha256 = "cd9fb06e0f97f8e4b399bb7a03ed4ef84e79be3b81e1318026b59d27b535a3ce";
         }
+        {
+          name = "toml";
+          publisher = "be5invis";
+          version = "0.6.0";
+          sha256 = "ca4edbb84c90230e9a8948b3026fac81a956c5489b22e3fd72b87205a3a30b61";
+        }
       ];
     };
   };
