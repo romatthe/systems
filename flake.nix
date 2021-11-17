@@ -66,10 +66,10 @@
         ./modules/apps/firefox.nix
         ./modules/apps/jetbrains.nix
         ./modules/apps/music.nix
+        ./modules/apps/vscode.nix
         ./modules/apps/zathura.nix
         ./modules/common/fonts.nix
         ./modules/common/gtk.nix
-        ./modules/programming/tools.nix
         ./modules/services/gpg.nix
         ./modules/terminal/alacritty.nix
         ./modules/terminal/fish.nix
