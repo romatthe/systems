@@ -15,6 +15,10 @@
     home-manager.url = "github:nix-community/home-manager/release-21.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
+    tuxedo = {
+      url = "github:blitz/tuxedo-nixos";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
@@ -101,29 +105,6 @@
               home-manager.users.romatthe = { ... }: {
                 imports = modules-common-home ++ [
                   ./machines/yokohama-home.nix
-                ];
-              };
-            })
-          ];
-        };
-
-        # Work laptop
-        osaka = nixpkgs.lib.nixosSystem {
-          inherit pkgs;
-          system = "x86_64-linux";
-
-          modules = modules-common ++ [
-            # System modules
-            ./machines/osaka.nix
-
-            # Home manager modules
-            home-manager.nixosModules.home-manager
-            ({
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.romatthe = { ... }: {
-                imports = modules-common-home ++ [
-                  ./machines/osaka-home.nix
                 ];
               };
             })

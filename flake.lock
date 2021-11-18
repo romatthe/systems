@@ -89,7 +89,24 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "nur": "nur"
+        "nur": "nur",
+        "tuxedo": "tuxedo"
+      }
+    },
+    "tuxedo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1636563697,
+        "narHash": "sha256-xD+cjFPZMYaD4PDWywJkHlqLRPhzorWePER6fyyfcus=",
+        "owner": "blitz",
+        "repo": "tuxedo-nixos",
+        "rev": "4221badf6247ae321ac6641994bc4f562686a65b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "blitz",
+        "repo": "tuxedo-nixos",
+        "type": "github"
       }
     }
   },
