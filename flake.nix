@@ -129,6 +129,32 @@
             })
           ];
         };
+
+        # Personal dev laptop
+        matsumoto = nixpkgs.lib.nixosSystem {
+          inherit pkgs;
+          system = "x86_64-linux";
+
+          modules = modules-common ++ [
+            # System modules
+            ./machines/matsumoto.nix
+            ./modules/apps/games.nix
+            ./modules/hardware/ssd.nix
+            ./modules/services/clam.nix
+
+            # Home manager modules
+            home-manager.nixosModules.home-manager
+            ({
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.romatthe = { ... }: {
+                imports = modules-common-home ++ [
+                  ./machines/matsumoto-home.nix
+                ];
+              };
+            })
+          ];
+        };
       };
 
     };
