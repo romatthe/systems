@@ -30,28 +30,23 @@
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
 
-  networking.hostName = "osaka"; # Define your hostname.
-  networkmanager = {
-    enable = true;
-    dns = "systemd-resolved";
-  };
+  networking.hostName = "matsumoto"; # Define your hostname.
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  # TODO: Use correct interfaces here
-  networking.interfaces.enp7s0.useDHCP = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.interfaces.eno1.useDHCP = true;
+  networking.interfaces.wlp1s0.useDHCP = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Configure keymap in X11
   services.xserver.layout = "us";
+
+  # Enable touchpad support
+  services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.romatthe = {
