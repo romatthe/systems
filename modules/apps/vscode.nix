@@ -5,7 +5,8 @@
     vscode = {
       enable = true;
       package = pkgs.vscodium;
-      userSettings = builtins.fromJSON (builtins.readFile ../config/vscode/settings.json);
+      #TODO keybindings = builtins.fromJSON (builtins.readFile ../../configs/vscode/keybindings.json);
+      userSettings = builtins.fromJSON (builtins.readFile ../../configs/vscode/settings.json);
       extensions = with pkgs.vscode-extensions; [
 
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [

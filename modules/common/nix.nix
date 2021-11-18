@@ -2,9 +2,13 @@
 {
   # Enable flake support
   nix.package = pkgs.nixFlakes;
+  
+  # Options for enabling proper flake and direnv usage
   nix.extraOptions = ''
     experimental-features = nix-command flakes
     builders-use-substitutes = true
+    keep-derivations = true
+    keep-outputs = true
   '';
   nix.allowedUsers = [ "@wheel" ];
   nix.trustedUsers = [ "root" "@wheel" ];

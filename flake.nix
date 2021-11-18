@@ -74,6 +74,7 @@
         ./modules/apps/zathura.nix
         ./modules/common/fonts.nix
         ./modules/common/gtk.nix
+        ./modules/services/direnv.nix
         ./modules/services/gpg.nix
         ./modules/terminal/alacritty.nix
         ./modules/terminal/fish.nix
