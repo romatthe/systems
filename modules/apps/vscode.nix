@@ -5,6 +5,7 @@
     vscode = {
       enable = true;
       package = pkgs.vscodium;
+      userSettings = builtins.fromJSON (builtins.readFile ../config/vscode/settings.json);
       extensions = with pkgs.vscode-extensions; [
 
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
