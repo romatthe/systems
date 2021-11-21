@@ -12,5 +12,8 @@
     # Tagging
     picard
     puddletag
+
+    # Jellyfin
+    jellyfin-media-player
   ];
 }

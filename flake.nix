@@ -69,7 +69,7 @@
         ./modules/apps/emacs.nix
         ./modules/apps/firefox.nix
         ./modules/apps/jetbrains.nix
-        ./modules/apps/music.nix
+        ./modules/apps/media.nix
         ./modules/apps/vscode.nix
         ./modules/apps/zathura.nix
         ./modules/common/fonts.nix
