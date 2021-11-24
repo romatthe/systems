@@ -31,6 +31,9 @@
     crawl # Dungeon Crawl Stone Soup
     ivan
 
+    # Infinit Engine
+    gemrb
+
     # Other
     openttd
     openxcom
