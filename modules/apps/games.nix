@@ -9,6 +9,9 @@
     # Lutris
     lutris
 
+    # DOSBox
+    unstable.dosbox-staging
+
     # Dwarf Fotress
     # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
     (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
@@ -32,7 +35,7 @@
     ivan
 
     # Infinit Engine
-    gemrb
+    unstable.gemrb
 
     # Other
     openttd
