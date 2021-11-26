@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ nixpkgs, pkgs, ... }:
 {
   programs.steam.enable = true;
 
@@ -11,6 +11,10 @@
 
     # DOSBox
     unstable.dosbox-staging
+    # TODO: Package DBGL?
+
+    # Emulators
+    unstable.retroarch # Use unstable as the stable version is seriously lagging
 
     # Dwarf Fotress
     # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
@@ -44,4 +48,18 @@
     wesnoth
     widelands
   ];
+
+  # Configure the desired RetroArch cores
+  nixpkgs.config.retroarch.enableBeetlePSX = true;
+  nixpkgs.config.retroarch.enableBeetlePSXHW = true;
+  nixpkgs.config.retroarch.enableBeetleSaturn = true;
+  nixpkgs.config.retroarch.enableBeetleSaturnHW = true;
+  nixpkgs.config.retroarch.enableDesmume = true;
+  nixpkgs.config.retroarch.enableGenesisPlusGX = true;
+  nixpkgs.config.retroarch.enableMesen = true;
+  nixpkgs.config.retroarch.enableMGBA = true;
+  nixpkgs.config.retroarch.enableMupen64Plus = true;
+  nixpkgs.config.retroarch.enablePPSSPP = true;
+  nixpkgs.config.retroarch.enableSameBoy = true;
+  nixpkgs.config.retroarch.enableSnes9x = true;
 }
