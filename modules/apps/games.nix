@@ -4,18 +4,18 @@
 
   environment.systemPackages = with pkgs; [
     # Steam
-    unstable.steam
+    steam
 
     # Lutris
     lutris
 
     # DOSBox
-    unstable.dosbox-staging
+    dosbox-staging
     # TODO: Package DBGL?
 
     # Emulators
-    unstable.retroarch # Use unstable as the stable version is seriously lagging
-
+    retroarch
+    
     # Dwarf Fotress
     # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
     (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
@@ -39,7 +39,7 @@
     ivan
 
     # Infinit Engine
-    unstable.gemrb
+    gemrb
 
     # Other
     openttd
@@ -50,6 +50,7 @@
   ];
 
   # Configure the desired RetroArch cores
+  # TODO: I don not think this even works...
   nixpkgs.config.retroarch.enableBeetlePSX = true;
   nixpkgs.config.retroarch.enableBeetlePSXHW = true;
   nixpkgs.config.retroarch.enableBeetleSaturn = true;
