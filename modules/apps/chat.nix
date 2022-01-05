@@ -6,5 +6,6 @@
     nheko
     signal-desktop
     tdesktop
+    teams
   ];
 }
