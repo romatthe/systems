@@ -95,6 +95,7 @@
             # System modules
             ./machines/yokohama.nix
             ./modules/apps/games.nix
+            ./modules/hardware/amdgpu.nix
             ./modules/hardware/ssd.nix
             ./modules/services/clam.nix
 
