@@ -21,6 +21,11 @@
       credential = {
         helper = "libsecret";
       };
+
+      # Default branch name
+      init = {
+        defaultBranch = "master";
+      };
     };
 
     # PGG signing
