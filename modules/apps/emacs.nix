@@ -28,7 +28,9 @@
     # Regular fonts
     emacs-all-the-icons-fonts
     fira-code
+    ia-writer-duospace
     jetbrains-mono
+    office-code-pro
     roboto
     roboto-mono
 
