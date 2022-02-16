@@ -32,6 +32,9 @@
     roboto
     roboto-mono
 
+    # Emoji font
+    twitter-color-emoji    
+
     # Believe it or not, this is required for nov.el
     unzip
   ];
