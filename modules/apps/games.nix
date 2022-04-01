@@ -14,7 +14,7 @@
     # TODO: Package DBGL?
 
     # Emulators
-    retroarch
+    unstable.retroarch
     
     # Dwarf Fotress
     # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
