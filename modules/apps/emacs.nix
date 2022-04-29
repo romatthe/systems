@@ -1,7 +1,7 @@
 { pkgs, ...}:
 {
   programs.emacs.enable = true;
-  programs.emacs.package = pkgs.emacsPgtkGcc;
+  programs.emacs.package = pkgs.emacsPgtkNativeComp;
   programs.emacs.extraPackages = (epkgs: [
     epkgs.vterm
     epkgs.pdf-tools
@@ -35,7 +35,7 @@
     roboto-mono
 
     # Emoji font
-    twitter-color-emoji    
+    twitter-color-emoji
 
     # Believe it or not, this is required for nov.el
     unzip
