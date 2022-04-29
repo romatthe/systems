@@ -1,7 +1,7 @@
 { pkgs, ...}:
 {
   programs.emacs.enable = true;
-  programs.emacs.package = pkgs.emacsPgtkNativeComp;
+  programs.emacs.package = pkgs.emacsNativeComp;
   programs.emacs.extraPackages = (epkgs: [
     epkgs.vterm
     epkgs.pdf-tools

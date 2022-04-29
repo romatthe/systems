@@ -51,7 +51,9 @@
 
       # Common modules
       modules-common = [
-        ./cachix.nix
+        # Cache configuration
+        ./cache.nix
+	# Modules configuration
         ./modules/common/console.nix
         ./modules/common/nix.nix
         ./modules/common/xorg.nix
