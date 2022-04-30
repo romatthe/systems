@@ -59,5 +59,7 @@
     sqlite              # for org-roam
     tectonic            # for org and latex
     texlive.combined.scheme-medium
+
+    shellcheck          # for shell script linting 
   ];
 }
