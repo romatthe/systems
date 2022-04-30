@@ -54,7 +54,7 @@
   };
 
   # We need to add our chosen shell to /etc/shells, otherwise AccountService
-  # will think we're a system user and not list us on the login screen
+  # will think we're a system user and not list us on the GDM login screen
   environment.shells = [ pkgs.fish ];
 
   # Enable sound.
