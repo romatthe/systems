@@ -1,6 +1,8 @@
 { pkgs, ...}:
 {
   programs.emacs.enable = true;
+  # TODO: Doom Emacs does not work with Emacs 29+, so Pgtk cannot be used for now
+  #programs.emacs.package = pkgs.emacsPgtkNativeComp;
   programs.emacs.package = pkgs.emacsNativeComp;
   programs.emacs.extraPackages = (epkgs: [
     epkgs.vterm
@@ -37,7 +39,25 @@
     # Emoji font
     twitter-color-emoji
 
-    # Believe it or not, this is required for nov.el
-    unzip
+    unzip # Believe it or not, this is required for nov.el
+
+    # Required by Doom Emacs
+    git
+    (ripgrep.override {withPCRE2 = true;})
+    gnutls              # for TLS connectivity
+    fd                  # faster projectile indexing
+    imagemagick         # for image-dired
+    pinentry_emacs      # in-emacs gnupg prompts
+    zstd                # for undo-fu-session/undo-tree compression
+
+    # Spell Checker
+    (aspellWithDicts (ds: with ds; [
+      en en-computers en-science
+    ]))
+
+    editorconfig-core-c # per-project style config
+    sqlite              # for org-roam
+    tectonic            # for org and latex
+    texlive.combined.scheme-medium
   ];
 }
