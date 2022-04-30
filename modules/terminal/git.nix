@@ -17,6 +17,8 @@
       #  insteadOf = "https://github.com/";
       #};
 
+      core.editor = "emacsclient -t -a=\"\"";
+
       # Use libsecret as the credential helper
       credential = {
         helper = "libsecret";
