@@ -1,4 +1,9 @@
 {
     "workbench.colorTheme": "Ayu Mirage Bordered",
     "editor.codeLens": false
+
+    // Per-language tab sizes
+    "[nix]": {
+        "editor.tabSize": 2
+    }
 }
