@@ -14,26 +14,26 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/fd723861-e640-4918-9f10-d912e05876c1";
+    { device = "/dev/disk/by-uuid/133c4ab2-860a-4ee1-880f-1211784d42a4";
       fsType = "btrfs";
       options = [ "subvol=nixos" "compress=zstd" "noatime" ];
     };
 
-  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/157529c0-169a-4650-9a3f-20ae2e95f1eb";
+  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/0bbffed0-3bac-4af9-acd4-3adf4f493b3a";
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/fd723861-e640-4918-9f10-d912e05876c1";
+    { device = "/dev/disk/by-uuid/133c4ab2-860a-4ee1-880f-1211784d42a4";
       fsType = "btrfs";
       options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/FB5D-2DE4";
+    { device = "/dev/disk/by-uuid/97FC-FE29";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/6c3cccc8-3b26-4139-bf63-1935e10e1b42"; }
+    [ { device = "/dev/disk/by-uuid/6f134367-4d7e-4d54-b761-2aad38873895"; }
     ];
 
 }
