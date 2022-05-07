@@ -15,6 +15,7 @@
 
     # Emulators
     unstable.retroarch
+    unstable.pcsx2
     
     # Dwarf Fotress
     # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
