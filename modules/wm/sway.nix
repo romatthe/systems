@@ -5,6 +5,8 @@
   services.xserver.displayManager.sessionPackages = [ pkgs.sway ];
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
+  # Enable to make sure /etc/X11/xkb is populated
+  services.xserver.exportConfiguration = true;
 
   # Enable Vulkan support
   hardware.opengl.driSupport = true;
@@ -54,7 +56,6 @@
         gaps.inner = 20;
         input."type:keyboard" = {
           xkb_layout = "us";
-          xkb_variant = ",qwerty";
           # xkb_options = "grp:alt_caps_toggle";
           xkb_numlock = "enabled";
         };
