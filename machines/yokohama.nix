@@ -27,7 +27,6 @@
   # Update CPU microcode
   hardware.cpu.amd.updateMicrocode = true;
 
-  networking.hostName = "yokohama"; # Define your hostname.
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
@@ -35,7 +34,9 @@
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
+  networking.hostName = "yokohama"; # Define your hostname.
   networking.useDHCP = false;
+  networking.networkmanager.enable = true;
   networking.interfaces.enp7s0.useDHCP = true;
 
   # Configure network proxy if necessary

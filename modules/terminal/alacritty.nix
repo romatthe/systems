@@ -2,7 +2,7 @@
   programs.alacritty.enable = true;
 
   # Enable true color support
-  programs.alacritty.settings.env.TERM = "xterm-256color";
+  programs.alacritty.settings.env.TERM = "alacritty";
 
   programs.alacritty.settings.window.padding = {
     x = 12;

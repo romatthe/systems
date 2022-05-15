@@ -11,8 +11,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs-unstable";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -39,8 +37,6 @@
           inputs.emacs-overlay.overlay
           # Community packages
           inputs.nur.overlay
-          # Community wayland packages built against nixos-unstable
-          inputs.nixpkgs-wayland.overlay
           # Unstable nixpkgs
           (final: prev: {
             unstable = import inputs.nixpkgs-unstable {
@@ -57,10 +53,10 @@
       modules-common = [
         # Cache configuration
         ./cache.nix
-	# Modules configuration
+	      # Modules configuration
         ./modules/common/console.nix
         ./modules/common/nix.nix
-        ./modules/common/xorg.nix
+        #./modules/common/xorg.nix
         ./modules/hardware/bluetooth.nix
         ./modules/hardware/ntfs.nix
         ./modules/hardware/pulseaudio.nix
@@ -105,6 +101,7 @@
             ./modules/hardware/amdgpu.nix
             ./modules/hardware/ssd.nix
             ./modules/services/clam.nix
+            ./modules/wm/sway.nix
 
             # Home manager modules
             home-manager.nixosModules.home-manager
