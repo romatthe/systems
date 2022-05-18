@@ -1,17 +1,36 @@
 {
   "nodes": {
     "emacs-overlay": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs"
+      },
       "locked": {
-        "lastModified": 1651232179,
-        "narHash": "sha256-XbkPpggO/KQDTbMnJasIdM35/XlX2BdppXfRMI7oYV8=",
+        "lastModified": 1652901942,
+        "narHash": "sha256-3HsYj0/0mHD+63oB3WM4HIfs8fxcURQKstzsQsGRbSA=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "c7205991cfb365c4774b75335f2f9e8c1c3c706e",
+        "rev": "679fcedab06892651d3173c2f504dcf40b4ef939",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "emacs-overlay",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1652776076,
+        "narHash": "sha256-gzTw/v1vj4dOVbpBSJX4J0DwUR6LIyXo7/SuuTJp1kM=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "04c1b180862888302ddfb2e3ad9eaa63afc60cf8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
         "type": "github"
       }
     },
@@ -22,11 +41,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1651007218,
-        "narHash": "sha256-NkQAMtqW0PSJTbLHalyZtaqj0ai2TZMOedug9yDIcFw=",
+        "lastModified": 1651519540,
+        "narHash": "sha256-3k6p8VsTwwRPQjE8rrMh+o2AZACZn/eeYJ7ivdQ/Iro=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d14adb99f3fb562ec74ad18c032efc154b438034",
+        "rev": "d93d56ab8c1c6aa575854a79b9d2f69d491db7d0",
         "type": "github"
       },
       "original": {
@@ -38,27 +57,25 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1651093906,
-        "narHash": "sha256-kHXSbv+Hc73eV0/JVJ5YsJGr08bA4vJ3/XZew5PgZg0=",
-        "owner": "nixos",
+        "lastModified": 1652739558,
+        "narHash": "sha256-znGkjGugajqF/sFS+H4+ENmGTaVPFE0uu1JjQZJLEaQ=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "feea25c58657fa81d16e0e51f80e1a02ef4cbd49",
+        "rev": "ff691ed9ba21528c1b4e034f36a04027e4522c58",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-21.11",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "type": "indirect"
       }
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1651114127,
-        "narHash": "sha256-/lLC0wkMZkAdA5e1W76SnJzbhfOGDvync3VRHJMtAKk=",
+        "lastModified": 1652739558,
+        "narHash": "sha256-znGkjGugajqF/sFS+H4+ENmGTaVPFE0uu1JjQZJLEaQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6766fb6503ae1ebebc2a9704c162b2aef351f921",
+        "rev": "ff691ed9ba21528c1b4e034f36a04027e4522c58",
         "type": "github"
       },
       "original": {
@@ -68,13 +85,29 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1652559422,
+        "narHash": "sha256-jPVTNImBTUIFdtur+d4IVot6eXmsvtOcBm0TzxmhWPk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "8b3398bc7587ebb79f93dfeea1b8c574d3c6dba1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-21.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur": {
       "locked": {
-        "lastModified": 1651236722,
-        "narHash": "sha256-61otoDnilVZgOAO77vGHa03+MKhLBClrT0hWUGM2CEE=",
+        "lastModified": 1652877807,
+        "narHash": "sha256-SjBDrxFW++M/G8+tAbEtAK7jrzjQe1fnNr5A7q7NSZw=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "61ef58846222266269e08f9df135f4c65f52952b",
+        "rev": "d1a12e09f8e0342e9bca13991ae70c9f32a08ce9",
         "type": "github"
       },
       "original": {
@@ -87,7 +120,7 @@
       "inputs": {
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
         "tuxedo": "tuxedo"

@@ -180,8 +180,8 @@ in {
         };
 
         assigns = {
-          "1" = [{ app_id = "firefox"; }];
-          "2" = [{ app_id = "Alacritty"; }];
+          # "1" = [{ app_id = "firefox"; }];
+          # "2" = [{ app_id = "Alacritty"; }];
         };
         output = {
           # "*" = {
