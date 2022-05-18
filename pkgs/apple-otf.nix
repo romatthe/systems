@@ -5,7 +5,24 @@ stdenv.mkDerivation {
   version = "1.0";
 
   buildInputs = [ p7zip ];
-  src = [(fetchurl {url = "https://devimages-cdn.apple.com/design/resources/download/SF-Pro.dmg"; sha256 = "1wy3v2c87cpd9w333w78s6nn7fl5cnbsv8wff01xml6m3wgl7brz";})(fetchurl {url = "https://devimages-cdn.apple.com/design/resources/download/SF-Compact.dmg"; sha256 = "1wklslljf8pz3aj2lyzrnqmqyydgdwmn5ywnpssrb2r4fkb7swak";})(fetchurl {url = "https://devimages-cdn.apple.com/design/resources/download/SF-Mono.dmg"; sha256 = "04gznp6ynn2p67a1lgb5zgs5j4v6gcz8xh94p6f2yzbr23iih1gc";})(fetchurl {url = "https://devimages-cdn.apple.com/design/resources/download/NY.dmg"; sha256 = "1cpk6ysrj346wmm89kd35w2fv8y5z136948fll06ib3mxh1gljp4";})];
+  src = [
+    (fetchurl {
+      url = "https://devimages-cdn.apple.com/design/resources/download/SF-Pro.dmg"; 
+      sha256 = "e084f247273c91513eb4d3927a78aee5f9bfc68daf79bb33b330afcbe7ffb7dc";
+    })
+    (fetchurl {
+      url = "https://devimages-cdn.apple.com/design/resources/download/SF-Compact.dmg"; 
+      sha256 = "9570884ee0d09b03478fdbeae96ba6c21f2c76b169f790065ee8d53ff43dacd6";
+    })
+    (fetchurl {
+      url = "https://devimages-cdn.apple.com/design/resources/download/SF-Mono.dmg"; 
+      sha256 = "6571966c11f74aa64a46ef3774fc8376f822e58d1b785bf5c2c89920e75b0d94";
+    })
+    (fetchurl {
+      url = "https://devimages-cdn.apple.com/design/resources/download/NY.dmg"; 
+      sha256 = "7e4efceb7ba124075b0463a37dc75b5c58b39c3a543d7e3d644079edb85d0946";
+    })
+  ];
 
   sourceRoot = "./";
 

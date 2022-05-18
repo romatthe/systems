@@ -45,6 +45,10 @@
                 allowUnfree = true;
               };
             };
+            apple-otf = nixpkgs.legacyPackages.x86_64-linux.callPackage
+              ./pkgs/apple-otf.nix { };
+            wlogoutbar = nixpkgs.legacyPackages.x86_64-linux.callPackage
+              ./pkgs/wlogoutbar.nix { };
           })
         ];
       };
