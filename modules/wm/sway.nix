@@ -122,6 +122,34 @@ in {
       wlogoutbar
     ];
 
+    programs.mako = {
+      enable = true;
+      anchor = "top-right";
+      layer = "overlay";
+
+      font = "SF Pro Display 12";
+
+      backgroundColor = hexColor colors.gray._200;
+      progressColor = "source ${hexColor colors.gray._300}";
+      textColor = hexColor colors.gray._700;
+      padding = "15,20";
+      margin = "0,10,10,0";
+
+      borderSize = 1;
+      borderColor = hexColor colors.gray._300;
+      borderRadius = 4;
+
+      defaultTimeout = 10000;
+      extraConfig = ''
+        [urgency=high]
+        ignore-timeout=1
+        text-color=${hexColor colors.red._900}
+        background-color=${hexColor colors.red._200}
+        progress-color=source ${hexColor colors.red._300}
+        border-color=${hexColor colors.red._300}
+      '';
+    };
+
     wayland.windowManager.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
@@ -261,7 +289,7 @@ in {
       settings = [{
         height = 40;
         modules-left = [ "sway/workspaces" "sway/mode" ];
-        modules-center = [ ];
+        modules-center = [ "sway/window" ];
         modules-right = [
           "tray"
           "pulseaudio"
@@ -292,6 +320,15 @@ in {
               urgent = "";
               default = "";
             };
+          };
+          "sway/window" = {
+            format = "{}";
+            max-length = 50;
+            # rewrite = {
+            #   "(.*) - Mozilla Firefox" = "🌎 $1";
+            #   "(.*) - vim" = " $1";
+            #   "(.*) - zsh" = " [$1]";
+            # };
           };
           tray = { spacing = 10; };
           clock = {
@@ -343,7 +380,7 @@ in {
           # "custom/media#1" = mkIf audioSupport (media { number = 1; });
           "custom/power" = {
             format = "";
-            on-click = "wlogoutbar -lcc swaylock";
+            on-click = "wlogoutbar -lcc swaylock -p center";
             escape = true;
             tooltip = false;
           };
@@ -354,6 +391,7 @@ in {
           border: none;
           border-radius: 0;
           font-size: 13px;
+          font-family: "SF Pro Display", "Font Awesome 5 Free";
         }
 
         window#waybar {
@@ -426,6 +464,7 @@ in {
         /* Base */
         #workspaces button,
         #mode,
+        #window
         #tray,
         #pulseaudio,
         #network,
