@@ -130,6 +130,7 @@
             # System modules
             ./machines/matsumoto.nix
             ./modules/apps/games.nix
+            ./modules/common/xorg.nix
             ./modules/hardware/ssd.nix
             ./modules/services/clam.nix
 
