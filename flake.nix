@@ -105,7 +105,7 @@
             ./modules/hardware/amdgpu.nix
             ./modules/hardware/ssd.nix
             ./modules/services/clam.nix
-            ./modules/wm/sway.nix
+            # ./modules/wm/sway.nix
 
             # Home manager modules
             home-manager.nixosModules.home-manager
