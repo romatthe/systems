@@ -24,6 +24,6 @@
   
   home.packages = [
     pkgs.gnome.dconf-editor
-    pkgs.gnome.gnome-tweak-tool
+    pkgs.gnome.gnome-tweaks
   ];
 }

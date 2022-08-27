@@ -3,19 +3,23 @@
   programs.steam.enable = true;
 
   environment.systemPackages = with pkgs; [
-    # Steam
-    steam
-
-    # Lutris
+    # Clients
+    bottles
+    heroic
     lutris
+    minigalaxy
+    steam
 
     # DOSBox
     dosbox-staging
     # TODO: Package DBGL?
 
     # Emulators
+    dolphin-emu
     unstable.retroarch
     unstable.pcsx2
+    unstable.rpcs3
+    unstable.yuzu-mainline
     
     # Dwarf Fotress
     # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
@@ -36,7 +40,7 @@
     angband
     brogue
     cataclysm-dda
-    crawl # Dungeon Crawl Stone Soup
+    crawl
     ivan
 
     # Infinit Engine
