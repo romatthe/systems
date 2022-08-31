@@ -2,6 +2,11 @@
 {
   programs.steam.enable = true;
 
+  # Make luxtorpeda available in 
+  environment.variables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}";
+  };
+
   environment.systemPackages = with pkgs; [
     # Clients
     bottles
