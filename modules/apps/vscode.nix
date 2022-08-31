@@ -9,6 +9,7 @@
       userSettings = builtins.fromJSON (builtins.readFile ../../configs/vscode/settings.json);
       extensions = with pkgs.vscode-extensions; [
         arrterian.nix-env-selector
+        editorconfig.editorconfig
         jnoortheen.nix-ide
         matklad.rust-analyzer
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
