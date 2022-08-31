@@ -12,8 +12,4 @@
   # See https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
   services.xserver.autoRepeatDelay = 200;
   services.xserver.autoRepeatInterval = 25;
-
-  # Enable Vulkan support
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
 }

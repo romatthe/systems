@@ -67,6 +67,7 @@
         ./modules/services/dbus.nix
         ./modules/services/oom.nix
         ./modules/services/openssh.nix
+        ./modules/services/virt.nix
       ];
 
       # Common home modules
