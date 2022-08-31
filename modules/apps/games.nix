@@ -2,9 +2,9 @@
 {
   programs.steam.enable = true;
 
-  # Make luxtorpeda available in 
+  # Make luxtorpeda available for Steam to detect
   environment.variables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}/bin";
   };
 
   environment.systemPackages = with pkgs; [
@@ -13,7 +13,9 @@
     heroic
     lutris
     minigalaxy
+    
     steam
+    luxtorpeda
 
     # DOSBox
     dosbox-staging
