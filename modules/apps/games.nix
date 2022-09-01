@@ -3,7 +3,7 @@
   programs.steam.enable = true;
 
   # Make luxtorpeda available for Steam to detect
-  environment.variables = {
+  environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}/bin";
   };
 
