@@ -1,11 +1,17 @@
 { nixpkgs, pkgs, ... }:
 {
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    # extraCompatPackages = with pkgs; [
+      # luxtorpeda
+    # ];
+  };
 
   # Make luxtorpeda available for Steam to detect
-  environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}/bin";
-  };
+  # environment.sessionVariables = {
+  #   STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}/bin";
+  #   STEAM_EXTRA_COMPAT_TOOLS_PATHS2 = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${pkgs.steam}";
+  # };
 
   environment.systemPackages = with pkgs; [
     # Clients
@@ -13,9 +19,14 @@
     heroic
     lutris
     minigalaxy
-    
+
+    # Steam    
     steam
     luxtorpeda
+
+    # Tools
+    vulkan-tools
+    glxinfo
 
     # DOSBox
     dosbox-staging

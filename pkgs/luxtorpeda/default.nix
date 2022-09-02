@@ -22,6 +22,9 @@ in
       patchShebangs luxtorpeda.sh
     '';
 
+    # TODO: Change to installPhase
+    # TODO: Use `install` script? Like here? 
+    # https://github.com/NixOS/nixpkgs/blob/7d0ba0850fe9f0a520c6c8fb2f5db8f71f323627/pkgs/applications/misc/qcad/default.nix#L50
     postInstall = ''
       cp config.json           $out/bin
       cp res/icon.png          $out/bin
