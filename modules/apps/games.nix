@@ -27,6 +27,19 @@
     # Tools
     vulkan-tools
     glxinfo
+  
+    # Linux gaming
+    gamemode
+    mangohud
+    protontricks
+    protonup
+
+    # GPU monitoring
+    corectrl
+    nvtop
+    psensor
+    radeon-profile
+    radeontop
 
     # DOSBox
     dosbox-staging
