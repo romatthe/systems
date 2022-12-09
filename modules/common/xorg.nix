@@ -12,4 +12,16 @@
   # See https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
   services.xserver.autoRepeatDelay = 200;
   services.xserver.autoRepeatInterval = 25;
+
+  services.gnome.gnome-remote-desktop.enable = true;
+
+  # Required for desktop sharing and capturing on wayland
+  # xdg.portal = { 
+  #   enable = true;
+  #   extraPortals = [ 
+  #     pkgs.xdg-desktop-portal-gtk 
+  #     # pkgs.xdg-desktop-portal-wlr 
+  #   ];
+  #   # gtkUsePortal = true;
+  # };
 }
