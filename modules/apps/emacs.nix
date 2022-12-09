@@ -3,7 +3,8 @@
   programs.emacs.enable = true;
   # TODO: Doom Emacs does not work with Emacs 29+, so Pgtk cannot be used for now
   #programs.emacs.package = pkgs.emacsPgtkNativeComp;
-  programs.emacs.package = pkgs.emacsNativeComp;
+  # programs.emacs.package = pkgs.emacsNativeComp;
+  programs.emacs.package = pkgs.emacsUnstable;
   programs.emacs.extraPackages = (epkgs: [
     epkgs.vterm
     epkgs.pdf-tools

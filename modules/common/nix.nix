@@ -10,8 +10,8 @@
     keep-derivations = true
     keep-outputs = true
   '';
-  nix.allowedUsers = [ "@wheel" ];
-  nix.trustedUsers = [ "root" "@wheel" ];
+  nix.settings.allowed-users = [ "@wheel" ];
+  nix.settings.trusted-users = [ "root" "@wheel" ];
 
   # Forgive me Stallman
   nixpkgs.config = { allowUnfree = true; };

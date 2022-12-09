@@ -33,6 +33,12 @@
     mangohud
     protontricks
     protonup
+    (pkgs.wrapOBS {
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-gstreamer
+        obs-vkcapture
+      ];
+    })
 
     # GPU monitoring
     corectrl
@@ -46,11 +52,13 @@
     # TODO: Package DBGL?
 
     # Emulators
+    cemu
     dolphin-emu
-    unstable.retroarch
-    unstable.pcsx2
-    unstable.rpcs3
-    unstable.yuzu-mainline
+    pcsx2
+    rpcs3
+    retroarch
+    yuzu-early-access
+    yuzu-mainline
     
     # Dwarf Fotress
     # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
