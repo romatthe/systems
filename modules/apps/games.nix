@@ -57,7 +57,8 @@
     pcsx2
     rpcs3
     retroarch
-    yuzu-early-access
+    # TODO: Two versions of Yuzu cannot be installed at the same time
+    # yuzu-early-access
     yuzu-mainline
     
     # Dwarf Fotress
