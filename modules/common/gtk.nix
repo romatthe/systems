@@ -14,6 +14,11 @@
       switch-windows = [ "<Alt>Tab" ];
       switch-windows-backward = [ "<Shift><Alt>Tab" ];
     };
+
+    # Extend the screen with virtual desktops via RDP screen sharing
+    "org.gnome.desktop.remote-desktop.rdp" = {
+      screen-share-mode = "extend";
+    };
   };
   
   gtk = {
