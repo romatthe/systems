@@ -15,7 +15,7 @@
 
   environment.systemPackages = with pkgs; [
     # Clients
-    bottles
+    unstable.bottles # A lot of fixes are landing in unstable atm
     heroic
     lutris
     minigalaxy
@@ -24,15 +24,51 @@
     steam
     luxtorpeda
 
+    # Open source games and engines
+    gemrb
+
+    # Games
+    openttd
+    openxcom
+    runelite  # Runescape client
+    scummvm
+    uqm       # The Ur-Quan Masters
+    wesnoth
+    widelands
+
+    # Roguelikes
+    angband
+    brogue
+    cataclysm-dda
+    crawl
+    ivan
+
+    # Dwarf Fotress
+    # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
+    (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
+      dfVersion = "0.47.04";
+      theme = "vettlingr";
+      enableDFHack = true;
+      enableTWBT = true;
+      enableSoundSense = false;
+      enableStoneSense = true;
+      enableDwarfTherapist = true;
+      enableLegendsBrowser = true;
+      enableIntro = true;
+      enableFPS = true;
+    })
+
     # Tools
     vulkan-tools
     glxinfo
   
     # Linux gaming
     gamemode
+    gamescope
     mangohud
-    protontricks
     protonup
+    protontricks
+    winetricks
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
         obs-gstreamer
@@ -40,7 +76,7 @@
       ];
     })
 
-    # GPU monitoring
+    # GPU monitoring and control
     corectrl
     nvtop
     psensor
@@ -60,38 +96,6 @@
     # TODO: Two versions of Yuzu cannot be installed at the same time
     # yuzu-early-access
     yuzu-mainline
-    
-    # Dwarf Fotress
-    # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
-    (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
-      dfVersion = "0.47.04";
-      theme = "vettlingr";
-      enableDFHack = true;
-      enableTWBT = true;
-      enableSoundSense = false;
-      enableStoneSense = true;
-      enableDwarfTherapist = true;
-      enableLegendsBrowser = true;
-      enableIntro = true;
-      enableFPS = true;
-    })
-
-    # Roguelikes
-    angband
-    brogue
-    cataclysm-dda
-    crawl
-    ivan
-
-    # Infinit Engine
-    gemrb
-
-    # Other
-    openttd
-    openxcom
-    runelite
-    wesnoth
-    widelands
   ];
 
   # Configure the desired RetroArch cores
