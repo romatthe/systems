@@ -59,8 +59,9 @@
     })
 
     # Tools
-    vulkan-tools
     glxinfo
+    handbrake # For gameplay videos
+    vulkan-tools
   
     # Linux gaming
     gamemode
