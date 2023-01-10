@@ -20,9 +20,7 @@
       core.editor = "emacsclient -t -a=\"\"";
 
       # Use libsecret as the credential helper
-      credential = {
-        helper = "libsecret";
-      };
+      credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
 
       # Default branch name
       init = {
@@ -30,7 +28,7 @@
       };
     };
 
-    # PGG signing
+    # PGP signing
     signing = {
       signByDefault = true;
       key = "8DC3890E89EDE9DF";
