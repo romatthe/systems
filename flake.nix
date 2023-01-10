@@ -58,6 +58,7 @@
 	      # Modules configuration
         ./modules/common/console.nix
         ./modules/common/nix.nix
+        ./modules/common/xdg.nix
         ./modules/common/xorg.nix
         ./modules/hardware/bluetooth.nix
         ./modules/hardware/ntfs.nix
@@ -155,6 +156,7 @@
             # System modules
             ./machines/sapporo.nix
             ./modules/apps/games.nix
+            ./modules/hardware/nvidia.nix
             ./modules/hardware/ssd.nix
             ./modules/services/clam.nix
 
