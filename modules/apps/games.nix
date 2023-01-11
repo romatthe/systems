@@ -26,8 +26,7 @@
 
     # Open source games and engines
     gemrb
-
-    # Games
+    openmw
     openttd
     openxcom
     runelite  # Runescape client
@@ -61,14 +60,12 @@
     # Tools
     glxinfo
     handbrake # For gameplay videos
-    vulkan-tools
-  
-    # Linux gaming
     gamemode
     gamescope
     mangohud
     protonup
     protontricks
+    vulkan-tools
     winetricks
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
