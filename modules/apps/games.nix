@@ -29,6 +29,16 @@
     openmw
     openttd
     openxcom
+    (openxray.overrideAttrs (final: prev: rec { 
+      version = "1747-january-2023-rc3";
+      src = fetchFromGitHub {
+        owner = "OpenXRay";
+        repo = "xray-16";
+        rev = version;
+        fetchSubmodules = true;
+        hash = "sha256-ip9CruOWk5T/dBDMcn9aOHbYaaZ+7VJw9U5GayiE7AE=";
+      };
+    }))
     runelite  # Runescape client
     scummvm
     uqm       # The Ur-Quan Masters
