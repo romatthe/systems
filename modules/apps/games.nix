@@ -26,13 +26,7 @@
 
     # Open source games and engines
     gemrb
-    (openmw.overrideAttrs (final: prev: rec { 
-      # Fix to allow the openmw icons to appear properly in GNOME/KDE menus
-      postInstall = ''
-        mkdir -p $out/share/icons/hicolor/256x256/apps
-        mv $out/share/pixmaps/*.png $out/share/icons/hicolor/256x256/apps/
-      '';
-    }))
+    openmw
     openttd
     openxcom
     (openxray.overrideAttrs (final: prev: rec { 
