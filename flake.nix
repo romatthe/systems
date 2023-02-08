@@ -46,7 +46,8 @@
               };
             };
             luxtorpeda = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/luxtorpeda { };
-            wlogoutbar = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/wlogoutbar.nix { };
+            samrewritten = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/samrewritten { };
+            wlogoutbar = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/wlogoutbar { };
           })
         ];
       };

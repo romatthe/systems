@@ -65,6 +65,7 @@
     mangohud
     protonup
     protontricks
+    samrewritten
     vulkan-tools
     winetricks
     (pkgs.wrapOBS {
