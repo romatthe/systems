@@ -61,13 +61,17 @@
     glxinfo
     handbrake # For gameplay videos
     gamemode
+    gameconqueror
     gamescope
     mangohud
     protonup
     protontricks
     samrewritten
+    unstable.steamtinkerlaunch
     vulkan-tools
     winetricks
+
+    # OBS plus plugins
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
         obs-gstreamer
