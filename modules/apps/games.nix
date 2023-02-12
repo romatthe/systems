@@ -61,7 +61,6 @@
     glxinfo
     handbrake # For gameplay videos
     gamemode
-    gameconqueror
     gamescope
     mangohud
     protonup
