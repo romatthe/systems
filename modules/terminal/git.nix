@@ -11,12 +11,10 @@
     # delta, a fancier diff viewer
     delta.enable = true;
 
-    extraConfig = {
-      # Always use SSH for Github repos
-      #url."git@github.com:" = {
-      #  insteadOf = "https://github.com/";
-      #};
+    # Enable git-lfs
+    lfs.enable = true;
 
+    extraConfig = {
       core.editor = "emacsclient -t -a=\"\"";
 
       # Use libsecret as the credential helper
