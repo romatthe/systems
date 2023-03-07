@@ -65,7 +65,7 @@
   sound.enable = true;
 
   environment.systemPackages = with pkgs; [
-    wget vim git htop cmake usbutils pciutils
+    
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
