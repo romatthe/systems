@@ -58,6 +58,7 @@
     })
 
     # Tools
+    fluidsynth # For games requiring MIDI playback
     glxinfo
     handbrake # For gameplay videos
     gamemode
