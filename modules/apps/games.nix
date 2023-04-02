@@ -19,6 +19,7 @@
     heroic
     lutris
     minigalaxy
+    prism
 
     # Steam    
     steam
@@ -27,6 +28,7 @@
     # Open source games and engines
     unstable.fheroes2 # Heroes of Might and Magic II engine
     gemrb             # Infinity Engine
+    gzdoom
     openmw            # Morrowind engine 
     openttd
     openxcom          # X-Com engine
