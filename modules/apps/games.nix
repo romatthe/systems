@@ -25,13 +25,12 @@
     luxtorpeda
 
     # Open source games and engines
-    gemrb
-    openmw
+    unstable.fheroes2 # Heroes of Might and Magic II engine
     openttd
     openxcom
     runelite  # Runescape client
     scummvm
-    uqm       # The Ur-Quan Masters
+    unstable.vcmi     # Heroes of Might and Magic III engine
     wesnoth
     widelands
 
