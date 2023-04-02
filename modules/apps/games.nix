@@ -26,10 +26,13 @@
 
     # Open source games and engines
     unstable.fheroes2 # Heroes of Might and Magic II engine
+    gemrb             # Infinity Engine
+    openmw            # Morrowind engine 
     openttd
-    openxcom
-    runelite  # Runescape client
+    openxcom          # X-Com engine
+    runelite          # Runescape client
     scummvm
+    uqm               # The Ur-Quan Masters
     unstable.vcmi     # Heroes of Might and Magic III engine
     wesnoth
     widelands
@@ -57,9 +60,9 @@
     })
 
     # Tools
-    fluidsynth # For games requiring MIDI playback
+    fluidsynth  # For games requiring MIDI playback
     glxinfo
-    handbrake # For gameplay videos
+    handbrake   # For gameplay videos
     gamemode
     gamescope
     mangohud
