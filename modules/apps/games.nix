@@ -72,6 +72,8 @@
     protontricks
     samrewritten
     unstable.steamtinkerlaunch
+    unstable.vkbasalt
+    unstable.vkbasalt-cli
     vulkan-tools
     winetricks
 
