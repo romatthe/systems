@@ -101,24 +101,27 @@
     dolphin-emu
     pcsx2
     rpcs3
-    retroarch
+    (retroarch.override {
+      cores = [
+        libretro.beetle-psx
+        libretro.beetle-psx-hw
+        libretro.beetle-saturn
+        libretro.bsnes
+        libretro.desmume
+        libretro.flycast
+        libretro.genesis-plus-gx
+        libretro.melonds
+        libretro.mesen
+        libretro.mgba
+        libretro.parallel-n64
+        libretro.ppsspp
+        libretro.sameboy
+        libretro.snes9x
+        libretro.swanstation
+      ];
+    })
     # TODO: Two versions of Yuzu cannot be installed at the same time
     # yuzu-early-access
     yuzu-mainline
   ];
-
-  # Configure the desired RetroArch cores
-  # TODO: I don not think this even works...
-  nixpkgs.config.retroarch.enableBeetlePSX = true;
-  nixpkgs.config.retroarch.enableBeetlePSXHW = true;
-  nixpkgs.config.retroarch.enableBeetleSaturn = true;
-  nixpkgs.config.retroarch.enableBeetleSaturnHW = true;
-  nixpkgs.config.retroarch.enableDesmume = true;
-  nixpkgs.config.retroarch.enableGenesisPlusGX = true;
-  nixpkgs.config.retroarch.enableMesen = true;
-  nixpkgs.config.retroarch.enableMGBA = true;
-  nixpkgs.config.retroarch.enableMupen64Plus = true;
-  nixpkgs.config.retroarch.enablePPSSPP = true;
-  nixpkgs.config.retroarch.enableSameBoy = true;
-  nixpkgs.config.retroarch.enableSnes9x = true;
 }
