@@ -101,7 +101,7 @@
     dolphin-emu
     pcsx2
     rpcs3
-    (retroarch.override {
+    (unstable.retroarch.override {
       cores = [
         libretro.beetle-psx
         libretro.beetle-psx-hw
