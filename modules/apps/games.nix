@@ -99,6 +99,7 @@
     # Emulators
     cemu
     dolphin-emu
+    mame.tools # Primarily for chdman
     pcsx2
     rpcs3
     (unstable.retroarch.override {
