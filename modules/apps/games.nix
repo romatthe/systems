@@ -7,11 +7,12 @@
     # ];
   };
 
-  # Make luxtorpeda available for Steam to detect
-  # environment.sessionVariables = {
-  #   STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}/bin";
-  #   STEAM_EXTRA_COMPAT_TOOLS_PATHS2 = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${pkgs.steam}";
-  # };
+  # Make the latest version of steamtinkerlauncher available in Steam by adding it to
+  # compat tools env variable
+  environment.sessionVariables = {
+    # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}/bin";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${unstable.steamtinkerlaunch}";
+  };
 
   environment.systemPackages = with pkgs; [
     # Clients
