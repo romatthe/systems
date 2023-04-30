@@ -101,7 +101,8 @@
     cemu
     dolphin-emu
     mame.tools # Primarily for chdman
-    pcsx2
+    #pcsx2 # Outdated!
+    pcsx2-staging.pcsx2
     rpcs3
     (unstable.retroarch.override {
       cores = [

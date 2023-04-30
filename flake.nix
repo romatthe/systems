@@ -11,6 +11,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-pcsx2-staging.url = "github:SuperSamus/nixpkgs/pcsx2-qt";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-22.11";
@@ -41,6 +42,12 @@
           # Unstable nixpkgs
           (final: prev: {
             unstable = import inputs.nixpkgs-unstable {
+              system = final.system;
+              config = {
+                allowUnfree = true;
+              };
+            };
+            pcsx2-staging = import inputs.nixpkgs-pcsx2-staging {
               system = final.system;
               config = {
                 allowUnfree = true;
