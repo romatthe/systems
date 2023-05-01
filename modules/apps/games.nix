@@ -11,7 +11,7 @@
   # compat tools env variable
   environment.sessionVariables = {
     # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}/bin";
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${unstable.steamtinkerlaunch}";
+    #STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${pkgs.unstable.steamtinkerlaunch}/bin";
   };
 
   environment.systemPackages = with pkgs; [
@@ -100,9 +100,9 @@
     # Emulators
     cemu
     dolphin-emu
-    mame.tools # Primarily for chdman
-    #pcsx2 # Outdated!
-    pcsx2-staging.pcsx2
+    mame.tools          # Primarily for chdman
+    #pcsx2              # Outdated!
+    pcsx2-staging.pcsx2 # Prelimary build by SuperSamus 
     rpcs3
     (unstable.retroarch.override {
       cores = [
