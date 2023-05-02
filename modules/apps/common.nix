@@ -4,13 +4,13 @@
     # Tools
     file
     git
-    htop 
-    vim 
-    wget 
-    cmake 
+    htop
+    vim
+    wget
+    cmake
     gnumake
     pciutils
-    usbutils 
+    usbutils
 
     # Apps
     authy
@@ -18,5 +18,6 @@
     libreoffice-fresh
     remmina
     qbittorrent
+    qdirstat
   ];
 }
