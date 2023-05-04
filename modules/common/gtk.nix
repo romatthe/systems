@@ -23,8 +23,9 @@
   
   gtk = {
     enable = true;
-    theme.package = pkgs.nordic;
-    theme.name = "Nordic";
+    # Let's disable the GTK Nord-theme for now.
+    # theme.package = pkgs.nordic;
+    theme.name = "Adwaita-dark";
   };
   
   home.packages = [
