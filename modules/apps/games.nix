@@ -68,6 +68,7 @@
     handbrake   # For gameplay videos
     gamemode
     gamescope
+    mame.tools  # Primarily for chdman
     mangohud
     protonup
     protontricks
@@ -99,10 +100,13 @@
 
     # Emulators
     cemu
+    citra-nightly
     dolphin-emu
-    mame.tools          # Primarily for chdman
+    fsuae
+    fsuae-launcher
     #pcsx2              # Outdated!
     pcsx2-staging.pcsx2 # Prelimary build by SuperSamus 
+    ppsspp-qt
     rpcs3
     (unstable.retroarch.override {
       cores = [
@@ -123,6 +127,7 @@
         libretro.swanstation
       ];
     })
+    unstable.xemu
     # TODO: Two versions of Yuzu cannot be installed at the same time
     # yuzu-early-access
     yuzu-mainline
