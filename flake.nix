@@ -71,10 +71,11 @@
         ./modules/common/xorg.nix
         ./modules/hardware/bluetooth.nix
         ./modules/hardware/ntfs.nix
-        ./modules/hardware/pulseaudio.nix
+        # ./modules/hardware/pulseaudio.nix
         ./modules/services/dbus.nix
         ./modules/services/oom.nix
         ./modules/services/openssh.nix
+        ./modules/services/pipewire.nix
         ./modules/services/virt.nix
       ];
 

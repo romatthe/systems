@@ -61,9 +61,6 @@
   # will think we're a system user and not list us on the GDM login screen
   environment.shells = [ pkgs.fish ];
 
-  # Enable sound.
-  sound.enable = true;
-
   environment.systemPackages = with pkgs; [
     
   ];

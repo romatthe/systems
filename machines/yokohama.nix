@@ -65,9 +65,6 @@
   # Looks like we also need to enable fish here to make sure we set some env variables correctly
   programs.fish.enable = true;
 
-  # Enable sound.
-  sound.enable = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

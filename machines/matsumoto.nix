@@ -57,9 +57,6 @@
   # will think we're a system user and not list us on the GDM login screen
   environment.shells = [ pkgs.fish ];
 
-  # Enable sound.
-  sound.enable = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
