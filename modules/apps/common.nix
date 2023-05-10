@@ -14,6 +14,7 @@
 
     # Apps
     authy
+    filezilla
     gimp
     libreoffice-fresh
     remmina
