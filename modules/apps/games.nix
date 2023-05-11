@@ -103,6 +103,7 @@
     unstable.cemu
     unstable.citra-nightly
     unstable.dolphin-emu
+    unstalbe.dolphin-emu-primehack
     fsuae
     fsuae-launcher
     #pcsx2              # Outdated!
@@ -128,6 +129,7 @@
       ];
     })
     unstable.rpcs3
+    unstable.ryujinx
     unstable.xemu
     # TODO: Two versions of Yuzu cannot be installed at the same time
     # yuzu-early-access
