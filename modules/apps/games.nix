@@ -99,15 +99,15 @@
     # TODO: Package DBGL?
 
     # Emulators
-    cemu
-    citra-nightly
-    dolphin-emu
+    # Note: most cutting edge emulators almost never get their versions backported to stable
+    unstable.cemu
+    unstable.citra-nightly
+    unstable.dolphin-emu
     fsuae
     fsuae-launcher
     #pcsx2              # Outdated!
     pcsx2-staging.pcsx2 # Prelimary build by SuperSamus 
-    ppsspp-qt
-    rpcs3
+    unstable.ppsspp-qt
     (unstable.retroarch.override {
       cores = [
         libretro.beetle-psx
@@ -127,6 +127,7 @@
         libretro.swanstation
       ];
     })
+    unstable.rpcs3
     unstable.xemu
     # TODO: Two versions of Yuzu cannot be installed at the same time
     # yuzu-early-access
