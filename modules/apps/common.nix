@@ -14,6 +14,7 @@
 
     # Apps
     authy
+    bitwarden
     filezilla
     gimp
     libreoffice-fresh
