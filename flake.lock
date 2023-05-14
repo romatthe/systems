@@ -76,11 +76,11 @@
     },
     "nixpkgs-pcsx2-staging": {
       "locked": {
-        "lastModified": 1682882494,
-        "narHash": "sha256-XeGTf4sA0liOZRtnZa0TfC9EayKKqFh1yX+l6zXZGA8=",
+        "lastModified": 1684065663,
+        "narHash": "sha256-2GwZF71fEIPekofL0ANnKBd4DM/MJG/bynPoL5r0Blk=",
         "owner": "SuperSamus",
         "repo": "nixpkgs",
-        "rev": "d6f3de450b5f61b628d348db77f18d30496553be",
+        "rev": "e20565bb4ebebd98a8bf4d760995bbea02287dd3",
         "type": "github"
       },
       "original": {
