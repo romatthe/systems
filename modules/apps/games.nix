@@ -103,7 +103,7 @@
     unstable.cemu
     unstable.citra-nightly
     unstable.dolphin-emu
-    unstalbe.dolphin-emu-primehack
+    unstable.dolphin-emu-primehack
     fsuae
     fsuae-launcher
     #pcsx2              # Outdated!
