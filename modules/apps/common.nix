@@ -17,6 +17,7 @@
     bitwarden
     filezilla
     gimp
+    imhex
     libreoffice-fresh
     remmina
     qbittorrent
