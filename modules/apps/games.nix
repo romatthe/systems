@@ -94,8 +94,10 @@
     radeon-profile
     radeontop
 
-    # DOSBox
+    # DOS/x86 emulation
+    unstable._86Box
     dosbox-staging
+    pcem
     # TODO: Package DBGL?
 
     # Emulators
