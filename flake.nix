@@ -111,6 +111,7 @@
           modules = modules-common ++ [
             # System modules
             ./machines/yokohama.nix
+            ./modules/apps/emulation.nix
             ./modules/apps/games.nix
             ./modules/hardware/amdgpu.nix
             ./modules/hardware/ssd.nix
@@ -139,6 +140,7 @@
           modules = modules-common ++ [
             # System modules
             ./machines/matsumoto.nix
+            ./modules/apps/emulation.nix
             ./modules/apps/games.nix
             ./modules/hardware/ssd.nix
             ./modules/services/clam.nix
@@ -165,6 +167,7 @@
           modules = modules-common ++ [
             # System modules
             ./machines/sapporo.nix
+            ./modules/apps/emulation.nix
             ./modules/apps/games.nix
             ./modules/hardware/nvidia.nix
             ./modules/hardware/ssd.nix
