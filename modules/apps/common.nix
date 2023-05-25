@@ -4,7 +4,9 @@
     # Tools
     file
     git
+    glances
     htop
+    procs
     vim
     wget
     cmake
