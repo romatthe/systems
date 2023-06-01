@@ -15,6 +15,19 @@
 
   services.gnome.gnome-remote-desktop.enable = true;
 
+  # Automatically set profile picture
+  boot.postBootCommands = let
+    gdm_user_conf = ''
+      [User]
+      Session=
+      XSession=
+      Icon=${../../assets/ness.png}
+      SystemAccount=false
+    '';
+  in ''
+    echo '${gdm_user_conf}' > /var/lib/AccountsService/users/romatthe
+  '';
+
   # Required for desktop sharing and capturing on wayland
   # xdg.portal = { 
   #   enable = true;
