@@ -61,6 +61,9 @@
   # will think we're a system user and not list us on the GDM login screen
   environment.shells = [ pkgs.fish ];
 
+  # Looks like we also need to enable fish here to make sure we set some env variables correctly
+  programs.fish.enable = true;
+
   environment.systemPackages = with pkgs; [
     
   ];
@@ -74,7 +77,7 @@
 
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  # services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

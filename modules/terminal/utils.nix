@@ -25,9 +25,9 @@
     rnix-lsp
  
     # TUI apps
-    ncpamixer
-    mps-youtube
     lazygit
+    ncpamixer
+    yewtube
     
     pavucontrol
   ];
