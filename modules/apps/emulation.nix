@@ -2,23 +2,23 @@
 {
   environment.systemPackages = with pkgs; [
     # DOS/x86 emulation
-    unstable._86Box
+    _86Box
     dosbox-staging
     pcem
     # TODO: Package DBGL?
 
     # Emulators
     # Note: most cutting edge emulators almost never get their versions backported to stable
-    unstable.cemu
-    unstable.citra-nightly
-    unstable.dolphin-emu
-    unstable.dolphin-emu-primehack
+    cemu
+    citra-nightly
+    dolphin-emu
+    dolphin-emu-primehack
     fsuae
     fsuae-launcher
     #pcsx2              # Outdated!
     pcsx2-staging.pcsx2 # Prelimary build by SuperSamus 
-    unstable.ppsspp-qt
-    (unstable.retroarch.override {
+    ppsspp-qt
+    (retroarch.override {
       cores = [
         libretro.beetle-psx
         libretro.beetle-psx-hw
@@ -37,9 +37,9 @@
         libretro.swanstation
       ];
     })
-    unstable.rpcs3
-    unstable.ryujinx
-    unstable.xemu
+    rpcs3
+    ryujinx
+    xemu
     # TODO: Two versions of Yuzu cannot be installed at the same time
     # yuzu-early-access
     yuzu-mainline
