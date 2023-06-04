@@ -16,7 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     # Clients
-    unstable.bottles # A lot of fixes are landing in unstable atm
+    bottles
     heroic
     lutris
     minigalaxy
@@ -27,16 +27,16 @@
     luxtorpeda
 
     # Open source games and engines
-    unstable.fheroes2 # Heroes of Might and Magic II engine
-    gemrb             # Infinity Engine
+    fheroes2    # Heroes of Might and Magic II engine
+    gemrb       # Infinity Engine
     gzdoom
-    openmw            # Morrowind engine 
+    openmw      # Morrowind engine 
     openttd
-    openxcom          # X-Com engine
-    runelite          # Runescape client
+    openxcom    # X-Com engine
+    runelite    # Runescape client
     scummvm
-    uqm               # The Ur-Quan Masters
-    unstable.vcmi     # Heroes of Might and Magic III engine
+    uqm         # The Ur-Quan Masters
+    vcmi        # Heroes of Might and Magic III engine
     wesnoth
     widelands
 
@@ -73,9 +73,9 @@
     protonup
     protontricks
     samrewritten
-    unstable.steamtinkerlaunch
-    unstable.vkbasalt
-    unstable.vkbasalt-cli
+    steamtinkerlaunch
+    vkbasalt
+    vkbasalt-cli
     vulkan-tools
     winetricks
 
