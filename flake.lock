@@ -130,8 +130,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-pcsx2-staging": "nixpkgs-pcsx2-staging",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "nur": "nur",
-        "tuxedo": "tuxedo"
+        "nur": "nur"
       }
     },
     "systems": {
@@ -146,22 +145,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "tuxedo": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1685384046,
-        "narHash": "sha256-FJNQ93vlzIc0+CKsRGEBA3wdElPP2G8VSFV8U2jyhJA=",
-        "owner": "blitz",
-        "repo": "tuxedo-nixos",
-        "rev": "3002821d13ff9b011a411f420d2aac36a394c433",
-        "type": "github"
-      },
-      "original": {
-        "owner": "blitz",
-        "repo": "tuxedo-nixos",
         "type": "github"
       }
     }
