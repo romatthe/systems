@@ -37,8 +37,12 @@
     scummvm
     uqm         # The Ur-Quan Masters
     vcmi        # Heroes of Might and Magic III engine
+    vkquake
     wesnoth
     widelands
+    yquake2
+    yquake2-ground-zero
+    yquake2-the-reckoning
 
     # Roguelikes
     angband
