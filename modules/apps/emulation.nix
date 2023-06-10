@@ -15,8 +15,7 @@
     dolphin-emu-primehack
     fsuae
     fsuae-launcher
-    #pcsx2              # Outdated!
-    pcsx2-staging.pcsx2 # Prelimary build by SuperSamus 
+    unstable.pcsx2
     ppsspp-qt
     (retroarch.override {
       cores = [
