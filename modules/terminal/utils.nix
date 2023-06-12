@@ -20,6 +20,7 @@
     nixfmt
     nixpkgs-fmt
     nixpkgs-review
+    nix-index
     nix-prefetch-git
     nix-prefetch-github
     rnix-lsp
