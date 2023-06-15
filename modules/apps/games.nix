@@ -31,6 +31,7 @@
     fheroes2    # Heroes of Might and Magic II engine
     gemrb       # Infinity Engine
     gzdoom
+    iortcw
     openmw      # Morrowind engine 
     openttd
     openxcom    # X-Com engine
