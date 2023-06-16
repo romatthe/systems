@@ -24,5 +24,6 @@
     remmina
     qbittorrent
     qdirstat
+    vlc
   ];
 }

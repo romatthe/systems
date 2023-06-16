@@ -8,6 +8,7 @@
     pfetch
     pandoc
     chafa
+    yt-dlp
 
     # Editors
     neovim
