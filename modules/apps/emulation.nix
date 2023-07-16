@@ -16,7 +16,7 @@
     fsuae
     fsuae-launcher
     unstable.pcsx2
-    ppsspp-qt
+    ppsspp
     (retroarch.override {
       cores = [
         libretro.beetle-psx
