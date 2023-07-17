@@ -29,6 +29,7 @@
         libretro.melonds
         libretro.mesen
         libretro.mgba
+        libretro.np2kai
         libretro.parallel-n64
         libretro.ppsspp
         libretro.sameboy
