@@ -4,6 +4,7 @@
     spotify
 
     # Subsonic clients
+    sonixd
     sublime-music
 
     # Transcoding
