@@ -22,6 +22,7 @@
         libretro.beetle-psx
         libretro.beetle-psx-hw
         libretro.beetle-saturn
+        libretro.beetle-supergrafx
         libretro.bsnes
         libretro.desmume
         libretro.flycast
