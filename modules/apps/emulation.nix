@@ -30,6 +30,7 @@
         libretro.melonds
         libretro.mesen
         libretro.mgba
+        libretro.mupen64plus
         libretro.np2kai
         libretro.parallel-n64
         libretro.ppsspp
