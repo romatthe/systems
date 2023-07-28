@@ -1,13 +1,14 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    trash-cli
-    ripgrep
+    chafa
     killall
     neofetch
-    pfetch
+    p7zip
     pandoc
-    chafa
+    pfetch
+    ripgrep
+    trash-cli
     yt-dlp
 
     # Editors
