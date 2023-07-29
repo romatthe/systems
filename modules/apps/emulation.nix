@@ -26,6 +26,7 @@
         libretro.bsnes
         libretro.desmume
         libretro.flycast
+        libretro.gambatte
         libretro.genesis-plus-gx
         libretro.melonds
         libretro.mesen
