@@ -25,6 +25,8 @@
         libretro.beetle-supergrafx
         libretro.bsnes
         libretro.desmume
+        libretro.dosbox
+        unstable.libretro.dosbox-pure
         libretro.flycast
         libretro.gambatte
         libretro.genesis-plus-gx
