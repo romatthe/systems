@@ -1,30 +1,74 @@
-{ pkgs, ...}:
-{
-  programs.emacs.enable = true;
-  # TODO: Doom Emacs does not work with Emacs 29+, so Pgtk cannot be used for now
-  #programs.emacs.package = pkgs.emacsPgtkNativeComp;
-  # programs.emacs.package = pkgs.emacsNativeComp;
-  programs.emacs.package = pkgs.emacs-unstable;
-  programs.emacs.extraPackages = (epkgs: [
-    epkgs.vterm
-    epkgs.pdf-tools
-    # TODO: currently fails to build
-    #epkgs.org-pdftools
+{ lib, pkgs, ... }:
+
+let
+
+  # Custom Emacs with PGTK 29 version as base and pinned, should be compatible with Doom Emacs
+  customEmacs = (pkgs.emacs29-pgtk.override {
+    withPgtk = true;
+    withX = false;
+  }).overrideAttrs (attrs: {
+    pname = "emacs-custom";
+    version = "29.0.60";
+    src = pkgs.fetchFromSavannah {
+      repo = "emacs";
+      rev = "c6cb6d8506916dd1c17fba2d24ec63426c4afdbd";
+      hash = "sha256-EfJJaLIMd1dbYkPcDvdt5o3ulpbbrsV4NFhc+LSAY7A=";
+    };
+  });
+
+  # Custom Emacs with extra packages requires native binaries
+  customEmacsWithPackages = customEmacs.pkgs.withPackages (epkgs: with epkgs.melpaPackages; [
+    org-pdftools
+    pdf-tools
+    tree-sitter-langs
+    vterm
   ]);
 
-  # Enable the Emacs daemon
-  services.emacs = {
-    enable = true;
-    client = {
-      enable = true;
-      arguments = [ "-c" ];
+  # Base Doom Emacs files
+  doomEmacs = pkgs.stdenvNoCC.mkDerivation {
+    name = "doom-emacs";
+
+    dontBuild = true;
+    dontFixup = true;
+
+    src = pkgs.fetchgit {
+      url = "https://github.com/doomemacs/doomemacs.git";  
+      rev = "24601b300e87e909340524476713dcaaa5d095cd";
+      sha256 = "TbKFxrjMWBN3ViW1lmzwq4Y6rNg1455PUDR3RO/lRbg=";
+      leaveDotGit = true;
     };
-    socketActivation.enable = false;
+
+    installPhase = ''
+      mkdir $out
+      cp -a $src/. $out/
+    '';
   };
+
+in {
+  # Runs each time a new configuration is actived. Primarily just clones doom emacs if necessary.
+  # TODO: This is definitely abusing this feature. Maybe take Doom as an input to this flake and copy the files over from /nix/store in the activationscript?
+  # That should allow for quick population of the directories without the disgusting/non-idempotent clone here. However, that also makes the flake input redundant after the
+  # first copy actually happens. It could also be possible to check if the current git HEAD is a lower version that the input rev and copy over it if necessary?
+  system.userActivationScripts = {
+    installDoomEmacs = ''
+      if [ ! -d "$XDG_CONFIG_HOME/emacs" ] || [ ! -d "$XDG_CONFIG_HOME/emacs/.git" ]; then
+        ${pkgs.git}/bin/git clone --depth=1 --single-branch "https://github.com/doomemacs/doomemacs" "$XDG_CONFIG_HOME/emacs"
+      fi
+    '';
+  };
+
+  # Make sure that the Doom command-line helper tool is on our path
+  # TODO: Make sure we somehow get this on our path. One option is to use the flake input mentioned above and put the doom-bin as out an output of a derivation
+  # or something along those lines? I'm not entirely sure yet. Or use hlissner's technique for setting up the envs via extraInit.
+  # env.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ];
 
   fonts.fontconfig.enable = true;
 
-  home.packages = with pkgs; [
+  # home.packages = with pkgs; [
+  users.users.romatthe.packages = with pkgs; [
+    # Our 'custom' emacs
+    customEmacsWithPackages
+
     # Specify all nerd-fonts here
     (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" "JetBrainsMono" "RobotoMono" ]; })
 
@@ -44,7 +88,7 @@
 
     # Required by Doom Emacs
     git
-    (ripgrep.override {withPCRE2 = true;})
+    (ripgrep.override { withPCRE2 = true; })
     gnutls              # for TLS connectivity
     fd                  # faster projectile indexing
     imagemagick         # for image-dired

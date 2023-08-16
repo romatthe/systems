@@ -4,8 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
@@ -23,8 +21,6 @@
           ];
         };
         overlays = [
-          # Community maintained bleeding-edge Emacs
-          inputs.emacs-overlay.overlay
           # Community packages
           inputs.nur.overlay
           # Unstable nixpkgs
@@ -53,6 +49,7 @@
         # Cache configuration
         ./cache.nix
 	      # Modules configuration
+        ./modules/apps/emacs.nix
         ./modules/common/console.nix
         ./modules/common/nix.nix
         ./modules/common/xdg.nix
@@ -70,7 +67,6 @@
       modules-common-home = [
         ./modules/apps/chat.nix
         ./modules/apps/common.nix
-        ./modules/apps/emacs.nix
         ./modules/apps/firefox.nix
         ./modules/apps/jetbrains.nix
         ./modules/apps/media.nix

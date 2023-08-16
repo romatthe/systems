@@ -14,8 +14,6 @@
     "tree" = "lsd --tree";
     # Requires 'delta' to be installed
     "diff" = "delta";
-    # Requires 'emacs' to be installed
-    "emacs" = "emacsclient -c -nw";
     # Requires 'neovim' to be installed
     "vi" = "nvim";
     "vim" = "nvim";
