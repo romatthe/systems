@@ -2,17 +2,20 @@
 
 let
 
-  # Custom Emacs with PGTK 29 version as base and pinned, should be compatible with Doom Emacs
+  # Custom Emacs with PGTK 29 version as base and pinned (no X11 deps), should be compatible with Doom Emacs.
+  # Pinned to 29.1 for now. Despite not being compatible with Doom, I believe it should be fine for now.
   customEmacs = (pkgs.emacs29-pgtk.override {
     withPgtk = true;
     withX = false;
   }).overrideAttrs (attrs: {
     pname = "emacs-custom";
-    version = "29.0.60";
-    src = pkgs.fetchFromSavannah {
+    version = "29.1";
+    src = pkgs.fetchFromGitHub {
+      owner = "emacs-mirror";
       repo = "emacs";
-      rev = "c6cb6d8506916dd1c17fba2d24ec63426c4afdbd";
-      hash = "sha256-EfJJaLIMd1dbYkPcDvdt5o3ulpbbrsV4NFhc+LSAY7A=";
+      rev = "emacs-29.1";
+      # hash = "sha256-EfJJaLIMd1dbYkPcDvdt5o3ulpbbrsV4NFhc+LSAY7A=";
+      hash = "sha256-3HDCwtOKvkXwSULf3W7YgTz4GV8zvYnh2RrL28qzGKg=";
     };
   });
 
@@ -61,6 +64,13 @@ in {
   # TODO: Make sure we somehow get this on our path. One option is to use the flake input mentioned above and put the doom-bin as out an output of a derivation
   # or something along those lines? I'm not entirely sure yet. Or use hlissner's technique for setting up the envs via extraInit.
   # env.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ];
+  environment.sessionVariables = {
+    # TODO: Refer to the actual value of $XDG_CONFIG_HOME instead of hardcoded. Maybe through a custom XDG module? And refer to the values from there?
+    # See hlissner's xdg module.
+    PATH = [
+      "~/.config/emacs/bin"
+    ];
+  };
 
   fonts.fontconfig.enable = true;
 
