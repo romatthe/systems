@@ -21,6 +21,7 @@
     gimp
     imhex
     libreoffice-fresh
+    protonvpn-gui
     remmina
     qbittorrent
     qdirstat
