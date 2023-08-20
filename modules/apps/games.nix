@@ -20,7 +20,7 @@
     heroic
     lutris
     minigalaxy
-    prism
+    prismlauncher
 
     # Steam    
     steam
