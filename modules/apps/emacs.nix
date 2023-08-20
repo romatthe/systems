@@ -10,6 +10,7 @@ let
   }).overrideAttrs (attrs: {
     pname = "emacs-custom";
     version = "29.1";
+
     src = pkgs.fetchFromGitHub {
       owner = "emacs-mirror";
       repo = "emacs";
@@ -17,6 +18,10 @@ let
       # hash = "sha256-EfJJaLIMd1dbYkPcDvdt5o3ulpbbrsV4NFhc+LSAY7A=";
       hash = "sha256-3HDCwtOKvkXwSULf3W7YgTz4GV8zvYnh2RrL28qzGKg=";
     };
+
+    postInstall = pkgs.emacs29-pgtk.postInstall + ''
+      rm $out/share/applications/emacsclient*.desktop
+    '';
   });
 
   # Custom Emacs with extra packages requires native binaries
