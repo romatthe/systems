@@ -56,8 +56,8 @@
     ivan
 
     # Commercial games
-    starsector
-    vintagestory
+    unstable.starsector
+    unstable.vintagestory
 
     # Dwarf Fotress
     # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
