@@ -15,10 +15,10 @@ let
       owner = "emacs-mirror";
       repo = "emacs";
       rev = "emacs-29.1";
-      # hash = "sha256-EfJJaLIMd1dbYkPcDvdt5o3ulpbbrsV4NFhc+LSAY7A=";
       hash = "sha256-3HDCwtOKvkXwSULf3W7YgTz4GV8zvYnh2RrL28qzGKg=";
     };
 
+    # Remove the Emacs (Client) desktop entries
     postInstall = pkgs.emacs29-pgtk.postInstall + ''
       rm $out/share/applications/emacsclient*.desktop
     '';
