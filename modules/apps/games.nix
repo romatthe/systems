@@ -33,6 +33,7 @@
     # Open source games and engines
     airshipper  # Veloren launcher
     dhewm3
+    exult       # Ultima VII engine
     fheroes2    # Heroes of Might and Magic II engine
     gemrb       # Infinity Engine
     gzdoom
