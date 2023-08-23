@@ -26,6 +26,10 @@
     steam
     luxtorpeda
 
+    # Commercial games
+    unstable.starsector
+    unstable.vintagestory
+
     # Open source games and engines
     airshipper  # Veloren launcher
     dhewm3
@@ -55,10 +59,6 @@
     crawl
     ivan
 
-    # Commercial games
-    unstable.starsector
-    unstable.vintagestory
-
     # Dwarf Fotress
     # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
     (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
@@ -80,6 +80,7 @@
     handbrake   # For gameplay videos
     gamemode
     gamescope
+    libstrangle # Linux OpenGL/Vulkan frame limiter
     mame.tools  # Primarily for chdman
     mangohud
     protonup
