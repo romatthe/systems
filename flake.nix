@@ -38,6 +38,7 @@
               };
             };
             luxtorpeda = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/luxtorpeda { };
+            nuvie = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/nuvie { };
             samrewritten = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/samrewritten { };
             wlogoutbar = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/wlogoutbar { };
           })

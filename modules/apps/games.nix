@@ -38,6 +38,7 @@
     gemrb       # Infinity Engine
     gzdoom
     iortcw
+    nuvie       # Ultima VI engine
     openmw      # Morrowind engine 
     openttd
     openxcom    # X-Com engine
