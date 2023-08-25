@@ -3,12 +3,12 @@
 , fetchFromGitHub
 , copyDesktopItems
 , makeDesktopItem
-# , autoreconfHook
 , makeWrapper
 , autoconf
 , automake
 , SDL2
 }:
+
 let
   desktopItem = makeDesktopItem rec {
     name = "Nuvie";
@@ -28,25 +28,13 @@ in stdenv.mkDerivation rec {
     hash = "sha256-RnXnQNqJAbX8UlypriyiwGFk3EcQ5x6k7xi/lwI17bs=";
   };
 
-  nativeBuildInputs = [ 
-    autoconf 
-    automake 
-  ];
+  nativeBuildInputs = [ autoconf automake makeWrapper ];
+  buildInputs = [ SDL2 ];
 
-  buildInputs = [
-    SDL2
-  ];
-
-  # NIX_CFLAGS_LINK = "-pthread";
   NIX_CFLAGS_COMPILE = "-std=c++11";
 
   preConfigure = ''
     ./autogen.sh
-  '';
-
-  preInstall = ''
-    ls -lah
-    cat Makefile
   '';
 
   # WrapProgram needed here to set ~/.config/nuvie/nuvie.cfg and the location of the Ultima 6 base files
@@ -57,11 +45,9 @@ in stdenv.mkDerivation rec {
     ls -lah $out/bin
 
     wrapProgram $out/bin/nuvie \
-      --prefix PATH : ${lib.makeBinPath [ openjdk ]} \
-      --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath buildInputs} \
-      --run 'mkdir -p ''${XDG_DATA_HOME:-~/.local/share}/starsector' \
-      --chdir "$out/share/starsector"
-  '';
+      --run "mkdir -p \$HOME/.config/nuvie; cd \$HOME/.config/nuvie" \
+      --chdir "~/.config/nuvie"
+  ''; 
 
   # meta = with lib; {
   #   description = "Steam Achievement Manager For Linux";
