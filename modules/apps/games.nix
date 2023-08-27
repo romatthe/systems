@@ -44,7 +44,7 @@
     openxcom    # X-Com engine
     rbdoom-3-bfg
     runelite    # Runescape client
-    scummvm
+    unstable.scummvm
     uqm         # The Ur-Quan Masters
     vcmi        # Heroes of Might and Magic III engine
     vkquake
