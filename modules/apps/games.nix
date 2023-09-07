@@ -1,5 +1,39 @@
 { nixpkgs, pkgs, ... }:
-{
+let 
+  steamtinkerlaunch = pkgs.steamtinkerlaunch.overrideAttrs (attrs: {
+    version = pkgs.steamtinkerlaunch.version + "-patched";
+    # Prepare the proper files for the steam compatibility toolchain
+    postInstall = pkgs.steamtinkerlaunch.postInstall + ''
+      mkdir -p $out/share/Steam/compatibilitytools.d/SteamTinkerLaunch
+      ln -s $out/bin/steamtinkerlaunch $out/share/Steam/compatibilitytools.d/SteamTinkerLaunch/steamtinkerlaunch
+
+      cat > $out/share/Steam/compatibilitytools.d/SteamTinkerLaunch/compatibilitytool.vdf << EOF
+      "compatibilitytools"
+      {
+        "compat_tools"
+        {
+          "Proton-stl" // Internal name of this tool
+          {
+            "install_path" "."
+            "display_name" "Steam Tinker Launch"
+
+            "from_oslist"  "windows"
+            "to_oslist"    "linux"
+          }
+        }
+      }
+      EOF
+
+      cat > $out/share/Steam/compatibilitytools.d/SteamTinkerLaunch/toolmanifest.vdf << EOF
+      "manifest"
+      {
+        "commandline" "/steamtinkerlaunch run"
+        "commandline_waitforexitandrun" "/steamtinkerlaunch waitforexitandrun"
+      }
+      EOF
+    '';
+  });
+in {
   programs.steam = {
     enable = true;
     # extraCompatPackages = with pkgs; [
@@ -10,8 +44,7 @@
   # Make the latest version of steamtinkerlauncher available in Steam by adding it to
   # compat tools env variable
   environment.sessionVariables = {
-    # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}/bin";
-    #STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${pkgs.unstable.steamtinkerlaunch}/bin";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/SteamTinkerLaunch";
   };
 
   environment.systemPackages = with pkgs; [
@@ -24,6 +57,7 @@
 
     # Steam    
     steam
+    steamtinkerlaunch # Patched to better work with the Steam compat tools
     luxtorpeda
 
     # Commercial games
@@ -88,7 +122,6 @@
     protonup
     protontricks
     samrewritten
-    steamtinkerlaunch
     vkbasalt
     vkbasalt-cli
     vulkan-tools
