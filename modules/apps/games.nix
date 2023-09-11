@@ -36,6 +36,7 @@ let
 in {
   programs.steam = {
     enable = true;
+    package = pkgs.unstable.steam;
     # extraCompatPackages = with pkgs; [
       # luxtorpeda
     # ];
@@ -56,7 +57,7 @@ in {
     prismlauncher
 
     # Steam    
-    steam
+    # steam
     steamtinkerlaunch # Patched to better work with the Steam compat tools
     luxtorpeda
 
