@@ -36,7 +36,7 @@ let
 in {
   programs.steam = {
     enable = true;
-    package = pkgs.unstable.steam;
+    # package = pkgs.unstable.steam;
     # extraCompatPackages = with pkgs; [
       # luxtorpeda
     # ];
