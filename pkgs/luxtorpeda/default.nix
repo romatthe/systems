@@ -1,40 +1,52 @@
-{ lib, fetchFromGitHub, rustPlatform, SDL2, SDL2_image }:
+{ lib, fetchFromGitHub, rustPlatform, godot_4, openssl, SDL2, SDL2_image }:
 
 let
-  pkg-version = "57";
+  pkg-version = "67.0.0";
 in
   rustPlatform.buildRustPackage rec {
     pname = "luxtorpeda";
-    version = "v${pkg-version}";
+    version = "67.0.0";
 
     src = fetchFromGitHub {
       owner = "luxtorpeda-dev";
       repo = "luxtorpeda";
-      rev = "v${pkg-version}";
-      sha256 = "RCjT3HyCggD0aPR3a1ZRqyPv5kEBYIycC4KX+M118/Y=";
+      rev = "v67.0.0";
+      hash = "sha256-gTRIcQmvIK+/yJI2DMP/TJf90FTzrri9HS9P0Qs+jqA=";
     };
 
-    cargoHash = "sha256-4MS8ZxUTiGPOdvlCv9dGk3KCse77vpS9CnO3bN75nf4";
+    cargoHash = lib.fakeSha256;
 
-    buildInputs = [SDL2 SDL2_image];
+    cargoLock = {
+      lockFile = "${src}/Cargo.lock";
+      outputHashes = {
+        "godot-0.1.0"           = "sha256-k22E13GhWb2y2nv4qyJU7z1eXX+z1aiWigEgXIracaA=";
+        "godot4-prebuilt-0.0.0" = "sha256-WkH4PcbFOj6pTFUw3bKaaifZlSCfR8MQasd4Ato97xg=";
+        "iso9660-0.1.1"         = "sha256-aIW7LqPOj5ONxivvZTbgw9VMi8iRFQb3W5HTr8Sk/KQ=";
+      };
+    };
+
+    buildInputs = [ godot_4 openssl SDL2 SDL2_image ];
 
     patchPhase = ''
       patchShebangs luxtorpeda.sh
     '';
 
     # TODO: Change to installPhase
-    # TODO: Use `install` script? Like here? 
+    # TODO: Use `install` script? Like here?
     # https://github.com/NixOS/nixpkgs/blob/7d0ba0850fe9f0a520c6c8fb2f5db8f71f323627/pkgs/applications/misc/qcad/default.nix#L50
     postInstall = ''
-      cp config.json           $out/bin
-      cp res/icon.png          $out/bin
-      cp LICENSE               $out/bin
-      cp luxtorpeda.sh         $out/bin
-      cp toolmanifest.vdf      $out/bin
+      mkdir -p $out/share/Steam/compatibilitytools
 
-      echo "${pkg-version}" > $out/bin/version
-      sed 's/%name%/${pname}/; s/%display_name%/Luxtorpeda/' compatibilitytool.template \
-        > $out/bin/compatibilitytool.vdf
+      # cp luxtorpeda.pck        $out/bin
+      cp LICENSE               $out/share/Steam/compatibilitytools
+      cp toolmanifest.vdf      $out/share/Steam/compatibilitytools
+
+      echo "v${pkg-version}" > $out/share/Steam/compatibilitytools/version
+
+      sed 's/%name%/${pname}/; s/%display_name%/Luxtorpeda ${pkg-version}/' compatibilitytool.template \
+        > $out/share/Steam/compatibilitytools/compatibilitytool.vdf
+
+      ln -s $out/bin/luxtorpeda.sh $out/share/Steam/compatibilitytools/luxtorpeda.sh
     '';
 
     meta = with lib; {
