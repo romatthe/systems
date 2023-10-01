@@ -2,6 +2,19 @@
 
 let
   pkg-version = "67.0.0";
+  cargo-post = rustPlatform.buildRustPackage rec {
+    pname = "cargo-post";
+    version = "0.1.7";
+
+    src = fetchFromGitHub {
+      owner = "phil-opp";
+      repo = "cargo-post";
+      rev = "v0.1.7";
+      sha256 = "sha256-PAqpVixBdytHvSUu03OyoA1QGBxmmoeV78x6wCiCemQ=";
+    };
+
+    cargoSha256 = "sha256-dsaDpDa/BNqnL3K4a1mg3uEyM094/UO73MzJD9YaAwE=";
+  };
 in
   rustPlatform.buildRustPackage rec {
     pname = "luxtorpeda";
@@ -24,6 +37,8 @@ in
         "iso9660-0.1.1"         = "sha256-aIW7LqPOj5ONxivvZTbgw9VMi8iRFQb3W5HTr8Sk/KQ=";
       };
     };
+
+    nativeBuildInputs = [ cargo-post ];
 
     buildInputs = [ godot_4 openssl SDL2 SDL2_image ];
 
