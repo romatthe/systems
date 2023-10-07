@@ -120,6 +120,7 @@ in {
     libstrangle # Linux OpenGL/Vulkan frame limiter
     mame.tools  # Primarily for chdman
     mangohud
+    opentrack
     protonup
     protontricks
     samrewritten
