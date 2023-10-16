@@ -59,7 +59,7 @@ in {
     # Steam    
     # steam
     steamtinkerlaunch # Patched to better work with the Steam compat tools
-    luxtorpeda
+    #luxtorpeda
 
     # Commercial games
     unstable.starsector
