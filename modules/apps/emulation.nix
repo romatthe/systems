@@ -17,35 +17,37 @@
     fsuae-launcher
     unstable.pcsx2
     ppsspp
-    (retroarch.override {
-      cores = [
-        libretro.beetle-psx
-        libretro.beetle-psx-hw
-        libretro.beetle-saturn
-        libretro.beetle-supergrafx
-        libretro.bsnes
-        libretro.desmume
-        libretro.dosbox
-        unstable.libretro.dosbox-pure
-        libretro.flycast
-        libretro.gambatte
-        libretro.genesis-plus-gx
-        libretro.melonds
-        libretro.mesen
-        libretro.mgba
-        libretro.mupen64plus
-        libretro.np2kai
-        libretro.ppsspp
-        libretro.sameboy
-        libretro.snes9x
-        libretro.swanstation
-      ];
-    })
     rpcs3
     ryujinx
     xemu
     # TODO: Two versions of Yuzu cannot be installed at the same time
     # yuzu-early-access
     yuzu-mainline
+
+    # RetroArch
+    (unstable.retroarch.override {
+      cores = [
+        unstable.libretro.beetle-psx
+        unstable.libretro.beetle-psx-hw
+        unstable.libretro.beetle-saturn
+        unstable.libretro.beetle-supergrafx
+        unstable.libretro.bsnes
+        unstable.libretro.desmume
+        unstable.libretro.dosbox
+        unstable.libretro.dosbox-pure
+        unstable.libretro.flycast
+        unstable.libretro.gambatte
+        unstable.libretro.genesis-plus-gx
+        unstable.libretro.melonds
+        unstable.libretro.mesen
+        unstable.libretro.mgba
+        unstable.libretro.mupen64plus
+        unstable.libretro.np2kai
+        unstable.libretro.ppsspp
+        unstable.libretro.sameboy
+        unstable.libretro.snes9x
+        unstable.libretro.swanstation
+      ];
+    })
   ];
 }
