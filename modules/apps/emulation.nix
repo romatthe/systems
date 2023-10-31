@@ -31,7 +31,6 @@
         libretro.beetle-supergrafx
         libretro.bsnes
         libretro.desmume
-        libretro.dosbox
         libretro.dosbox-pure
         libretro.flycast
         libretro.gambatte
