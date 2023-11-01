@@ -1,5 +1,14 @@
 { nixpkgs, pkgs, ... }:
 let 
+  heroic = pkgs.unstable.heroic.overrideAttrs (old: {
+    buildCommand = old.buildCommand + ''
+      rm $out/share/applications $out/share/icons
+      mkdir -p $out/share/applications $out/share/icons/hicolor/128x128/apps
+
+      cp "${pkgs.heroic-unwrapped}/share/${old.pname}/flatpak/com.heroicgameslauncher.hgl.desktop" "$out/share/applications"
+      cp "${pkgs.heroic-unwrapped}/share/${old.pname}/flatpak/com.heroicgameslauncher.hgl.png" "$out/share/icons/hicolor/128x128/apps"
+    '';
+  });
   steamtinkerlaunch = pkgs.steamtinkerlaunch.overrideAttrs (attrs: {
     version = pkgs.steamtinkerlaunch.version + "-patched";
     # Prepare the proper files for the steam compatibility toolchain
