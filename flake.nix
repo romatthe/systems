@@ -40,6 +40,7 @@
             luxtorpeda = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/luxtorpeda { };
             nuvie = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/nuvie { };
             samrewritten = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/samrewritten { };
+            steam-metadata-editor = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/steam-metadata-editor { };
             wlogoutbar = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/wlogoutbar { };
           })
         ];

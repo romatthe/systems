@@ -133,6 +133,7 @@ in {
     protonup
     protontricks
     samrewritten
+    steam-metadata-editor
     vkbasalt
     vkbasalt-cli
     vulkan-tools
