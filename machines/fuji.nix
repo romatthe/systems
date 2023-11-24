@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./sapporo-hardware.nix
+    ./fuji-hardware.nix
   ];
 
   # Forgive me Stallman
@@ -21,14 +21,14 @@
   boot.plymouth.theme = "spinner";
 
   # Update CPU microcode
-  hardware.cpu.intel.updateMicrocode = true;
+  hardware.cpu.amd.updateMicrocode = true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   # Set your time zone
   time.timeZone = "Europe/Brussels";
 
-  networking.hostName = "sapporo";
+  networking.hostName = "fuji";
 
   # Pick only one of the below networking options.
   networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
@@ -80,6 +80,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 
 }

@@ -50,7 +50,7 @@
       modules-common = [
         # Cache configuration
         ./cache.nix
-	      # Modules configuration
+	# Modules configuration
         ./modules/apps/emacs.nix
         ./modules/common/console.nix
         ./modules/common/nix.nix
@@ -67,7 +67,7 @@
 
       # Common home modules
       modules-common-home = [
-        ./modules/apps/chat.nix
+        #./modules/apps/chat.nix
         ./modules/apps/common.nix
         ./modules/apps/firefox.nix
         ./modules/apps/jetbrains.nix
@@ -180,8 +180,10 @@
           modules = modules-common ++ [
             # System modules
             ./machines/fuji.nix
-            # ./modules/apps/emulation.nix
-            # ./modules/apps/games.nix
+            ./modules/apps/emulation.nix
+            ./modules/apps/games.nix
+            ./modules/hardware/amdgpu.nix
+            ./modules/hardware/asus.nix
             ./modules/hardware/ssd.nix
             ./modules/services/clam.nix
 
