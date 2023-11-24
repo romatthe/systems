@@ -17,6 +17,7 @@
     # Apps
     authy
     bitwarden
+    bitwarden-cli
     filezilla
     gimp
     imhex
