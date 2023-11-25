@@ -50,7 +50,7 @@
       modules-common = [
         # Cache configuration
         ./cache.nix
-	# Modules configuration
+	    # Modules configuration
         ./modules/apps/emacs.nix
         ./modules/common/console.nix
         ./modules/common/nix.nix
