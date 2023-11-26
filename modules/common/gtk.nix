@@ -15,11 +15,6 @@
       switch-windows-backward = [ "<Shift><Alt>Tab" ];
     };
 
-    # # Extend the screen with virtual desktops via RDP screen sharing
-    # "org/gnome/desktop/remote-desktop/rdp" = {
-    #   screen-share-mode = "extend";
-    # };
-
     # Disable the touchpad whenever an external mouse gets connected
     "org/gnome/desktop/peripherals/touchpad" = {
       send-events = "disabled-on-external-mouse";
@@ -28,8 +23,6 @@
   
   gtk = {
     enable = true;
-    # Let's disable the GTK Nord-theme for now.
-    # theme.package = pkgs.nordic;
     theme.name = "Adwaita-dark";
   };
   
