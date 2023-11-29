@@ -67,7 +67,7 @@
 
       # Common home modules
       modules-common-home = [
-        #./modules/apps/chat.nix
+        ./modules/apps/chat.nix
         ./modules/apps/common.nix
         ./modules/apps/firefox.nix
         ./modules/apps/jetbrains.nix
