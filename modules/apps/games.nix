@@ -46,6 +46,9 @@ in {
   programs.steam = {
     enable = true;
     # package = pkgs.unstable.steam;
+    package = pkgs.steam.override {
+      extraPkgs = pkgs: [ pkgs.ncurses6 ]; # Fix for native version of CKIII
+    };
     # extraCompatPackages = with pkgs; [
       # luxtorpeda
     # ];
