@@ -151,7 +151,9 @@ in {
     })
 
     # GPU monitoring and control
+    amdgpu_top
     corectrl
+    unstable.lact
     nvtop
     psensor
     radeon-profile
