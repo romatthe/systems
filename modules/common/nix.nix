@@ -10,11 +10,9 @@
     keep-derivations = true
     keep-outputs = true
   '';
+
   nix.settings.allowed-users = [ "@wheel" ];
   nix.settings.trusted-users = [ "root" "@wheel" ];
-
-  # Forgive me Stallman
-  nixpkgs.config = { allowUnfree = true; };
 
   # Auto garbage collect generations older than 10 days
   nix.gc.automatic = true;

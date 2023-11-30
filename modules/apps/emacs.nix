@@ -107,7 +107,7 @@ in {
     gnutls              # for TLS connectivity
     fd                  # faster projectile indexing
     imagemagick         # for image-dired
-    pinentry_emacs      # in-emacs gnupg prompts
+    pinentry-emacs      # in-emacs gnupg prompts
     zstd                # for undo-fu-session/undo-tree compression
 
     # Spell Checker

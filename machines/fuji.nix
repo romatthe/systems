@@ -5,9 +5,6 @@
     ./fuji-hardware.nix
   ];
 
-  # Forgive me Stallman
-  nixpkgs.config = {  allowUnfree = true; };
-
   # Get the latest stable kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
