@@ -1,5 +1,11 @@
 { nixpkgs, pkgs, ... }:
 let 
+  amdgpu_top = pkgs.amdgpu_top.overrideAttrs (old: {
+    postInstall = old.postInstall + ''
+      substituteInPlace $out/share/applications/amdgpu_top.desktop \
+        --replace "Name=AMDGPU TOP (GUI)" "Name=AMDGPU TOP"
+    '';
+  });
   heroic = pkgs.unstable.heroic.overrideAttrs (old: {
     buildCommand = old.buildCommand + ''
       rm $out/share/applications $out/share/icons
