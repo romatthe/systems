@@ -161,8 +161,5 @@ in {
     corectrl
     unstable.lact
     nvtop
-    psensor
-    radeon-profile
-    radeontop
   ];
 }
