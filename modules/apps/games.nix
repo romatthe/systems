@@ -1,5 +1,5 @@
 { nixpkgs, pkgs, ... }:
-let 
+let
   amdgpu_top = pkgs.amdgpu_top.overrideAttrs (old: {
     postInstall = old.postInstall + ''
       substituteInPlace $out/share/applications/amdgpu_top.desktop \
@@ -15,10 +15,20 @@ let
       cp "${pkgs.heroic-unwrapped}/share/${old.pname}/flatpak/com.heroicgameslauncher.hgl.png" "$out/share/icons/hicolor/128x128/apps"
     '';
   });
-  steamtinkerlaunch = pkgs.steamtinkerlaunch.overrideAttrs (attrs: {
-    version = pkgs.steamtinkerlaunch.version + "-patched";
+  starsector = pkgs.unstable.starsector.overrideAttrs (old: {
+    postInstall = old.postInstall + ''
+      # Delete the symlink
+      rm $out/share/icons/hicolor/64x64/apps/starsector.png
+
+      # Copy the actual PNG
+      cp $out/graphics/ui/s_icon64.png \ 
+        $out/share/icons/hicolor/64x64/apps/starsector.png $out/graphics/ui/s_icon64.png
+    '';
+  });
+  steamtinkerlaunch = pkgs.steamtinkerlaunch.overrideAttrs (old: {
+    version = old.version + "-patched";
     # Prepare the proper files for the steam compatibility toolchain
-    postInstall = pkgs.steamtinkerlaunch.postInstall + ''
+    postInstall = old.postInstall + ''
       mkdir -p $out/share/Steam/compatibilitytools.d/SteamTinkerLaunch
       ln -s $out/bin/steamtinkerlaunch $out/share/Steam/compatibilitytools.d/SteamTinkerLaunch/steamtinkerlaunch
 
@@ -159,7 +169,7 @@ in {
     # GPU monitoring and control
     amdgpu_top
     corectrl
-    unstable.lact
+    lact
     nvtop
   ];
 }
