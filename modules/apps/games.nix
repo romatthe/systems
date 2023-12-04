@@ -90,6 +90,7 @@ in {
     #luxtorpeda
 
     # Commercial games
+    unstable.minecraft # Prism Launcher doesn't work at the moment so we're back on the classic launcher
     unstable.starsector
     unstable.vintagestory
 
