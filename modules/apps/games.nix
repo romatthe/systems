@@ -143,7 +143,6 @@ in {
     # Tools
     fluidsynth  # For games requiring MIDI playback
     glxinfo
-    handbrake   # For gameplay videos
     gamemode
     gamescope
     libstrangle # Linux OpenGL/Vulkan frame limiter
@@ -159,13 +158,16 @@ in {
     vulkan-tools
     winetricks
 
-    # OBS plus plugins
+    # Gameplay recording
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
         obs-gstreamer
         obs-vkcapture
       ];
     })
+    gpu-screen-recorder
+    gpu-screen-recorder-gtk
+    handbrake
 
     # GPU monitoring and control
     amdgpu_top
