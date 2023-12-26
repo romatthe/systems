@@ -7,7 +7,7 @@
 python3.pkgs.buildPythonApplication rec {
   pname = "steam-metadata-editor";
   version = "2023-09-14";
-  pyproject = false;
+  pyproject = true;
 
   src = fetchFromGitHub {
     owner = "tralph3";
