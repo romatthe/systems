@@ -25,6 +25,7 @@
     # RetroArch
     (retroarch.override {
       cores = [
+        libretro.beetle-pcfx
         libretro.beetle-psx
         libretro.beetle-psx-hw
         libretro.beetle-saturn
