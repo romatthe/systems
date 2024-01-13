@@ -48,4 +48,10 @@
       ];
     })
   ];
+
+  # For dealing with ISOs
+  programs.cdemu = {
+    enable = true;
+    gui = true;
+  };
 }
