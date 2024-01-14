@@ -1,5 +1,11 @@
 { nixpkgs, pkgs, ... }:
 {
+  # For dealing with ISOs
+  programs.cdemu = {
+    enable = true;
+    gui = true;
+  };
+
   # Note: most cutting edge emulators almost never get their versions backported to stable
   environment.systemPackages = with pkgs.unstable; [
     # Standalone emulators
@@ -22,6 +28,10 @@
     pcem
     # TODO: Package DBGL?
 
+    # Tools
+    mame.tools  # Primarily for chdman
+    ps3-disc-dumper
+    
     # RetroArch
     (retroarch.override {
       cores = [
@@ -48,10 +58,4 @@
       ];
     })
   ];
-
-  # For dealing with ISOs
-  programs.cdemu = {
-    enable = true;
-    gui = true;
-  };
 }
