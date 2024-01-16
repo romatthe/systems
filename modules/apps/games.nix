@@ -146,6 +146,7 @@ in {
     gamemode
     gamescope
     libstrangle # Linux OpenGL/Vulkan frame limiter
+    
     mangohud
     opentrack
     protonup
