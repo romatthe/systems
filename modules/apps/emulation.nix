@@ -58,6 +58,7 @@ in {
 
     # Tools
     mame.tools  # Primarily for chdman
-    ps3-disc-dumper   
+    ps3-disc-dumper
+    xdvdfs-cli
   ];
 }

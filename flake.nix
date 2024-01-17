@@ -43,6 +43,7 @@
             samrewritten = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/samrewritten { };
             steam-metadata-editor = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/steam-metadata-editor { };
             wlogoutbar = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/wlogoutbar { };
+            xdvdfs-cli = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/xdvdfs-cli { };
           })
         ];
       };
