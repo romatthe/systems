@@ -2,19 +2,19 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "xdvdfs-cli";
-  version = "0.6.0";
+  version = "0.6.0-dev";
 
   src = fetchFromGitHub {
     owner = "antangelo";
     repo = "xdvdfs";
-    rev = "v${version}";
-    hash = "sha256-Q88vdzAWbJz0+Glsc4YU/x76zeoWc8jqEkwV89Mt4ks=";
+    rev = "6f9f581668ddbfe5d4df2810fdb33c8678ce9ac7";
+    hash = "sha256-+lpqo/n2pD2yQ+jeyWwUJ9lOT1s2Sj9EpnGLRd33WTQ=";
   };
 
   # sourceRoot = "${src.name}/xdvdfs-cli";
 
   cargoPatches = [ ./cargo-lock.patch ];
-  cargoHash = "sha256-ANVF+a22TJtXRKse1COWjm3g9RRi2/egU0iBJGoBvcc=";
+  cargoHash = "sha256-687cUtSwvrkbqjgD7qfQsLcvUg64/gIZSdyZ9F1sbRM=";
   buildAndTestSubdir = "xdvdfs-cli";
 
   meta = with lib; {
