@@ -57,6 +57,7 @@ in {
     retroarch
 
     # Tools
+    fusee-interfacee-tk
     mame.tools  # Primarily for chdman
     ps3-disc-dumper
     xdvdfs-cli
