@@ -57,9 +57,10 @@ in {
     retroarch
 
     # Tools
-    fusee-interfacee-tk
-    mame.tools  # Primarily for chdman
-    ps3-disc-dumper
-    xdvdfs-cli
+    fusee-interfacee-tk   # For sending RCM payloads to Switch
+    hactool               # For verifying Switch cart dumps 
+    mame.tools            # Primarily for chdman
+    ps3-disc-dumper       # For dumping PS3 blu-rays
+    xdvdfs-cli            # For dealing with OG Xbox ISOs
   ];
 }
