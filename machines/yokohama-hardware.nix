@@ -27,6 +27,12 @@
       options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
+  fileSystems."/mnt/block/vol" =
+    { device = "/dev/disk/by-uuid/eedf2315-06d7-4aab-8b41-745b1af7eaa6";
+      fsType = "btrfs";
+      options = [ "compress=zstd" "noatime" ];
+    };
+
  fileSystems."/boot/efi" =
     { device = "/dev/disk/by-uuid/FC86-D307";
       fsType = "vfat";
