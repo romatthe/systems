@@ -37,13 +37,29 @@
         "type": "github"
       }
     },
+    "nixpkgs-pcsx2-staging": {
+      "locked": {
+        "lastModified": 1705943089,
+        "narHash": "sha256-Bfi2Z59nXLURCL2hwSe9wCYGB0+WoUIadeOnSUlyQfA=",
+        "owner": "SuperSamus",
+        "repo": "nixpkgs",
+        "rev": "39d635b40b758cc22736e08907fcca59b54e2341",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SuperSamus",
+        "ref": "pcsx2-update",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1705883077,
-        "narHash": "sha256-ByzHHX3KxpU1+V0erFy8jpujTufimh6KaS/Iv3AciHk=",
+        "lastModified": 1705975988,
+        "narHash": "sha256-HJS/ilLkwLaFe+kPciiVuEwa90p7d7Y2FUZXuq7ztVk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5f5210aa20e343b7e35f40c033000db0ef80d7b9",
+        "rev": "4d3d04cfd372a0511f12b885c9822e406b00fe8e",
         "type": "github"
       },
       "original": {
@@ -55,11 +71,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1706042735,
-        "narHash": "sha256-phb+YYGT71tuExJE8w2tVpzvZgOtxmkg4RK/fiLALyA=",
+        "lastModified": 1706125491,
+        "narHash": "sha256-AB5mUPy6uFLxMHfTpS/mhb0hh9mR+BJShCOsb8SHc6k=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "d90d3e49f27dacc9238a7a37e5e27be6719867a7",
+        "rev": "80e227350a70f5cdd451290d0339eb175b454ed3",
         "type": "github"
       },
       "original": {
@@ -72,6 +88,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-pcsx2-staging": "nixpkgs-pcsx2-staging",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur"
       }

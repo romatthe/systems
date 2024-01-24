@@ -6,6 +6,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-pcsx2-staging.url = "github:SuperSamus/nixpkgs/pcsx2-update";
     nur.url = "github:nix-community/NUR";
   };
 

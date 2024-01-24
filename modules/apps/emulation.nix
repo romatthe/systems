@@ -40,7 +40,8 @@ in {
     unstable.dolphin-emu-primehack
     unstable.fsuae
     unstable.fsuae-launcher
-    unstable.pcsx2
+    # unstable.pcsx2
+    pcsx2-staging.pcsx2
     unstable.ppsspp
     unstable.rpcs3
     unstable.ryujinx
