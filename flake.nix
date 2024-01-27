@@ -24,27 +24,23 @@
         overlays = [
           # Community packages
           inputs.nur.overlay
-          # Unstable nixpkgs
+          # Personal packages
+          (import ./pkgs/overlay.nix)
           (final: prev: {
+            # Unstable nixpkgs
             unstable = import inputs.nixpkgs-unstable {
               system = final.system;
               config = {
                 allowUnfree = true;
               };
             };
+            # Temporary fix for PCSX2
             pcsx2-staging = import inputs.nixpkgs-pcsx2-staging {
               system = final.system;
               config = {
                 allowUnfree = true;
               };
             };
-            luxtorpeda = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/luxtorpeda { };
-            nuvie = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/nuvie { };
-            ps3-disc-dumper = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/ps3-disc-dumper { };
-            samrewritten = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/samrewritten { };
-            steam-metadata-editor = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/steam-metadata-editor { };
-            wlogoutbar = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/wlogoutbar { };
-            xdvdfs-cli = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/xdvdfs-cli { };
           })
         ];
       };
