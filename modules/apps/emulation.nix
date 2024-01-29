@@ -62,6 +62,7 @@ in {
     hactool               # For verifying Switch cart dumps 
     mame.tools            # Primarily for chdman
     ps3-disc-dumper       # For dumping PS3 blu-rays
+    redumper              # All purpose disc-dumping tool
     xdvdfs-cli            # For dealing with OG Xbox ISOs
   ];
 }
