@@ -34,13 +34,6 @@
                 allowUnfree = true;
               };
             };
-            # Temporary fix for PCSX2
-            pcsx2-staging = import inputs.nixpkgs-pcsx2-staging {
-              system = final.system;
-              config = {
-                allowUnfree = true;
-              };
-            };
           })
         ];
       };
