@@ -57,6 +57,7 @@ in {
     retroarch
 
     # Tools
+    binaryobjectscanner
     fusee-interfacee-tk   # For sending RCM payloads to Switch
     hactool               # For verifying Switch cart dumps 
     mame.tools            # Primarily for chdman
