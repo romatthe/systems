@@ -2,6 +2,8 @@
 , buildDotnetModule
 , dotnetCorePackages
 , fetchFromGitHub
+, openssl
+, zlib
 }:
 
 buildDotnetModule rec {
@@ -16,24 +18,37 @@ buildDotnetModule rec {
     fetchSubmodules = true;
   };
 
-  projectFile = "BinaryObjectScanner.sln";
+  selfContainedBuild = true;
+
+  projectFile = "Test/Test.csproj";
   nugetDeps = ./deps.nix;
-  runtimeId = "linux-x64";
 
   dotnet-sdk = dotnetCorePackages.sdk_8_0;
-  dotnet-runtime = dotnetCorePackages.runtime_8_0;
 
   dotnetBuildFlags = [ "--framework net8.0" ];
   dotnetInstallFlags = [ "--framework net8.0" ];
-  # projectFile = "BinaryObjectScanner/BinaryObjectScanner.csproj";
-  # executables = "BinaryObjectScanner";
+
+  runtimeDeps = [
+    openssl
+    zlib
+  ];
+
+  postPatch = ''
+    # Give the output binary a decent name
+    sed -i "/<\/TreatWarningsAsErrors>/a <AssemblyName>binobjscanner</AssemblyName>" Test/Test.csproj
+
+    # Change the binary name in the help output
+    substituteInPlace Test/Options.cs \
+        --replace 'Console.WriteLine("test.exe' 'Console.WriteLine("binobjscanner'
+
+    # Delete the lines that cause the CLI to pause on completion
+    sed -i '26d;27d;61d;62d' Test/Program.cs
+  '';
 
   meta = {
     description = "C# protection, packer, and archive scanning library";
     homepage = "https://github.com/SabreTools/BinaryObjectScanner";
     license = lib.licenses.mit;
-    # maintainers = with lib.maintainers; [ whovian9369 ];
-    mainProgram = "Test";
     platforms = lib.platforms.all;
   };
 }
