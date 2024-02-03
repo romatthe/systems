@@ -2,7 +2,6 @@
 , buildDotnetModule
 , dotnetCorePackages
 , fetchFromGitHub
-, fetchgit
 }:
 
 buildDotnetModule rec {
@@ -13,9 +12,12 @@ buildDotnetModule rec {
     owner = "aaru-dps";
     repo = "Aaru";
     rev = "v${version}";
-    hash = "sha256-2lEeZI+UyEUf5JOpfaZGaNwdrjhWr4PgAtCw9lpYcfk=";
+    hash = "sha256-UOuCls9HHKSNGKCF0v6wMuZWV1XfbPHJrxv+1ZTMyY4=";
     leaveDotGit = true;
+    fetchSubmodules = true;
     postFetch = ''
+      # We're cloning the .git directory so we can create a dump of the short commit hash,
+      # but we want to remove the directory right afterwards for nix hashing consistency.
       cd "$out"
       git rev-parse --short=8 HEAD > $out/COMMIT
       find "$out" -name .git -print0 | xargs -0 rm -rf
@@ -42,10 +44,10 @@ buildDotnetModule rec {
       "$(cat COMMIT)"
   '';
 
-  meta = {
+  meta = with lib; {
     homepage = "https://aaru.app";
     description = "Fully featured media dump management solution";
-    license = [ lib.licenses.gpl3Only ];
+    license = [ licenses.gpl3Only ];
     mainProgram = "aaru";
   };
 }

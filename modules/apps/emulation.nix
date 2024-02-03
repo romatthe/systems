@@ -57,11 +57,12 @@ in {
     retroarch
 
     # Tools
+    aaru
     binaryobjectscanner
     fusee-interfacee-tk   # For sending RCM payloads to Switch
     hactool               # For verifying Switch cart dumps 
     mame.tools            # Primarily for chdman
-    mpf-check
+    mpf-check             # Helper tool for creating preservation submissions
     ps3-disc-dumper       # For dumping PS3 blu-rays
     redumper              # All purpose disc-dumping tool
     xdvdfs-cli            # For dealing with OG Xbox ISOs
