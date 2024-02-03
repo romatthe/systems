@@ -2,6 +2,8 @@
 , buildDotnetModule
 , dotnetCorePackages
 , fetchFromGitHub
+, openssl
+, zlib
 }:
 
 buildDotnetModule rec {
@@ -24,6 +26,11 @@ buildDotnetModule rec {
   dotnetBuildFlags = [ "--framework net8.0" ];
   dotnetInstallFlags = [ "--framework net8.0" ];
 
+  runtimeDeps = [
+    openssl
+    zlib
+  ];
+
   postPatch = ''
     sed -i "/<\/VersionPrefix>/a <AssemblyName>mpf-check</AssemblyName>" MPF.Check/MPF.Check.csproj
   '';
@@ -33,7 +40,5 @@ buildDotnetModule rec {
     description = "A CLI program that allows users to generate Redump submission information from their personal rips.";
     longDescription = "A CLI program that allows users to generate submission information from their personal Redumper, Aaru, DiscImageCreator, Cleanrip, and UmdImageCreator rips.";
     license = [ lib.licenses.gpl3Only ];
-    # mainProgram = "MPF.Check";
-    # maintainers = [ lib.maintainers.whovian9369 ];
   };
 }
