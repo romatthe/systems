@@ -1,5 +1,8 @@
 {
   virtualisation = {
+    libvirtd.enable = true;
+    
+    # Podman
     podman = {
       enable = true;
       dockerCompat = true;
@@ -7,4 +10,6 @@
     };
     oci-containers.backend = "podman";
   };
+  
+  programs.virt-manager.enable = true;
 }
