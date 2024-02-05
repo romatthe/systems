@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   virtualisation = {
     libvirtd.enable = true;
@@ -11,5 +12,11 @@
     oci-containers.backend = "podman";
   };
   
+  # Mostly to run Windows in case it's absolutely necessary
   programs.virt-manager.enable = true;
+
+  # Speaking of which...
+  environment.systemPackages = with pkgs; [
+    wine-staging
+  ];
 }
