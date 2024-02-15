@@ -34,7 +34,7 @@ in {
   # Note: most cutting edge emulators almost never get their versions backported to stable
   environment.systemPackages = with pkgs; [
     # Standalone emulators
-    # unstable.cemu
+    unstable.cemu
     unstable.citra-nightly
     unstable.dolphin-emu
     unstable.dolphin-emu-primehack
