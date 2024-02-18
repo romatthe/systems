@@ -37,19 +37,19 @@
         "type": "github"
       }
     },
-    "nixpkgs-pcsx2-staging": {
+    "nixpkgs-cemu-staging": {
       "locked": {
-        "lastModified": 1706537083,
-        "narHash": "sha256-KQEQ0OhrifuvYjxRFXaWROVH9j1uS3hPAE6/JOu9CX0=",
-        "owner": "SuperSamus",
+        "lastModified": 1705944320,
+        "narHash": "sha256-Uh7zzGZHWqFIVGp2u7pXRDQoCwZQRWWl+c/P1M1vS0M=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6b52a8fd3ba10436cda663882e6939b72ea5dd31",
+        "rev": "02d7f3b56c570ad5651a377f387bbf699e08c7d4",
         "type": "github"
       },
       "original": {
-        "owner": "SuperSamus",
-        "ref": "pcsx2-update",
+        "owner": "NixOS",
         "repo": "nixpkgs",
+        "rev": "02d7f3b56c570ad5651a377f387bbf699e08c7d4",
         "type": "github"
       }
     },
@@ -88,7 +88,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-pcsx2-staging": "nixpkgs-pcsx2-staging",
+        "nixpkgs-cemu-staging": "nixpkgs-cemu-staging",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur"
       }
