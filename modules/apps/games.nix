@@ -172,6 +172,7 @@ in {
     # GPU monitoring and control
     amdgpu_top
     corectrl
+    glances
     lact
     nvtop
   ];
