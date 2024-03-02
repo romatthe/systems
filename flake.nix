@@ -4,9 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-cemu-staging.url = "github:qubitnano/nixpkgs/origin-cemu-imgui";
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs-cemu-staging.url = "github:NixOS/nixpkgs/02d7f3b56c570ad5651a377f387bbf699e08c7d4";
     nur.url = "github:nix-community/NUR";
   };
 
