@@ -85,7 +85,6 @@ in {
     prismlauncher
 
     # Steam    
-    # steam
     steamtinkerlaunch # Patched to better work with the Steam compat tools
     #luxtorpeda
 
@@ -109,6 +108,7 @@ in {
     rbdoom-3-bfg
     runelite    # Runescape client
     scummvm
+    unstable.shipwright  # Oracina of Time reverse engineered
     uqm         # The Ur-Quan Masters
     vcmi        # Heroes of Might and Magic III engine
     vkquake
