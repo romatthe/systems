@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-cemu-staging.url = "github:qubitnano/nixpkgs/origin-cemu-imgui";
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
@@ -29,12 +28,6 @@
           (final: prev: {
             # Unstable nixpkgs
             unstable = import inputs.nixpkgs-unstable {
-              system = final.system;
-              config = {
-                allowUnfree = true;
-              };
-            };
-            cemu-staging = import inputs.nixpkgs-cemu-staging {
               system = final.system;
               config = {
                 allowUnfree = true;
