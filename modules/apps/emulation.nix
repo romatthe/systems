@@ -34,8 +34,8 @@ in {
   # Note: most cutting edge emulators almost never get their versions backported to stable
   environment.systemPackages = with pkgs; [
     # Standalone emulators
-    unstable.cemu # CEMU has been broken for almost two months now on unstable
-    unstable.citra-nightly
+    unstable.cemu
+    # unstable.citra-nightly
     unstable.dolphin-emu
     unstable.dolphin-emu-primehack
     unstable.fsuae
@@ -45,7 +45,7 @@ in {
     unstable.rpcs3
     unstable.ryujinx
     unstable.xemu
-    unstable.yuzu-mainline # TODO: Two versions of Yuzu cannot be installed at the same time
+    # unstable.yuzu-mainline # TODO: Two versions of Yuzu cannot be installed at the same time
 
     # DOS/x86 emulation
     unstable._86Box
