@@ -150,7 +150,7 @@ in {
     mangohud
     opentrack
     protonup
-    protontricks
+    unstable.protontricks
     samrewritten
     steam-metadata-editor
     vkbasalt
