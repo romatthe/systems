@@ -61,9 +61,16 @@ let
 in {
   programs.steam = {
     enable = true;
-    # package = pkgs.unstable.steam;
     package = pkgs.steam.override {
-      extraPkgs = pkgs: [ pkgs.ncurses6 ]; # Fix for native version of CKIII
+      extraPkgs = pkgs: with pkgs; [ 
+        # Fix for native version of CKIII
+        ncurses6 
+
+        # Potential fix for runnings games within Gamescope from inside Steam
+        # See: https://github.com/NixOS/nixpkgs/issues/162562#issuecomment-1523177264
+        libkrb5
+        keyutils
+      ]; 
     };
     # extraCompatPackages = with pkgs; [
       # luxtorpeda
