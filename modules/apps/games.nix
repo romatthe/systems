@@ -25,6 +25,12 @@ let
         $out/share/icons/hicolor/64x64/apps/starsector.png $out/graphics/ui/s_icon64.png
     '';
   });
+  steam-original' = pkgs.steamPackages.steam.overrideAttrs (old: {
+    postInstall = old.postInstall + ''  
+      substituteInPlace $out/share/applications/steam.desktop \
+        --replace "Exec=steam %U" "Exec=sh -c '${pkgs.steam-metadata-editor}/bin/steam-metadata-editor --silent; steam %U'"
+    '';
+  });
   steamtinkerlaunch = pkgs.steamtinkerlaunch.overrideAttrs (old: {
     version = old.version + "-patched";
     # Prepare the proper files for the steam compatibility toolchain
@@ -62,16 +68,17 @@ in {
   programs.steam = {
     enable = true;
     package = pkgs.steam.override {
-      extraPkgs = pkgs: with pkgs; [ 
-        # Fix for native version of CKIII
-        ncurses6 
-
+      steam = steam-original'; # Steam with desktop instructions to launch Steam-Metadata-Editor first
+      extraPkgs = pkgs: [ 
+         # Fix for native version of CKIII
+        pkgs.ncurses6
+        
         # Potential fix for runnings games within Gamescope from inside Steam
         # See: https://github.com/NixOS/nixpkgs/issues/162562#issuecomment-1523177264
         libkrb5
-        keyutils
-      ]; 
-    };
+        keyutils 
+      ];
+    }; 
     # extraCompatPackages = with pkgs; [
       # luxtorpeda
     # ];
