@@ -69,9 +69,9 @@ in {
     enable = true;
     package = pkgs.steam.override {
       steam = steam-original'; # Steam with desktop instructions to launch Steam-Metadata-Editor first
-      extraPkgs = pkgs: [ 
+      extraPkgs = pkgs: with pkgs; [ 
          # Fix for native version of CKIII
-        pkgs.ncurses6
+        ncurses6
         
         # Potential fix for runnings games within Gamescope from inside Steam
         # See: https://github.com/NixOS/nixpkgs/issues/162562#issuecomment-1523177264
