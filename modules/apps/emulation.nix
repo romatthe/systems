@@ -25,11 +25,12 @@ let
     ];
   };
 in {
+  # TODO: Disabled due to issues with the VHBA kernel module on `23.11` :(
   # For dealing with ISOs
-  programs.cdemu = {
-    enable = true;
-    gui = true;
-  };
+  # programs.cdemu = {
+  #   enable = true;
+  #   gui = true;
+  # };
 
   # Note: most cutting edge emulators almost never get their versions backported to stable
   environment.systemPackages = with pkgs; [
@@ -42,7 +43,7 @@ in {
     unstable.fsuae-launcher
     unstable.pcsx2
     unstable.ppsspp
-    unstable.rpcs3
+    # unstable.rpcs3 #TODO: Broken on unstable, hopefully fixed soon.
     unstable.ryujinx
     unstable.xemu
     # unstable.yuzu-mainline # TODO: Two versions of Yuzu cannot be installed at the same time
