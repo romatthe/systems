@@ -164,14 +164,15 @@ in {
     mangohud
     opentrack
     protonup
-    unstable.protontricks
     samrewritten
     steam-metadata-editor
     vkbasalt
     vkbasalt-cli
     vulkan-tools
-    winetricks
 
+    unstable.protontricks
+    unstable.winetricks
+    
     # Gameplay recording
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
