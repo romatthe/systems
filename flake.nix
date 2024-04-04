@@ -16,9 +16,6 @@
         config = {
           # Forgive me Stallman
           allowUnfree = true;
-          permittedInsecurePackages = [
-            "electron-9.4.4"
-          ];
         };
         overlays = [
           # Community packages
