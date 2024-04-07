@@ -43,7 +43,7 @@ in {
     unstable.fsuae-launcher
     unstable.pcsx2
     unstable.ppsspp
-    # unstable.rpcs3 #TODO: Broken on unstable, hopefully fixed soon.
+    unstable.rpcs3
     unstable.ryujinx
     unstable.xemu
     # unstable.yuzu-mainline # TODO: Two versions of Yuzu cannot be installed at the same time
