@@ -32,13 +32,12 @@ let
     '';
   });
   steamtinkerlaunch = pkgs.steamtinkerlaunch.overrideAttrs (old: {
-    version = old.version + "-patched";
     # Prepare the proper files for the steam compatibility toolchain
     postInstall = old.postInstall + ''
-      mkdir -p $out/share/Steam/compatibilitytools.d/SteamTinkerLaunch
-      ln -s $out/bin/steamtinkerlaunch $out/share/Steam/compatibilitytools.d/SteamTinkerLaunch/steamtinkerlaunch
+      mkdir -p $out/share/Steam/compatibilitytools.d/steamtinkerlaunch
+      ln -s $out/bin/steamtinkerlaunch $out/share/Steam/compatibilitytools.d/steamtinkerlaunch/steamtinkerlaunch
 
-      cat > $out/share/Steam/compatibilitytools.d/SteamTinkerLaunch/compatibilitytool.vdf << EOF
+      cat > $out/share/Steam/compatibilitytools.d/steamtinkerlaunch/compatibilitytool.vdf << EOF
       "compatibilitytools"
       {
         "compat_tools"
@@ -55,7 +54,7 @@ let
       }
       EOF
 
-      cat > $out/share/Steam/compatibilitytools.d/SteamTinkerLaunch/toolmanifest.vdf << EOF
+      cat > $out/share/Steam/compatibilitytools.d/steamtinkerlaunch/toolmanifest.vdf << EOF
       "manifest"
       {
         "commandline" "/steamtinkerlaunch run"
@@ -87,7 +86,7 @@ in {
   # Make the latest version of steamtinkerlauncher available in Steam by adding it to
   # compat tools env variable
   environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/SteamTinkerLaunch";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch:${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda";
   };
 
   environment.systemPackages = with pkgs; [
@@ -100,7 +99,7 @@ in {
 
     # Steam    
     steamtinkerlaunch # Patched to better work with the Steam compat tools
-    #luxtorpeda
+    luxtorpeda
 
     # Commercial games
     unstable.minecraft # Prism Launcher doesn't work at the moment so we're back on the classic launcher
