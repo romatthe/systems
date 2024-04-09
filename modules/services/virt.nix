@@ -18,5 +18,6 @@
   # Speaking of which...
   environment.systemPackages = with pkgs; [
     wine-staging
+    unstable.seabird
   ];
 }
