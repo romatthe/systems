@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     description = "Steam Play compatibility tool to run games using native Linux engines";
     homepage = "https://github.com/luxtorpeda-dev/luxtorpeda";
-    changelog = "https://github.com/luxtorpeda-dev/luxtorpeda/releases/tag/v${luxtorpedaVersion.version}";
+    changelog = "https://github.com/luxtorpeda-dev/luxtorpeda/releases/tag/v${version}";
     license = licenses.gpl2Plus;
     platforms = [ "x86_64-linux" ];
     maintainers = with maintainers; [ romatthe ];
