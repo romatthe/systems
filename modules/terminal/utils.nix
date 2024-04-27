@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     chafa
     killall
+    libgen-cli
     neofetch
     p7zip
     pandoc
