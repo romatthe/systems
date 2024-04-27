@@ -11,8 +11,8 @@ let
       rm $out/share/applications $out/share/icons
       mkdir -p $out/share/applications $out/share/icons/hicolor/128x128/apps
 
-      cp "${pkgs.heroic-unwrapped}/share/${old.pname}/flatpak/com.heroicgameslauncher.hgl.desktop" "$out/share/applications"
-      cp "${pkgs.heroic-unwrapped}/share/${old.pname}/flatpak/com.heroicgameslauncher.hgl.png" "$out/share/icons/hicolor/128x128/apps"
+      cp "${pkgs.heroic-unwrapped}/share/${old.name}/flatpak/com.heroicgameslauncher.hgl.desktop" "$out/share/applications"
+      cp "${pkgs.heroic-unwrapped}/share/${old.name}/flatpak/com.heroicgameslauncher.hgl.png" "$out/share/icons/hicolor/128x128/apps"
     '';
   });
   starsector = pkgs.unstable.starsector.overrideAttrs (old: {
