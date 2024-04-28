@@ -25,12 +25,11 @@ let
     ];
   };
 in {
-  # TODO: Disabled due to issues with the VHBA kernel module on `23.11` :(
   # For dealing with ISOs
-  # programs.cdemu = {
-  #   enable = true;
-  #   gui = true;
-  # };
+  programs.cdemu = {
+    enable = true;
+    gui = true;
+  };
 
   # Note: most cutting edge emulators almost never get their versions backported to stable
   environment.systemPackages = with pkgs; [
