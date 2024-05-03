@@ -1,5 +1,6 @@
 final: prev: {
   aaru                  = prev.callPackage ./aaru { };
+  ambermoon-net         = prev.callPackage ./ambermoon-net { };
   binaryobjectscanner   = prev.callPackage ./binaryobjectscanner { };
   luxtorpeda            = prev.callPackage ./luxtorpeda { };
   mpf-check             = prev.callPackage ./mpf-check { };
