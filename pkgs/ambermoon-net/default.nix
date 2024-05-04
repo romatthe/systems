@@ -26,7 +26,9 @@ buildDotnetModule rec {
 
   dotnet-sdk = dotnetCorePackages.sdk_7_0;
   dotnet-runtime = dotnetCorePackages.runtime_7_0;
-  dotnetInstallFlags = ["--framework" "net7.0"];
+  dotnetInstallFlags = [ "--framework" "net7.0" ];
+
+  patches = [ ./no-readline.patch ];
 
   nativeBuildInputs = [
     copyDesktopItems
@@ -37,22 +39,22 @@ buildDotnetModule rec {
     glfw
   ];
 
-  desktopItem = makeDesktopItem {
-    name = "ambermoon-net";
-    desktopName = "Ambermoon.net";
-    exec = "ambermoon-net";
-    icon = "ambermoon-net";
-    comment = "Ambermoon.net";
-    genericName = "Open source re-implementation of the Amiga game Ambermoon.";
-    categories = "Game;2DGraphics;RolePlaying;";
-  };
+  desktopItems = [ 
+    (makeDesktopItem {
+      name = "ambermoon-net";
+      desktopName = "Ambermoon.net";
+      exec = "ambermoon-net";
+      icon = "ambermoon-net";
+      comment = "Ambermoon.net";
+      genericName = "Open source re-implementation of the classic Amiga game Ambermoon.";
+      categories = [ "Game" "RolePlaying" ];
+    })
+  ];
 
   postInstall = ''
-    # mkdir -p "$out/share/applications"
-
     for size in 16 24 32 48 64 128 256 ; do
       mkdir -p $out/share/icons/hicolor/"$size"x"$size"/apps
-      convert -resize "$size"x"$size" Ambermoon.net/Ambermoon.net/Resources/AppIcon.png \
+      convert -resize "$size"x"$size" Ambermoon.net/Resources/AppIcon.png \
         $out/share/icons/hicolor/"$size"x"$size"/apps/ambermoon-net.png
     done;
   '';
@@ -63,9 +65,10 @@ buildDotnetModule rec {
   '';
 
   meta = with lib; {
+    description = "Open source re-implementation of the classic Amiga game Ambermoon.";
     homepage = "https://github.com/pyrdacor/ambermoon.net";
-    description = "Open source re-implementation of the Amiga game Ambermoon.";
     license = [ licenses.gpl3Only ];
-    platforms = [ "x86_64-linux" ];
+    maintainers = with maintainers; [ romatthe ];
+    platforms = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" ];
   };
 }

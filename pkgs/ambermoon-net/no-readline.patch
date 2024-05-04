@@ -1,0 +1,14 @@
+diff --git a/Ambermoon.net/Program.cs b/Ambermoon.net/Program.cs
+index 2fdb11b7..6d2f802c 100644
+--- a/Ambermoon.net/Program.cs
++++ b/Ambermoon.net/Program.cs
+@@ -93,9 +93,6 @@ namespace Ambermoon
+             {
+                 // ignore
+             }
+-
+-            Console.WriteLine("Press return to exit");
+-            Console.ReadLine();
+         }
+ 
+         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
