@@ -1,8 +1,11 @@
 { lib
 , buildDotnetModule
 , dotnetCorePackages
+, copyDesktopItems
+, makeDesktopItem
 , fetchFromGitHub
 , glfw
+, imagemagick
 }:
 
 buildDotnetModule rec {
@@ -22,17 +25,47 @@ buildDotnetModule rec {
   nugetDeps = ./deps.nix;
 
   dotnet-sdk = dotnetCorePackages.sdk_7_0;
-  dotnet-runtime = dotnetCorePackages.runtime_8_0;
-  dotnetInstallFlags = ["-f" "net7.0"];
+  dotnet-runtime = dotnetCorePackages.runtime_7_0;
+  dotnetInstallFlags = ["--framework" "net7.0"];
+
+  nativeBuildInputs = [
+    copyDesktopItems
+    imagemagick
+  ];
 
   runtimeDeps = [
     glfw
   ];
 
+  desktopItem = makeDesktopItem {
+    name = "ambermoon-net";
+    desktopName = "Ambermoon.net";
+    exec = "ambermoon-net";
+    icon = "ambermoon-net";
+    comment = "Ambermoon.net";
+    genericName = "Open source re-implementation of the Amiga game Ambermoon.";
+    categories = "Game;2DGraphics;RolePlaying;";
+  };
+
+  postInstall = ''
+    # mkdir -p "$out/share/applications"
+
+    for size in 16 24 32 48 64 128 256 ; do
+      mkdir -p $out/share/icons/hicolor/"$size"x"$size"/apps
+      convert -resize "$size"x"$size" Ambermoon.net/Ambermoon.net/Resources/AppIcon.png \
+        $out/share/icons/hicolor/"$size"x"$size"/apps/ambermoon-net.png
+    done;
+  '';
+
+  postFixup = ''
+    mv $out/bin/Ambermoon.net $out/bin/ambermoon-net
+    mv $out/bin/AmbermoonPatcher $out/bin/ambermoon-patcher
+  '';
+
   meta = with lib; {
-    homepage = "https://github.com/13xforever/ps3-disc-dumper";
-    description = "A handy utility to make decrypted PS3 disc dumps";
-    license = licenses.mit;
+    homepage = "https://github.com/pyrdacor/ambermoon.net";
+    description = "Open source re-implementation of the Amiga game Ambermoon.";
+    license = [ licenses.gpl3Only ];
     platforms = [ "x86_64-linux" ];
   };
 }
