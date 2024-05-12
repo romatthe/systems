@@ -1,0 +1,44 @@
+diff --git a/src/mcu.cpp b/src/mcu.cpp
+index cd2f1e2..4e923b9 100644
+--- a/src/mcu.cpp
++++ b/src/mcu.cpp
+@@ -31,6 +31,7 @@
+  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  *  POSSIBILITY OF SUCH DAMAGE.
+  */
++#include <iostream>
+ #include <stdio.h>
+ #include <string.h>
+ #define SDL_MAIN_HANDLED
+@@ -1475,22 +1476,16 @@ int main(int argc, char *argv[])
+         }
+     }
+ 
+-#if __linux__
+-    char self_path[PATH_MAX];
+-    memset(&self_path[0], 0, PATH_MAX);
+-
+-    if(readlink("/proc/self/exe", self_path, PATH_MAX) == -1)
+-        basePath = Files::real_dirname(argv[0]);
+-    else
+-        basePath = Files::dirname(self_path);
+-#else
+-    basePath = Files::real_dirname(argv[0]);
+-#endif
+-
+-    printf("Base path is: %s\n", argv[0]);
++    std::string homedir;
++    if ((homedir = getenv("XDG_DATA_HOME")) != "") {
++        basePath = homedir + "/nuked-sc55";
++    } else if ((homedir = getenv("HOME")) != "") {
++        basePath = homedir + "/.local/share/nuked-sc55";
++    } else {
++        basePath = "";
++    }
+ 
+-    if(Files::dirExists(basePath + "/../share/nuked-sc55"))
+-        basePath += "/../share/nuked-sc55";
++    std::cout << "Base path is: " << basePath << std::endl;
+ 
+     if (autodetect)
+     {
