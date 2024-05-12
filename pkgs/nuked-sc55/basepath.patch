@@ -1,5 +1,5 @@
 diff --git a/src/mcu.cpp b/src/mcu.cpp
-index cd2f1e2..4e923b9 100644
+index cd2f1e2..c3c5df5 100644
 --- a/src/mcu.cpp
 +++ b/src/mcu.cpp
 @@ -31,6 +31,7 @@
@@ -42,3 +42,12 @@ index cd2f1e2..4e923b9 100644
  
      if (autodetect)
      {
+@@ -1591,7 +1586,7 @@ int main(int argc, char *argv[])
+         return 1;
+     }
+ 
+-    LCD_SetBackPath(basePath + "/back.data");
++    LCD_SetBackPath("@out@/share/nuked-sc55/back.data");
+ 
+     memset(&mcu, 0, sizeof(mcu_t));
+ 

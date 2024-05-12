@@ -34,4 +34,9 @@ stdenv.mkDerivation (finalAttrs: {
     alsa-lib
     SDL2
   ];
+
+  # Hardcode the $out path to the back.data file
+  postPatch = ''
+    sed -i 's|@out@|'"''${out}"'|g' src/mcu.cpp
+  '';
 })
