@@ -2,6 +2,7 @@ final: prev: {
   aaru                  = prev.callPackage ./aaru { };
   ambermoon-net         = prev.callPackage ./ambermoon-net { };
   binaryobjectscanner   = prev.callPackage ./binaryobjectscanner { };
+  dosbox-staging        = prev.callPackage ./dosbox-staging { };
   luxtorpeda            = prev.callPackage ./luxtorpeda { };
   mpf-check             = prev.callPackage ./mpf-check { };
   nuked-sc55            = prev.callPackage ./nuked-sc55 { };

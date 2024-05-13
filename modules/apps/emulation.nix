@@ -49,7 +49,8 @@ in {
 
     # DOS/x86 emulation
     unstable._86Box
-    unstable.dosbox-staging
+    # unstable.dosbox-staging
+    dosbox-staging
     unstable.pcem
     # TODO: Package DBGL?
     
