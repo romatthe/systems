@@ -106,6 +106,9 @@ in {
     unstable.starsector
     unstable.vintagestory
 
+    # Commercial dosbox games
+    dosbox-mmwox
+
     # Open source games and engines
     airshipper  # Veloren launcher
     ambermoon-net

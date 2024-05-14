@@ -3,6 +3,7 @@ final: prev: {
   ambermoon-net         = prev.callPackage ./ambermoon-net { };
   binaryobjectscanner   = prev.callPackage ./binaryobjectscanner { };
   dosbox-staging        = prev.callPackage ./dosbox-staging { };
+  dosbox-mmwox          = prev.callPackage ./dosbox-mmwox { };
   luxtorpeda            = prev.callPackage ./luxtorpeda { };
   mpf-check             = prev.callPackage ./mpf-check { };
   nuked-sc55            = prev.callPackage ./nuked-sc55 { };
