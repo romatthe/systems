@@ -51,6 +51,7 @@ in {
     unstable._86Box
     # unstable.dosbox-staging
     dosbox-staging
+    nuked-sc55 # Roland SC-55 emulation
     unstable.pcem
     # TODO: Package DBGL?
     
