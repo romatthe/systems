@@ -176,7 +176,7 @@ in {
     # Gameplay recording
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
-        obs-gstreamer
+        obs-vaapi
         obs-vkcapture
       ];
     })
