@@ -78,9 +78,6 @@ in {
         keyutils 
       ];
     }; 
-    # extraCompatPackages = with pkgs; [
-      # luxtorpeda
-    # ];
   };
 
   # Make the latest version of steamtinkerlauncher available in Steam by adding it to
@@ -118,7 +115,6 @@ in {
     gemrb       # Infinity Engine
     gzdoom
     iortcw
-    # nuvie       # Ultima VI engine
     openmw      # Morrowind engine 
     openttd
     openxcom    # X-Com engine
