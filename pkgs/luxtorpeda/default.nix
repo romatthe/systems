@@ -5,11 +5,11 @@
 
 stdenv.mkDerivation rec {
   name = "luxtorpeda";
-  version = "68.4.0";
+  version = "70.0.0";
 
   src = fetchzip {
     url = "https://github.com/luxtorpeda-dev/luxtorpeda/releases/download/v${version}/luxtorpeda-v${version}.tar.xz";
-    hash = "sha256-tc1mQ4/eMxqLC5I6gHpd0iFt6SyPpYhafhtJupEg4Ug=";
+    hash = "sha256-BU6Th4WsgbntajN3TYGNs/qTyEwvTuKKCWHuNThNAdw=";
   };
 
   phases = [ "unpackPhase" "installPhase" ];

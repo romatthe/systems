@@ -104,7 +104,7 @@ in {
     unstable.vintagestory
 
     # Commercial dosbox games
-    dosbox-mmwox
+    # dosbox-mmwox
 
     # Open source games and engines
     airshipper  # Veloren launcher
