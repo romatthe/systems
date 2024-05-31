@@ -36,7 +36,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Configure keymap in X11
-  services.xserver.layout = "us";
+  services.xserver.xkb.layout = "us";
 
   # Enable touchpad support
   services.xserver.libinput.enable = true;

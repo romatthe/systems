@@ -10,6 +10,7 @@
 , yajl
 }:
 
+# TODO: Make this work with default stdenv (GCC 13.2)
 stdenv.mkDerivation rec {
   pname = "SamRewritten";
   version = "2.1";

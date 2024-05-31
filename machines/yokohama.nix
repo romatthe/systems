@@ -44,7 +44,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Configure keymap in X11
-  services.xserver.layout = "us";
+  services.xserver.xkb.layout = "us";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.romatthe = {

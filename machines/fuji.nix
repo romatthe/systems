@@ -35,7 +35,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Enable the X11 windowing system.
-  services.xserver.layout = "us";
+  services.xserver.xkb.layout = "us";
 
   # Enable touchpad support
   services.xserver.libinput.enable = true;

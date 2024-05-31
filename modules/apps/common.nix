@@ -15,7 +15,6 @@
     usbutils
 
     # Apps
-    authy
     bitwarden
     bitwarden-cli
     filezilla

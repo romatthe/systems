@@ -9,7 +9,7 @@
       allow-loopback-pinentry
     '';
     # Might be necessary to set `services.dbus.packages = [ pkgs.gcr ]`
-    pinentryFlavor = "gnome3";
+    pinentryPackage = pkgs.pinentry-gnome3;
   };
   
   programs.gpg = {

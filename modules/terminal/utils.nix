@@ -20,7 +20,8 @@
     pciutils
 
     # Nix
-    nixfmt
+    nixfmt-classic
+    # nixfmt-rfc-style
     nixpkgs-fmt
     nixpkgs-review
     nix-index

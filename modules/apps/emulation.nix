@@ -34,7 +34,7 @@ in {
   # Note: most cutting edge emulators almost never get their versions backported to stable
   environment.systemPackages = with pkgs; [
     # Standalone emulators
-    unstable.cemu
+    # unstable.cemu # TODO: restore
     # unstable.citra-nightly
     unstable.dolphin-emu
     unstable.dolphin-emu-primehack
@@ -48,11 +48,10 @@ in {
     # unstable.yuzu-mainline # TODO: Two versions of Yuzu cannot be installed at the same time
 
     # DOS/x86 emulation
-    unstable._86Box
-    # unstable.dosbox-staging
+    _86Box
     dosbox-staging
     nuked-sc55 # Roland SC-55 emulation
-    unstable.pcem
+    pcem
     # TODO: Package DBGL?
     
     # RetroArch
@@ -60,11 +59,11 @@ in {
 
     # Tools
     aaru
-    binaryobjectscanner
+    #binaryobjectscanner # TODO: restore
     fusee-interfacee-tk   # For sending RCM payloads to Switch
     hactool               # For verifying Switch cart dumps 
     mame.tools            # Primarily for chdman
-    mpf-check             # Helper tool for creating preservation submissions
+    #mpf-check # TODO: restore            # Helper tool for creating preservation submissions
     ps3-disc-dumper       # For dumping PS3 blu-rays
     redumper              # All purpose disc-dumping tool
     xdvdfs-cli            # For dealing with OG Xbox ISOs

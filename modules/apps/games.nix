@@ -99,7 +99,7 @@ in {
     luxtorpeda
 
     # Commercial games
-    unstable.minecraft # Prism Launcher doesn't work at the moment so we're back on the classic launcher
+    # unstable.minecraft # Prism Launcher doesn't work at the moment so we're back on the classic launcher, TODO reanable
     unstable.starsector
     unstable.vintagestory
 
@@ -141,7 +141,6 @@ in {
     # Dwarf Fotress
     # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
     (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
-      dfVersion = "0.47.04";
       theme = "vettlingr";
       enableDFHack = true;
       enableTWBT = true;
@@ -163,7 +162,7 @@ in {
     mangohud
     opentrack
     protonup
-    samrewritten
+    #samrewritten # TODO: restore
     steam-metadata-editor
     vkbasalt
     vkbasalt-cli
@@ -188,6 +187,6 @@ in {
     corectrl
     glances
     lact
-    nvtop
+    nvtopPackages.full
   ];
 }
