@@ -1,23 +1,7 @@
 { lib, pkgs, ... }:
 
-let
-
-  # Custom Emacs with PGTK 29 version as base and pinned (no X11 deps), should be compatible with Doom Emacs.
-  # Pinned to 29.1 for now. Despite not being compatible with Doom, I believe it should be fine for now.
-  customEmacs = (pkgs.emacs29-pgtk.override {
-    withPgtk = true;
-    withX = false;
-  }).overrideAttrs (attrs: {
-    pname = "emacs-custom";
-    version = "29.1";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "emacs-mirror";
-      repo = "emacs";
-      rev = "emacs-29.1";
-      hash = "sha256-3HDCwtOKvkXwSULf3W7YgTz4GV8zvYnh2RrL28qzGKg=";
-    };
-
+let 
+  customEmacs = pkgs.emacs29-pgtk.overrideAttrs (attrs: {
     # Remove the Emacs (Client) desktop entries
     postInstall = pkgs.emacs29-pgtk.postInstall + ''
       rm $out/share/applications/emacsclient*.desktop
