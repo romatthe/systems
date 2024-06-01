@@ -39,7 +39,7 @@
   };
  
   # Conventient keybindings
-  programs.alacritty.settings.key_bindings = [
+  programs.alacritty.settings.keyboard.bindings = [
     {
       key = "V";
       mods = "Control|Shift";
@@ -87,9 +87,9 @@
         foreground = "CellBackground";
         background = "#88c0d0";
       };
-      footer_bar = {
-        background = "#434c5e";
+      focused_match = {
         foreground = "#d8dee9";
+        background = "#434c5e";
       };
     };
     # Normal colors
