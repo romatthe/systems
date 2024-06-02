@@ -162,7 +162,7 @@ in {
     mangohud
     opentrack
     protonup
-    #samrewritten # TODO: restore
+    samrewritten # TODO: restore
     steam-metadata-editor
     vkbasalt
     vkbasalt-cli
