@@ -23,7 +23,6 @@
 
   gtk = {
     enable = true;
-    # theme.name = "Adwaita-dark";
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
@@ -32,6 +31,5 @@
   home.packages = with pkgs; [
     gnome.dconf-editor
     gnome.gnome-tweaks
-    # gnome.gnome-themes-extra
   ];
 }
