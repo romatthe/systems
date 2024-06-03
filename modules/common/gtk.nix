@@ -21,11 +21,6 @@
     };
   };
   
-  gtk = {
-    enable = true;
-    theme.name = "Adwaita-dark";
-  };
-  
   home.packages = [
     pkgs.gnome.dconf-editor
     pkgs.gnome.gnome-tweaks
