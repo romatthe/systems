@@ -20,9 +20,18 @@
       send-events = "disabled-on-external-mouse";
     };
   };
+
+  gtk = {
+    enable = true;
+    # theme.name = "Adwaita-dark";
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+  };
   
-  home.packages = [
-    pkgs.gnome.dconf-editor
-    pkgs.gnome.gnome-tweaks
+  home.packages = with pkgs; [
+    gnome.dconf-editor
+    gnome.gnome-tweaks
+    # gnome.gnome-themes-extra
   ];
 }
