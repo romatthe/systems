@@ -4,15 +4,22 @@ final: prev: {
   binaryobjectscanner   = prev.callPackage ./binaryobjectscanner { };
   dosbox-mmwox          = prev.callPackage ./dosbox-mmwox { };
   luxtorpeda            = prev.callPackage ./luxtorpeda { };
-  mpf-check             = prev.callPackage ./mpf-check { };
+  mpf-check             = prev.callPackage ./mpf-check { 
+    lib                = final.old.lib;
+    buildDotnetModule  = final.old.buildDotnetModule;
+    dotnetCorePackages = final.old.dotnetCorePackages;
+    fetchFromGitHub    = final.old.fetchFromGitHub;
+    openssl            = final.old.openssl;
+    zlib               = final.old.zlib;
+  };
   nuked-sc55            = prev.callPackage ./nuked-sc55 { };
   ps3-disc-dumper       = prev.callPackage ./ps3-disc-dumper {
     lib               = final.old.lib;
     buildDotnetModule = final.old.buildDotnetModule;
     dotnet-sdk_8      = final.old.dotnet-sdk_8;
     fetchFromGitHub   = final.old.fetchFromGitHub;
-    zlib              = final.old.zlib;
     openssl           = final.old.openssl;
+    zlib              = final.old.zlib;
   };
   redumper              = prev.callPackage ./redumper { };
   samrewritten          = prev.callPackage ./samrewritten { 
