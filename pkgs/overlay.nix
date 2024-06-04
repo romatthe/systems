@@ -6,7 +6,14 @@ final: prev: {
   luxtorpeda            = prev.callPackage ./luxtorpeda { };
   mpf-check             = prev.callPackage ./mpf-check { };
   nuked-sc55            = prev.callPackage ./nuked-sc55 { };
-  ps3-disc-dumper       = prev.callPackage ./ps3-disc-dumper { };
+  ps3-disc-dumper       = prev.callPackage ./ps3-disc-dumper {
+    lib               = final.old.lib;
+    buildDotnetModule = final.old.buildDotnetModule;
+    dotnet-sdk_8      = final.old.dotnet-sdk_8;
+    fetchFromGitHub   = final.old.fetchFromGitHub;
+    zlib              = final.old.zlib;
+    openssl           = final.old.openssl;
+  };
   redumper              = prev.callPackage ./redumper { };
   samrewritten          = prev.callPackage ./samrewritten { 
     stdenv          = final.old.stdenv;
