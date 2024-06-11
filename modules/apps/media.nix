@@ -8,6 +8,7 @@
     sublime-music
 
     # Transcoding
+    flacon
     freac
 
     # Tagging
