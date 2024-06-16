@@ -31,5 +31,14 @@
   home.packages = with pkgs; [
     gnome.dconf-editor
     gnome.gnome-tweaks
+
+    # Compatibility packes for Awaita with QT5/QT6
+    qadwaitadecorations
+    qadwaitadecorations-qt6
   ];
+
+  home.sessionVariables = {
+    # Use the decoration plugin from QAdwairaDecorations
+    QT_WAYLAND_DECORATION = "adwaita";
+  };
 }
