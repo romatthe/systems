@@ -50,6 +50,7 @@
         ./modules/apps/emacs.nix
         ./modules/common/console.nix
         ./modules/common/nix.nix
+        ./modules/common/qt.nix
         ./modules/common/xdg.nix
         ./modules/common/xorg.nix
         ./modules/hardware/bluetooth.nix
