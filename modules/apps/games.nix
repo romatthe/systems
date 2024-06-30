@@ -67,7 +67,8 @@ in {
   programs.steam = {
     enable = true;
     package = pkgs.steam.override {
-      steam = steam-original'; # Steam with desktop instructions to launch Steam-Metadata-Editor first
+      # TODO: restore functionality of steam-metadata-editor
+      # steam = steam-original'; # Steam with desktop instructions to launch Steam-Metadata-Editor first
       extraPkgs = pkgs: with pkgs; [ 
          # Fix for native version of CKIII
         ncurses6
