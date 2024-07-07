@@ -38,6 +38,7 @@ in {
     # unstable.citra-nightly
     unstable.dolphin-emu
     unstable.dolphin-emu-primehack
+    unstable.duckstation
     unstable.fsuae
     unstable.fsuae-launcher
     unstable.pcsx2
