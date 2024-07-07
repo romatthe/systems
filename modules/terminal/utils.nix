@@ -1,12 +1,14 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    aria2
     chafa
     killall
     libgen-cli
     neofetch
     p7zip
     pandoc
+    pavucontrol
     pfetch
     ripgrep
     trash-cli
@@ -34,7 +36,5 @@
     lazygit
     ncpamixer
     yewtube
-    
-    pavucontrol
   ];
 }
