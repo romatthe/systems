@@ -35,18 +35,17 @@ in {
   environment.systemPackages = with pkgs; [
     # Standalone emulators
     unstable.cemu
-    # unstable.citra-nightly
     unstable.dolphin-emu
     unstable.dolphin-emu-primehack
     unstable.duckstation
     unstable.fsuae
-    unstable.fsuae-launcher
+    # unstable.fsuae-launcher # TODO: Restore
+    unstable.lime3ds
     unstable.pcsx2
     unstable.ppsspp
     unstable.rpcs3
     unstable.ryujinx
     unstable.xemu
-    # unstable.yuzu-mainline # TODO: Two versions of Yuzu cannot be installed at the same time
 
     # DOS/x86 emulation
     _86Box
