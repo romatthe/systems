@@ -47,6 +47,10 @@ in {
     unstable.ryujinx
     unstable.xemu
 
+    # Final available release, legally available and
+    # fetched and built from the Software Heritage Archive
+    yuzu 
+
     # DOS/x86 emulation
     _86Box
     dosbox-staging
