@@ -24,6 +24,13 @@ let
       libretro.swanstation
     ];
   };
+  dolphin-emu = pkgs.unstable.dolphin-emu.overrideAttrs (old: {
+    postInstall = old.postInstall + ''
+      # Remove the .svg icon to prevent it from resulting in a stretched look.
+      # This should make it use the .png icon instead.
+      rm -Rf $out/share/icons/hicolor/scalable/
+    '';
+  });
 in {
   # For dealing with ISOs
   programs.cdemu = {
@@ -35,7 +42,7 @@ in {
   environment.systemPackages = with pkgs; [
     # Standalone emulators
     unstable.cemu
-    unstable.dolphin-emu
+    # unstable.dolphin-emu
     unstable.dolphin-emu-primehack
     unstable.duckstation
     unstable.fsuae
@@ -46,6 +53,9 @@ in {
     unstable.rpcs3
     unstable.ryujinx
     unstable.xemu
+
+    # Dolphin without the warped logo
+    dolphin-emu
 
     # Final available release, legally available and
     # fetched and built from the Software Heritage Archive
