@@ -25,6 +25,14 @@ let
     ];
   };
   dolphin-emu = pkgs.unstable.dolphin-emu.overrideAttrs (old: {
+    version = "2407-61";
+    src = pkgs.fetchFromGitHub {
+      owner = "dolphin-emu";  
+      repo = "dolphin";
+      rev = "549b16d442dba0d87406a2e5a79c1e576fa7f725";
+      hash = "sha256-ZeYUitiiAugGgkegYHmxkGD+/UoOIvbmA1uoA/RxRO4=";
+      fetchSubmodules = true;
+    };
     postInstall = old.postInstall + ''
       # Remove the .svg icon to prevent it from resulting in a stretched look.
       # This should make it use the .png icon instead.
