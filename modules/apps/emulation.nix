@@ -77,7 +77,7 @@ in {
 
     # Final available release, legally available and
     # fetched and built from the Software Heritage Archive
-    # yuzu
+    yuzu
 
     # DOS/x86 emulation
     _86Box
