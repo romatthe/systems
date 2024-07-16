@@ -15,8 +15,6 @@
     lfs.enable = true;
 
     extraConfig = {
-      core.editor = "emacsclient -t -a=\"\"";
-
       # Use libsecret as the credential helper
       credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
 
