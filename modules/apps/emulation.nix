@@ -25,12 +25,12 @@ let
     ];
   };
   dolphin-emu = pkgs.unstable.dolphin-emu.overrideAttrs (old: {
-    version = "2407-64";
+    version = "2407-68";
     src = pkgs.fetchFromGitHub {
       owner = "dolphin-emu";  
       repo = "dolphin";
-      rev = "505fe5cc0e3123746e673ecca77c04ec72ff106f";
-      hash = "sha256-ZEvxLTitECpY/cEFwo6q+8x/fgobyy8itUA+tqG/qTs=";
+      rev = "cc3ff347b437fd80f3a2880d1bbc7ba2d5f191f4";
+      hash = "sha256-5qam6g7JkvgcawFPrx7Dfk9l8Ugp5vjFlZ0tehMlSr0=";
       fetchSubmodules = true;
     };
     postInstall = old.postInstall + ''
