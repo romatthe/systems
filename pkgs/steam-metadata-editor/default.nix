@@ -6,14 +6,14 @@
 
 python3.pkgs.buildPythonApplication rec {
   pname = "steam-metadata-editor";
-  version = "2023-09-14";
+  version = "2024-06-30";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "tralph3";
     repo = "Steam-Metadata-Editor";
-    rev = "563ca343b400cdc497134f5e3410ac4bedb5c08c";
-    sha256 = "sha256-Kr/5GNnGggaBd3d+JxgSg32ChwJ86ABKFPiM436Rzbc=";
+    rev = "5c6ec345417c48160ea9798d97643c6f0e82ba7d";
+    sha256 = "sha256-+80NYqzTjWA7JZxHx0N1R96/B/XKtvnILhJ06JMwcX4=";
   };
 
   nativeBuildInputs = [
@@ -31,7 +31,7 @@ python3.pkgs.buildPythonApplication rec {
 
     setup(
       name='${pname}',
-      version='2023.09.14',
+      version='2024.06.30',
       entry_points={
         'console_scripts': [
             'steam-metadata-editor=main:main',
