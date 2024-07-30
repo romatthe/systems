@@ -65,7 +65,6 @@ in {
 
     # Altered packages
     dolphin-emu
-    pcsx2
 
     # Final available release, legally available and
     # fetched and built from the Software Heritage Archive
