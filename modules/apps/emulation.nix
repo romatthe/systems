@@ -58,6 +58,7 @@ in {
   # Note: most cutting edge emulators almost never get their versions backported to stable
   environment.systemPackages = with pkgs; [
     # Standalone emulators
+    unstable.ares
     unstable.cemu
     # unstable.dolphin-emu
     unstable.dolphin-emu-primehack
