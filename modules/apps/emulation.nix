@@ -39,15 +39,6 @@ let
       rm -Rf $out/share/icons/hicolor/scalable/
     '';
   });
-  pcsx2 = pkgs.unstable.pcsx2.overrideAttrs (old: {
-    version = "2.0.2";
-    src = pkgs.fetchFromGitHub {
-      owner = "PCSX2";
-      repo = "pcsx2";
-      rev = "v2.0.2";
-      hash = "sha256-RrgVVG+n3+uGMqxSfJJU4h+ukEJL0kfV+gmzt/Hdyvo=";
-    };
-  });
 in {
   # For dealing with ISOs
   programs.cdemu = {
@@ -66,7 +57,7 @@ in {
     unstable.fsuae
     # unstable.fsuae-launcher # TODO: Restore
     unstable.lime3ds
-    # unstable.pcsx2
+    unstable.pcsx2
     unstable.ppsspp
     unstable.rpcs3
     unstable.ryujinx
