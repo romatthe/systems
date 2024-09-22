@@ -71,7 +71,7 @@ in {
     yuzu
 
     # DOS/x86 emulation
-    _86Box
+    _86Box-with-roms
     dosbox-staging
     nuked-sc55 # Roland SC-55 emulation
     pcem
