@@ -7,6 +7,7 @@ final: prev: {
   nuked-sc55            = prev.callPackage ./nuked-sc55 { };
   redumper              = prev.callPackage ./redumper { };
   steam-metadata-editor = prev.callPackage ./steam-metadata-editor { };
+  waybackpack           = prev.callPackage ./waybackpack { };
   xdvdfs-cli            = prev.callPackage ./xdvdfs-cli { };
   yuzu                  = prev.callPackage ./yuzu { };
   

@@ -12,6 +12,7 @@
     pfetch
     ripgrep
     trash-cli
+    waybackpack
     yt-dlp
 
     # Editors
