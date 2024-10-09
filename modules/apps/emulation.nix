@@ -42,7 +42,7 @@ let
 in {
   # For dealing with ISOs
   programs.cdemu = {
-    enable = true;
+    enable = false; #TODO: re-enable
     gui = true;
   };
 
