@@ -15,6 +15,26 @@ let
       cp "${pkgs.heroic-unwrapped}/share/${old.name}/flatpak/com.heroicgameslauncher.hgl.png" "$out/share/icons/hicolor/128x128/apps"
     '';
   });
+  protontricks-vdf = pkgs.unstable.python312Packages.vdf.overrideAttrs (old: {
+    version = "3.4-matoking";
+    src = pkgs.fetchFromGitHub {
+      owner = "Matoking";
+      repo = old.pname;
+      rev = "support_new_bvdf";
+      hash = "sha256-OPonFrYrEFYtx0T2hvSYXl/idsm0iDPwqlnm1KbTPIo=";
+    };
+  });
+  protontricks = (pkgs.unstable.protontricks.override {
+    vdf = protontricks-vdf;
+  }).overrideAttrs (old: {
+    version = "1.11.1-beta";
+    src = pkgs.fetchFromGitHub {
+      owner = "Matoking";
+      repo = old.pname;
+      rev = "appinfo_v29";
+      hash = "sha256-t794WEMJx/JNX3gTMHfgquFWB7yXkleW07+QURm1NPM=";
+    };
+  });
   starsector = pkgs.unstable.starsector.overrideAttrs (old: {
     postInstall = old.postInstall + ''
       # Delete the symlink

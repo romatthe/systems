@@ -26,6 +26,6 @@
     qbittorrent
     qdirstat
     vlc
-    unstable.zed-editor
+    zed-editor
   ];
 }

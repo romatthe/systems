@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     discord
     fractal
-    #nheko #TODO: Has serious security issues
+    nheko
     signal-desktop
     tdesktop
   ];
