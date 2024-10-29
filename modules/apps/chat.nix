@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     discord
     fractal
-    nheko
+    # nheko
     signal-desktop
     tdesktop
   ];

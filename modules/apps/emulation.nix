@@ -24,25 +24,10 @@ let
       libretro.swanstation
     ];
   };
-  dolphin-emu = pkgs.unstable.dolphin-emu.overrideAttrs (old: {
-    version = "2407-68";
-    src = pkgs.fetchFromGitHub {
-      owner = "dolphin-emu";  
-      repo = "dolphin";
-      rev = "cc3ff347b437fd80f3a2880d1bbc7ba2d5f191f4";
-      hash = "sha256-5qam6g7JkvgcawFPrx7Dfk9l8Ugp5vjFlZ0tehMlSr0=";
-      fetchSubmodules = true;
-    };
-    postInstall = old.postInstall + ''
-      # Remove the .svg icon to prevent it from resulting in a stretched look.
-      # This should make it use the .png icon instead.
-      rm -Rf $out/share/icons/hicolor/scalable/
-    '';
-  });
 in {
   # For dealing with ISOs
   programs.cdemu = {
-    enable = true;
+    enable = false; # TODO: Restore
     gui = true;
   };
 
@@ -51,20 +36,17 @@ in {
     # Standalone emulators
     unstable.ares
     unstable.cemu
-    # unstable.dolphin-emu
+    unstable.dolphin-emu
     unstable.dolphin-emu-primehack
     unstable.duckstation
     unstable.fsuae
     # unstable.fsuae-launcher # TODO: Restore
-    unstable.lime3ds
+    # unstable.lime3ds # TODO: Restore
     unstable.pcsx2
     unstable.ppsspp
     unstable.rpcs3
     unstable.ryujinx
     unstable.xemu
-
-    # Altered packages
-    dolphin-emu
 
     # Final available release, legally available and
     # fetched and built from the Software Heritage Archive
