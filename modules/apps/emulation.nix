@@ -41,7 +41,7 @@ in {
     unstable.duckstation
     unstable.fsuae
     # unstable.fsuae-launcher # TODO: Restore
-    # unstable.lime3ds # TODO: Restore
+    unstable.lime3ds
     unstable.pcsx2
     unstable.ppsspp
     unstable.rpcs3
