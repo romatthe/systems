@@ -84,7 +84,9 @@ in {
   # Make the latest version of steamtinkerlauncher available in Steam by adding it to
   # compat tools env variable
   environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch:${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda";
+    # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch:${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda";
+    # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch:${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda";
+    # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch";
   };
 
   environment.systemPackages = with pkgs; [
@@ -96,8 +98,8 @@ in {
     prismlauncher
 
     # Steam    
-    steamtinkerlaunch # Patched to better work with the Steam compat tools
-    luxtorpeda
+    # steamtinkerlaunch # Patched to better work with the Steam compat tools
+    # luxtorpeda
 
     # Commercial games
     # unstable.minecraft # Prism Launcher doesn't work at the moment so we're back on the classic launcher, TODO reanable
