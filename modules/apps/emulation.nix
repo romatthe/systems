@@ -1,6 +1,6 @@
-{ nixpkgs, pkgs, fetchFromGitHub, ... }:
+{ pkgs, ... }:
 let
-  retroarch = pkgs.unstable.retroarch.override {
+  retroarch = pkgs.retroarch.override {
     cores = with pkgs.unstable; [
       libretro.beetle-pcfx
       libretro.beetle-psx
@@ -63,7 +63,6 @@ in {
     retroarch
 
     # Tools
-    aaru
     #binaryobjectscanner # TODO: restore
     fusee-interfacee-tk   # For sending RCM payloads to Switch
     hactool               # For verifying Switch cart dumps 

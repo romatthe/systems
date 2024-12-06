@@ -1,6 +1,5 @@
 final: prev: {
-  aaru                  = prev.callPackage ./aaru { };
-  ambermoon-net         = prev.callPackage ./ambermoon-net { };
+  # ambermoon-net         = prev.callPackage ./ambermoon-net { }; # TODO: move to .NET 8
   binaryobjectscanner   = prev.callPackage ./binaryobjectscanner { };
   dosbox-mmwox          = prev.callPackage ./dosbox-mmwox { };
   luxtorpeda            = prev.callPackage ./luxtorpeda { };

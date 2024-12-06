@@ -12,7 +12,8 @@ let
   customEmacsWithPackages = customEmacs.pkgs.withPackages (epkgs: with epkgs.melpaPackages; [
     org-pdftools
     pdf-tools
-    tree-sitter-langs
+    # tree-sitter
+    # tree-sitter-langs
     vterm
   ]);
 

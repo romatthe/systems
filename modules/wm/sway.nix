@@ -65,8 +65,7 @@ in {
   services.xserver.exportConfiguration = true;
 
   # Enable Vulkan support
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable32Bit = true;
 
   # # Configuring sway (assuming a display manager starts it)
   # systemd.user.targets.sway-session = {

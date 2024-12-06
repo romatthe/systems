@@ -2,10 +2,10 @@
   description = "NixOS system configurations for all my machines";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-old.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
   };
@@ -31,6 +31,17 @@
                 allowUnfree = true;
               };
             };
+            # Insecure nixpkgs
+            insecure = import inputs.nixpkgs-unstable {
+              system = final.system;
+              config = {
+                allowUnfree = true;
+                permittedInsecurePackages = [
+                  "dotnet-runtime-7.0.20"
+                  "dotnet-runtime-wrapped-7.0.20"
+                ];
+              };
+            };
             # Old NixOS on 23.11
             old = import inputs.nixpkgs-old {
               system = final.system;
@@ -48,6 +59,7 @@
         ./cache.nix
 	    # Modules configuration
         ./modules/apps/emacs.nix
+        ./modules/apps/jetbrains.nix
         ./modules/common/console.nix
         ./modules/common/nix.nix
         ./modules/common/qt.nix
@@ -67,7 +79,6 @@
         ./modules/apps/chat.nix
         ./modules/apps/common.nix
         ./modules/apps/firefox.nix
-        ./modules/apps/jetbrains.nix
         ./modules/apps/media.nix
         ./modules/apps/vscode.nix
         ./modules/apps/zathura.nix

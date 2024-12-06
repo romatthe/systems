@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   # Enable flake support
-  nix.package = pkgs.nixFlakes;
+  nix.package = pkgs.nixVersions.stable;
   
   # Options for enabling proper flake and direnv usage
   nix.extraOptions = ''
