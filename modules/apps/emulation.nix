@@ -27,7 +27,7 @@ let
 in {
   # For dealing with ISOs
   programs.cdemu = {
-    enable = false; # TODO: Restore
+    enable = true;
     gui = true;
   };
 
