@@ -1,24 +1,11 @@
 { nixpkgs, pkgs, ... }:
 let
-  # Allows ingnoring of specific packages by overriding the attrs, see `vinstagestory` below
-  ignoreVulnerabilities = pkg: pkg.overrideAttrs (o: {
-    meta = o.meta // { knownVulnerabilities = []; };
-  });
   amdgpu_top = pkgs.amdgpu_top.overrideAttrs (old: {
     postInstall = old.postInstall + ''
       substituteInPlace $out/share/applications/amdgpu_top.desktop \
         --replace "Name=AMDGPU TOP (GUI)" "Name=AMDGPU TOP"
     '';
   });
-  # heroic = pkgs.unstable.heroic.overrideAttrs (old: {
-  #   buildCommand = old.buildCommand + ''
-  #     rm $out/share/applications $out/share/icons
-  #     mkdir -p $out/share/applications $out/share/icons/hicolor/128x128/apps
-
-  #     cp "${pkgs.heroic-unwrapped}/share/${old.name}/flatpak/com.heroicgameslauncher.hgl.desktop" "$out/share/applications"
-  #     cp "${pkgs.heroic-unwrapped}/share/${old.name}/flatpak/com.heroicgameslauncher.hgl.png" "$out/share/icons/hicolor/128x128/apps"
-  #   '';
-  # });
   starsector = pkgs.unstable.starsector.overrideAttrs (old: {
     postInstall = old.postInstall + ''
       # Delete the symlink
@@ -88,7 +75,7 @@ in {
   # Make the latest version of steamtinkerlauncher available in Steam by adding it to
   # compat tools env variable
   environment.sessionVariables = {
-    # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch:${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch:${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda";
     # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch:${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda";
     # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch";
   };
