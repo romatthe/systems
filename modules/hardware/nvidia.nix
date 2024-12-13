@@ -3,9 +3,8 @@
   # Enable the proprietary Nvidia driver
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
 
   hardware.nvidia = {
     # Required
@@ -25,7 +24,7 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   hardware.nvidia.prime = {
