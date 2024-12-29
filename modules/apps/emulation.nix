@@ -1,29 +1,28 @@
 { pkgs, ... }:
 let
-  retroarch = pkgs.retroarch.override {
-    cores = with pkgs.unstable; [
-      libretro.beetle-pcfx
-      libretro.beetle-psx
-      libretro.beetle-psx-hw
-      libretro.beetle-saturn
-      libretro.beetle-supergrafx
-      libretro.bsnes
-      libretro.desmume
-      libretro.dosbox-pure
-      libretro.flycast
-      libretro.gambatte
-      libretro.genesis-plus-gx
-      libretro.melonds
-      libretro.mesen
-      libretro.mgba
-      libretro.mupen64plus
-      libretro.np2kai
-      libretro.ppsspp
-      libretro.sameboy
-      libretro.snes9x
-      libretro.swanstation
-    ];
-  };
+  retroarch = (pkgs.unstable.retroarch.withCores (cores: with cores; [
+    beetle-pcfx
+    beetle-psx
+    beetle-psx-hw
+    beetle-saturn
+    beetle-supergrafx
+    bsnes
+    desmume
+    dosbox-pure
+    flycast
+    gambatte
+    genesis-plus-gx
+    melonds
+    mesen
+    mgba
+    mupen64plus
+    neocd
+    np2kai
+    ppsspp
+    sameboy
+    snes9x
+    swanstation
+  ]));
 in {
   # For dealing with ISOs
   programs.cdemu = {
