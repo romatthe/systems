@@ -87,6 +87,7 @@ in {
     lutris
     minigalaxy
     prismlauncher
+    umu # Umu-launcher
 
     # Steam    
     # steamtinkerlaunch # Patched to better work with the Steam compat tools
