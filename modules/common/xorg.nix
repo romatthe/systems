@@ -8,6 +8,10 @@
   services.xserver.displayManager.gdm.wayland = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Here we're adding Mutter so the schema gets picked up for use in dconf
+  services.xserver.desktopManager.gnome.sessionPath =
+    [ pkgs.gnome.mutter ];
+
   # Keyboard repeat intervals
   # See https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
   services.xserver.autoRepeatDelay = 200;

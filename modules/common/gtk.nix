@@ -19,6 +19,11 @@
     "org/gnome/desktop/peripherals/touchpad" = {
       send-events = "disabled-on-external-mouse";
     };
+
+    # Enable experimental VRR support implemented since Gnome 46
+    "org/gnome/mutter" = {
+      experimental-features = [ "variable-refresh-rate" ];
+    };
   };
 
   gtk = {
