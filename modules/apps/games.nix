@@ -75,7 +75,8 @@ in {
   # Make the latest version of steamtinkerlauncher available in Steam by adding it to
   # compat tools env variable
   environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch:${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch";
+    # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch:${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda";
     # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch:${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda";
     # STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.luxtorpeda}/share/Steam/compatibilitytools.d/luxtorpeda:${steamtinkerlaunch}/share/Steam/compatibilitytools.d/steamtinkerlaunch";
   };
