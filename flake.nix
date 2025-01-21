@@ -21,7 +21,7 @@
         };
         overlays = [
           # Community packages
-          inputs.nur.overlay
+          inputs.nur.overlays.default
           inputs.umu.overlays.default
           # Personal packages
           (import ./pkgs/overlay.nix)
@@ -59,7 +59,7 @@
       modules-common = [
         # Cache configuration
         ./cache.nix
-	    # Modules configuration
+	      # Modules configuration
         ./modules/apps/emacs.nix
         ./modules/apps/jetbrains.nix
         ./modules/common/console.nix
@@ -112,7 +112,6 @@
             ./modules/hardware/amdgpu.nix
             ./modules/hardware/ssd.nix
             ./modules/services/clam.nix
-            # ./modules/wm/sway.nix
 
             # Home manager modules
             home-manager.nixosModules.home-manager

@@ -10,7 +10,7 @@
 
   # Here we're adding Mutter so the schema gets picked up for use in dconf
   services.xserver.desktopManager.gnome.sessionPath =
-    [ pkgs.gnome.mutter ];
+    [ pkgs.mutter ];
 
   # Keyboard repeat intervals
   # See https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
