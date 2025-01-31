@@ -13,27 +13,44 @@
   boot.kernelModules = [ "kvm-amd" "amdgpu" ];
   boot.extraModulePackages = [ ];
 
-  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/041fb979-5d17-44f8-ac8b-a4bd64fe0f04";
+  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/b2dde52d-d09a-4c30-8af0-9a6a941eed92";
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/f6b16d38-e353-4979-aea6-42165ececafa";
-      fsType = "btrfs";
-      options = [ "subvol=nixos" "compress=zstd" "noatime" ];
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/f6b16d38-e353-4979-aea6-42165ececafa";
-      fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" "noatime" ];
+      fsType = "ext4";
     };
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/39B3-5029";
+    { device = "/dev/disk/by-uuid/A6C0-E17E";
       fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/03f294ab-484c-48be-8efb-253ac8f5a393"; }
+    [ { device = "/dev/disk/by-uuid/10ec9e64-b63e-46d6-bd2b-0e5147596d43"; }
     ];
+
+#  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/041fb979-5d17-44f8-ac8b-a4bd64fe0f04";
+#
+#  fileSystems."/" =
+#    { device = "/dev/disk/by-uuid/f6b16d38-e353-4979-aea6-42165ececafa";
+#      fsType = "btrfs";
+#      options = [ "subvol=nixos" "compress=zstd" "noatime" ];
+#    };
+
+#  fileSystems."/home" =
+#    { device = "/dev/disk/by-uuid/f6b16d38-e353-4979-aea6-42165ececafa";
+#      fsType = "btrfs";
+#      options = [ "subvol=home" "compress=zstd" "noatime" ];
+#    };
+#
+#  fileSystems."/boot/efi" =
+#    { device = "/dev/disk/by-uuid/39B3-5029";
+#      fsType = "vfat";
+#    };
+#
+#  swapDevices =
+#    [ { device = "/dev/disk/by-uuid/03f294ab-484c-48be-8efb-253ac8f5a393"; }
+#    ];
 
 }
