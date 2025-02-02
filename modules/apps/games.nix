@@ -116,6 +116,7 @@ in {
     openttd
     openxcom    # X-Com engine
     rbdoom-3-bfg
+    rotp        # Remnants of the Precursors
     runelite    # Runescape client
     scummvm
     unstable.shipwright  # Oracina of Time reverse engineered
