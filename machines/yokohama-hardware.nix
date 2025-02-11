@@ -13,8 +13,10 @@
   boot.kernelModules = [ "kvm-amd" "amdgpu" ];
   boot.extraModulePackages = [ ];
 
-  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/e3bc00e6-9b21-4e6d-aaae-d425920e5f6f";
+  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/e3bc00e6-9b21-4e6d-aaae-d425920e5f6f";   # Boot disk including OS install
+  boot.initrd.luks.devices."storage".device = "/dev/disk/by-uuid/05543492-44f3-4c7c-980c-f7b195f794bf"; # Extra storage
 
+  # OS Disk
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/6b9bbe6c-408b-4fa2-9a9b-dcd836b1d645";
       fsType = "btrfs";
@@ -27,17 +29,32 @@
       options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
-#  fileSystems."/mnt/block/vol" =
-#    { device = "/dev/disk/by-uuid/eedf2315-06d7-4aab-8b41-745b1af7eaa6";
-#      fsType = "btrfs";
-#      options = [ "compress=zstd" "noatime" ];
-#    };
-
- fileSystems."/boot/efi" =
+  fileSystems."/boot/efi" =
     { device = "/dev/disk/by-uuid/FC86-D307";
       fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
+  # Storage Disk
+  fileSystems."/home/romatthe/.local/share/Steam" =
+    { device = "/dev/disk/by-uuid/9612305d-d231-4909-8e03-be8a4877f225";
+      fsType = "btrfs";
+      options = [ "subvol=steam" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/home/romatthe/Games" =
+    { device = "/dev/disk/by-uuid/9612305d-d231-4909-8e03-be8a4877f225";
+      fsType = "btrfs";
+      options = [ "subvol=games" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/home/romatthe/VMs" =
+    { device = "/dev/disk/by-uuid/9612305d-d231-4909-8e03-be8a4877f225";
+      fsType = "btrfs";
+      options = [ "subvol=vms" "compress=zstd" "noatime" ];
+    };
+
+  # Swap
   swapDevices =
     [ { device = "/dev/disk/by-uuid/79476089-be84-4878-ab1f-11977f82a63c"; }
     ];
