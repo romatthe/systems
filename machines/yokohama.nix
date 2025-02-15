@@ -14,12 +14,15 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.efi.canTouchEfiVariables = false;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # Enable splash screen on boot
   boot.plymouth.enable = true;
   boot.plymouth.theme = "spinner";
+  boot.kernelParams = [ "quiet" ];
+  boot.initrd.systemd.enable = true; # Necessary to enable the LUKS unlock screen
 
   # Update CPU microcode
   hardware.cpu.amd.updateMicrocode = true;
