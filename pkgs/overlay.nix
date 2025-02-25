@@ -5,13 +5,14 @@ final: prev: {
   luxtorpeda            = prev.callPackage ./luxtorpeda { };
   nuked-sc55            = prev.callPackage ./nuked-sc55 { };
   redumper              = prev.callPackage ./redumper { };
+  steam-cleaner         = prev.callPackage ./steam-cleaner { };
   steam-metadata-editor = prev.callPackage ./steam-metadata-editor { };
   waybackpack           = prev.callPackage ./waybackpack { };
   xdvdfs-cli            = prev.callPackage ./xdvdfs-cli { };
   yuzu                  = prev.callPackage ./yuzu { };
   
   # Packages broken since 24.05, relies on 23.11 for now
-  mpf-check             = prev.callPackage ./mpf-check { 
+  mpf-check            = prev.callPackage ./mpf-check { 
     lib                = final.old.lib;
     buildDotnetModule  = final.old.buildDotnetModule;
     dotnetCorePackages = final.old.dotnetCorePackages;
@@ -19,7 +20,7 @@ final: prev: {
     openssl            = final.old.openssl;
     zlib               = final.old.zlib;
   };
-  ps3-disc-dumper       = prev.callPackage ./ps3-disc-dumper {
+  ps3-disc-dumper     = prev.callPackage ./ps3-disc-dumper {
     lib               = final.old.lib;
     buildDotnetModule = final.old.buildDotnetModule;
     dotnet-sdk_8      = final.old.dotnet-sdk_8;
@@ -27,7 +28,7 @@ final: prev: {
     openssl           = final.old.openssl;
     zlib              = final.old.zlib;
   };
-  samrewritten          = prev.callPackage ./samrewritten { 
+  samrewritten      = prev.callPackage ./samrewritten { 
     stdenv          = final.old.stdenv;
     lib             = final.old.lib;
     fetchFromGitHub = final.old.fetchFromGitHub;

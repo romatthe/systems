@@ -161,6 +161,7 @@ in {
     opentrack
     protonup
     samrewritten
+    steam-cleaner
     steam-metadata-editor
     vkbasalt
     vkbasalt-cli
