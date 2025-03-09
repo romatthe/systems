@@ -6,7 +6,7 @@
     # Subsonic clients
     sonixd
     sublime-music
-    supersonic
+    supersonic-wayland
 
     # Transcoding
     flacon
