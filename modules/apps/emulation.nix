@@ -45,6 +45,7 @@ in {
     unstable.ppsspp
     unstable.rpcs3
     unstable.ryujinx
+    unstable.ryubing  # Fork with updated features
     unstable.xemu
 
     # Final available release, legally available and
