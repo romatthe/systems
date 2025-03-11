@@ -23,27 +23,27 @@ let
     snes9x
     swanstation
   ]));
-  ryubing = pkgs.unstable.ryubing.overrideAttrs (old: {
-    postFixup = ''
-      mv $out/share/mime/packages/Ryujinx.xml $out/share/mime/packages/Ryubing.xml
-      mv $out/share/applications/Ryujinx.desktop $out/share/applications/Ryubing.desktop
-      mv $out/share/icons/hicolor/scalable/apps/Ryujinx.svg $out/share/icons/hicolor/scalable/apps/Ryubing.svg
-      mv $out/bin/Ryujinx.sh $out/bin/Ryubing.sh
-      mv $out/bin/Ryujinx $out/bin/Ryubing
+  # ryubing = pkgs.unstable.ryubing.overrideAttrs (old: {
+  #   postFixup = ''
+  #     mv $out/share/mime/packages/Ryujinx.xml $out/share/mime/packages/Ryubing.xml
+  #     mv $out/share/applications/Ryujinx.desktop $out/share/applications/Ryubing.desktop
+  #     mv $out/share/icons/hicolor/scalable/apps/Ryujinx.svg $out/share/icons/hicolor/scalable/apps/Ryubing.svg
+  #     mv $out/bin/Ryujinx.sh $out/bin/Ryubing.sh
+  #     mv $out/bin/Ryujinx $out/bin/Ryubing
 
-      substituteInPlace $out/share/applications/Ryubing.desktop \
-        --replace "=Ryujinx" "=Ryubing"
+  #     substituteInPlace $out/share/applications/Ryubing.desktop \
+  #       --replace "=Ryujinx" "=Ryubing"
       
-      substituteInPlace $out/bin/Ryubing.sh \
-        --replace "$SCRIPT_DIR/Ryujinx" "$SCRIPT_DIR/Ryubing"
+  #     substituteInPlace $out/bin/Ryubing.sh \
+  #       --replace "$SCRIPT_DIR/Ryujinx" "$SCRIPT_DIR/Ryubing"
 
-      substituteInPlace $out/bin/Ryubing.sh \
-        --replace 'RYUJINX_BIN="Ryujinx"' 'RYUJINX_BIN="Ryubing"'
+  #     substituteInPlace $out/bin/Ryubing.sh \
+  #       --replace 'RYUJINX_BIN="Ryujinx"' 'RYUJINX_BIN="Ryubing"'
 
-      rm $out/bin/ryujinx
-      ln -s $out/bin/Ryubing $out/bin/ryubing
-    '';
-  });
+  #     rm $out/bin/ryujinx
+  #     ln -s $out/bin/Ryubing $out/bin/ryubing
+  #   '';
+  # });
 in {
   # For dealing with ISOs
   programs.cdemu = {
@@ -65,8 +65,7 @@ in {
     unstable.pcsx2
     unstable.ppsspp
     unstable.rpcs3
-    unstable.ryujinx
-    ryubing  # Fork with updated features
+    unstable.ryubing  # Ryujinx fork with updated features
     unstable.xemu
 
     # Final available release, legally available and
