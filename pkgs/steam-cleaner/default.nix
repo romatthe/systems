@@ -11,13 +11,9 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-VvfOij2KptNYpdKuhYPlL4Io2yBveoVqHn1a+5ltX2o=";
   };
 
-  # cargoPatches = [ ./cargo-lock.patch ];
   cargoHash = "sha256-234Ezc+pKT0OLwdWqz//BnW/GTWeKcTSUBCO2dT0/4I=";
-  # cargoLock.lockFile = ./Cargo.lock;
 
   meta = with lib; {
-    # description = "A fast line-oriented regex search tool, similar to ag and ack";
-    # homepage = "https://github.com/BurntSushi/ripgrep";
     license = licenses.mit;
   };
 }
