@@ -179,7 +179,6 @@ in {
     })
     gpu-screen-recorder
     gpu-screen-recorder-gtk
-    handbrake
 
     # GPU monitoring and control
     amdgpu_top

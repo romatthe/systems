@@ -18,5 +18,10 @@
 
     # Jellyfin
     jellyfin-media-player
+
+    # Video editing and transcoding
+    flowblade
+    handbrake
+    kdenlive
   ];
 }
