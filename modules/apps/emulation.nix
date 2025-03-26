@@ -55,6 +55,7 @@ in {
   environment.systemPackages = with pkgs; [
     # Standalone emulators
     unstable.ares
+    unstable.azahar
     unstable.cemu
     unstable.dolphin-emu
     unstable.dolphin-emu-primehack
