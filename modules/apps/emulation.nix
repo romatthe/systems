@@ -18,6 +18,7 @@ let
     mupen64plus
     neocd
     np2kai
+    pcsx2
     ppsspp
     sameboy
     snes9x
