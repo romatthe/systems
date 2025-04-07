@@ -71,6 +71,9 @@ in {
     unstable.shadps4
     unstable.xemu
 
+    # PCSX2 build with ParaLLEl-GS
+    pcsx2-pgs
+
     # Final available release, legally available and
     # fetched and built from the Software Heritage Archive
     yuzu

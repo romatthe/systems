@@ -4,6 +4,7 @@ final: prev: {
   dosbox-mmwox          = prev.callPackage ./dosbox-mmwox { };
   luxtorpeda            = prev.callPackage ./luxtorpeda { };
   nuked-sc55            = prev.callPackage ./nuked-sc55 { };
+  pcsx2-pgs             = prev.callPackage ./pcsx2-pgs { };
   redumper              = prev.callPackage ./redumper { };
   steam-cleaner         = prev.callPackage ./steam-cleaner { };
   steam-metadata-editor = prev.callPackage ./steam-metadata-editor { };
