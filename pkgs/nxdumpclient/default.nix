@@ -6,11 +6,11 @@
 , ninja
 , pkg-config
 , vala
+, wrapGAppsHook4
 , appstream-glib
 , blueprint-compiler
 , desktop-file-utils
 , glib
-, gobject-introspection
 , gtk4
 , gusb
 , libadwaita
@@ -28,19 +28,18 @@ stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = [
-    gettext
+    desktop-file-utils
     meson
     ninja
     pkg-config
     vala
+    wrapGAppsHook4
   ];
 
   buildInputs = [
     appstream-glib
     blueprint-compiler
-    desktop-file-utils
     glib
-    gobject-introspection
     gtk4
     gusb
     libadwaita
