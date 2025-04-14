@@ -99,4 +99,9 @@ in {
     redumper              # All purpose disc-dumping tool
     xdvdfs-cli            # For dealing with OG Xbox ISOs
   ];
+
+  # NXDumpClient needs to wire up USB udev rules
+  services.udev.packages = with pkgs; [
+    nxdumpclient
+  ];
 }
