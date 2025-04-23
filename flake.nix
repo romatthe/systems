@@ -8,7 +8,6 @@
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
-    umu.url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
@@ -22,7 +21,6 @@
         overlays = [
           # Community packages
           inputs.nur.overlays.default
-          inputs.umu.overlays.default
           # Personal packages
           (import ./pkgs/overlay.nix)
           (final: prev: {

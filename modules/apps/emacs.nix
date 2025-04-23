@@ -1,9 +1,9 @@
 { lib, pkgs, ... }:
 
 let 
-  customEmacs = pkgs.emacs29-pgtk.overrideAttrs (attrs: {
+  customEmacs = pkgs.emacs30-pgtk.overrideAttrs (attrs: {
     # Remove the Emacs (Client) desktop entries
-    postInstall = pkgs.emacs29-pgtk.postInstall + ''
+    postInstall = pkgs.emacs30-pgtk.postInstall + ''
       rm $out/share/applications/emacsclient*.desktop
     '';
   });

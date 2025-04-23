@@ -88,7 +88,7 @@ in {
     lutris
     minigalaxy
     prismlauncher
-    umu # Umu-launcher
+    unstable.umu-launcher
 
     # Steam    
     # steamtinkerlaunch # Patched to better work with the Steam compat tools
