@@ -21,7 +21,7 @@
     gimp
     imhex
     libreoffice-fresh
-    unstable.protonvpn-gui # The old app is deprecated
+    # unstable.protonvpn-gui # TODO: Broken as usual, restore
     remmina
     qbittorrent
     qdirstat
