@@ -58,6 +58,7 @@
         # Cache configuration
         ./cache.nix
 	      # Modules configuration
+        ./modules/apps/chat.nix
         ./modules/apps/emacs.nix
         ./modules/apps/jetbrains.nix
         ./modules/common/console.nix
@@ -76,7 +77,6 @@
 
       # Common home modules
       modules-common-home = [
-        ./modules/apps/chat.nix
         ./modules/apps/common.nix
         ./modules/apps/firefox.nix
         ./modules/apps/media.nix
