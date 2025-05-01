@@ -61,6 +61,7 @@
         ./modules/apps/chat.nix
         ./modules/apps/emacs.nix
         ./modules/apps/jetbrains.nix
+        ./modules/apps/media.nix
         ./modules/common/console.nix
         ./modules/common/nix.nix
         ./modules/common/qt.nix
@@ -79,7 +80,6 @@
       modules-common-home = [
         ./modules/apps/common.nix
         ./modules/apps/firefox.nix
-        ./modules/apps/media.nix
         ./modules/apps/vscode.nix
         ./modules/apps/zathura.nix
         ./modules/common/fonts.nix
