@@ -2,6 +2,7 @@ final: prev: {
   # ambermoon-net         = prev.callPackage ./ambermoon-net { }; # TODO: move to .NET 8
   binaryobjectscanner   = prev.callPackage ./binaryobjectscanner { };
   dosbox-mmwox          = prev.callPackage ./dosbox-mmwox { };
+  helidon-cli           = prev.callPackage ./helidon-cli { };
   luxtorpeda            = prev.callPackage ./luxtorpeda { };
   nuked-sc55            = prev.callPackage ./nuked-sc55 { };
   nxdumpclient          = prev.callPackage ./nxdumpclient { };
