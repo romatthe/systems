@@ -69,6 +69,7 @@
         ./modules/common/xorg.nix
         ./modules/hardware/bluetooth.nix
         ./modules/hardware/ntfs.nix
+        ./modules/programming/lang.nix
         ./modules/services/dbus.nix
         ./modules/services/oom.nix
         ./modules/services/openssh.nix
@@ -84,7 +85,6 @@
         ./modules/apps/zathura.nix
         ./modules/common/fonts.nix
         ./modules/common/gtk.nix
-        ./modules/programming/lang.nix
         ./modules/services/direnv.nix
         ./modules/services/gpg.nix
         ./modules/terminal/alacritty.nix

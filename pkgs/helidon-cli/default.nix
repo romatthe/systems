@@ -1,17 +1,20 @@
-{
-  lib,
-  fetchFromGitHub,
-  maven,
-  buildGraalvmNativeImage,
+{ lib
+, buildGraalvmNativeImage
+, fetchFromGitHub
+, makeWrapper
+, maven
+, jre
+, unzip
 }:
 
 let
-  pname = "helidon-cli";
+  name = "helidon-cli";
   version = "4.0.16";
 
   jar = maven.buildMavenPackage rec {
-    pname = "helidon-cli-jar";
     inherit version;
+
+    pname = "${name}-jar";
 
     src = fetchFromGitHub {
       owner = "helidon-io";
@@ -29,17 +32,41 @@ let
       "-DskipTests"
     ];
 
+    nativeBuildInputs = [
+      jre
+    ];
+
+    postBuild = ''
+      jar xf target/helidon-cli.jar META-INF/native-image/io.helidon.build-tools.cli/helidon-cli-impl/native-image.properties
+
+      substituteInPlace META-INF/native-image/io.helidon.build-tools.cli/helidon-cli-impl/native-image.properties \
+        --replace-fail "\''${buildNumber}" "${version}"
+
+      jar uf target/helidon-cli.jar META-INF/native-image/io.helidon.build-tools.cli/helidon-cli-impl/native-image.properties
+
+      rm -Rf META-INF/
+    '';
+
     installPhase = ''
-      install -Dm644 target/helidon-cli.jar $out
+      runHook preInstall
+
+      mkdir -p $out/libs
+
+      install -Dm644 target/${name}.jar $out/${name}.jar
+      install -Dm644 target/libs/* $out/libs/
+
+      runHook postInstall
     '';
   };
 in
   buildGraalvmNativeImage {
-    inherit pname version;
+    inherit version;
 
+    pname = name;
     src = jar;
+    jar = "${jar}/${name}.jar";
 
-    executable = "helidon-cli";
+    executable = "helidon";
 
     # Copied from pom.xml
     extraNativeImageBuildArgs = [
