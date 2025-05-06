@@ -66,7 +66,7 @@ in {
     lime3ds
     unstable.pcsx2
     unstable.ppsspp
-    # unstable.rpcs3 # TODO: Restore
+    unstable.rpcs3
     unstable.ryubing  # Ryujinx fork with updated features
     unstable.shadps4
     unstable.xemu

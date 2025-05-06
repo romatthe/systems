@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     # Tools
     file
     git
@@ -21,7 +21,7 @@
     gimp
     imhex
     libreoffice-fresh
-    # unstable.protonvpn-gui # TODO: Broken as usual, restore
+    unstable.protonvpn-gui
     remmina
     qbittorrent
     qdirstat
