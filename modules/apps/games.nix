@@ -16,10 +16,10 @@ let
         $out/share/icons/hicolor/64x64/apps/starsector.png $out/graphics/ui/s_icon64.png
     '';
   });
-  steam-original' = pkgs.steamPackages.steam.overrideAttrs (old: {
+  steam-unwrapped' = pkgs.steam-unwrapped.overrideAttrs (old: {
     postInstall = old.postInstall + ''  
       substituteInPlace $out/share/applications/steam.desktop \
-        --replace "Exec=steam %U" "Exec=sh -c '${pkgs.steam-metadata-editor}/bin/steam-metadata-editor --silent; steam %U'"
+        --replace "Exec=steam %U" "Exec=sh -c '${pkgs.steam-cleaner}/bin/steam-cleaner; steam %U'"
     '';
   });
   steamtinkerlaunch = pkgs.steamtinkerlaunch.overrideAttrs (old: {
@@ -58,8 +58,7 @@ in {
   programs.steam = {
     enable = true;
     package = pkgs.steam.override {
-      # TODO: restore functionality of steam-metadata-editor
-      # steam = steam-original'; # Steam with desktop instructions to launch Steam-Metadata-Editor first
+      steam-unwrapped = steam-unwrapped'; # Steam with desktop instructions to launch Steam-Metadata-Editor first
       extraPkgs = pkgs: with pkgs; [ 
          # Fix for native version of CKIII
         ncurses6
