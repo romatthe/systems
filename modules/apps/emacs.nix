@@ -64,13 +64,18 @@ in {
 
   fonts.fontconfig.enable = true;
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.jetbrains-mono 
+    nerd-fonts.roboto-mono
+    noto-fonts
+  ];
+
   # home.packages = with pkgs; [
   users.users.romatthe.packages = with pkgs; [
     # Our 'custom' emacs
     customEmacsWithPackages
-
-    # Specify all nerd-fonts here
-    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" "JetBrainsMono" "RobotoMono" ]; })
 
     # Regular fonts
     emacs-all-the-icons-fonts
@@ -105,4 +110,5 @@ in {
 
     shellcheck          # for shell script linting 
   ];
+
 }

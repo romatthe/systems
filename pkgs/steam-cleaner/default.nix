@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-G7BrVYtTi8kIH4rNhcj8EYbQh0tvq8KgbCWfGfVuON4=";
   };
 
-  cargoHash = "sha256-pzur9lFcwp2ZcahOy+F5RcUCJgeClUofWyUGHi3raAg=";
+  cargoHash = "sha256-cfdmIuEcWg4Xqvp8O+Y2LBRV2Anu7B2J4VwFEaG6N6M=";
 
   meta = with lib; {
     license = licenses.mit;

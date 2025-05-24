@@ -14,12 +14,10 @@ rustPlatform.buildRustPackage rec {
   # sourceRoot = "${src.name}/xdvdfs-cli";
 
   cargoPatches = [ ./cargo-lock.patch ];
-  cargoHash = "sha256-687cUtSwvrkbqjgD7qfQsLcvUg64/gIZSdyZ9F1sbRM=";
+  cargoHash = "sha256-Mv1tmmen4iHh4ryCU7MijMmNe0BXzbG0Icbmee51/fc=";
   buildAndTestSubdir = "xdvdfs-cli";
 
   meta = with lib; {
-    # description = "A fast line-oriented regex search tool, similar to ag and ack";
-    # homepage = "https://github.com/BurntSushi/ripgrep";
     license = licenses.mit;
   };
 }

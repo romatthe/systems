@@ -26,6 +26,6 @@
     ffmpeg
     flowblade
     handbrake
-    kdenlive
+    kdePackages.kdenlive
   ];
 }

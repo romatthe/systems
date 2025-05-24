@@ -10,7 +10,7 @@
           margin-left: 4px;
         } 
       '';
-      extensions =
+      extensions.packages =
         with pkgs.nur.repos.rycee.firefox-addons; [
           pkgs.nur.repos.rycee.firefox-addons.bitwarden
           pkgs.nur.repos.rycee.firefox-addons.privacy-badger

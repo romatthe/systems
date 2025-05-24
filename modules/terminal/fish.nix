@@ -8,9 +8,6 @@
     # Requires 'bat' to be installed
     "cat" = "bat";
     # Requires 'lsd' to be installed
-    "ls" = "lsd";
-    "lsa" = "lsd -a";
-    "ll" = "lsd -al";
     "tree" = "lsd --tree";
     # Requires 'delta' to be installed
     "diff" = "delta";
@@ -80,7 +77,6 @@
 
   # lsd, an ls replacement
   programs.lsd.enable = true;
-  programs.lsd.enableAliases = false;
 
   # bottom, a top/htop replacement
   home.packages = [

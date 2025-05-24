@@ -2,7 +2,7 @@
 {
   # PA needs to be explicitly disabled in order for the PA server
   # to run under PipeWire
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   security.rtkit.enable = true;
 
