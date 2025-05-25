@@ -63,6 +63,7 @@ in {
     unstable.duckstation
     unstable.fsuae
     unstable.fsuae-launcher
+    unstable.hatari
     unstable.pcsx2
     unstable.ppsspp
     unstable.rpcs3
