@@ -62,7 +62,7 @@ in {
     unstable.dolphin-emu-primehack
     unstable.duckstation
     unstable.fsuae
-    # unstable.fsuae-launcher # TODO: Restore
+    unstable.fsuae-launcher
     unstable.pcsx2
     unstable.ppsspp
     unstable.rpcs3
