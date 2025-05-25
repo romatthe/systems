@@ -24,27 +24,6 @@ let
     snes9x
     swanstation
   ]));
-  # ryubing = pkgs.unstable.ryubing.overrideAttrs (old: {
-  #   postFixup = ''
-  #     mv $out/share/mime/packages/Ryujinx.xml $out/share/mime/packages/Ryubing.xml
-  #     mv $out/share/applications/Ryujinx.desktop $out/share/applications/Ryubing.desktop
-  #     mv $out/share/icons/hicolor/scalable/apps/Ryujinx.svg $out/share/icons/hicolor/scalable/apps/Ryubing.svg
-  #     mv $out/bin/Ryujinx.sh $out/bin/Ryubing.sh
-  #     mv $out/bin/Ryujinx $out/bin/Ryubing
-
-  #     substituteInPlace $out/share/applications/Ryubing.desktop \
-  #       --replace "=Ryujinx" "=Ryubing"
-      
-  #     substituteInPlace $out/bin/Ryubing.sh \
-  #       --replace "$SCRIPT_DIR/Ryujinx" "$SCRIPT_DIR/Ryubing"
-
-  #     substituteInPlace $out/bin/Ryubing.sh \
-  #       --replace 'RYUJINX_BIN="Ryujinx"' 'RYUJINX_BIN="Ryubing"'
-
-  #     rm $out/bin/ryujinx
-  #     ln -s $out/bin/Ryubing $out/bin/ryubing
-  #   '';
-  # });
 in {
   # For dealing with ISOs
   programs.cdemu = {
@@ -55,38 +34,36 @@ in {
   # Note: most cutting edge emulators almost never get their versions backported to stable
   environment.systemPackages = with pkgs; [
     # Standalone emulators
-    unstable.ares
-    unstable.azahar
-    unstable.cemu
-    unstable.dolphin-emu
-    unstable.dolphin-emu-primehack
-    unstable.duckstation
-    unstable.fsuae
-    unstable.fsuae-launcher
-    unstable.hatari
-    unstable.pcsx2
-    unstable.ppsspp
-    unstable.rpcs3
-    unstable.ryubing  # Ryujinx fork with updated features
-    unstable.shadps4
-    unstable.xemu
-
-    # PCSX2 build with ParaLLEl-GS
-    pcsx2-pgs
-
-    # Final available release, legally available and
-    # fetched and built from the Software Heritage Archive
-    yuzu
+    unstable.ares                   # Mutli-system emulator
+    unstable.azahar                 # 3DS emulator
+    unstable.cemu                   # Wii U emulator
+    unstable.dolphin-emu            # Wii emulator
+    unstable.dolphin-emu-primehack  # Wii emulator Metroid Prime-specific fixes 
+    unstable.duckstation            # PS1 emulator
+    unstable.fsuae                  # Commodore Amiga emulator
+    unstable.fsuae-launcher         # Commodore Amige emulator (GUI)
+    unstable.hatari                 # Atari ST-line emulator
+    unstable.pcsx2                  # PS2 emulator
+    unstable.ppsspp                 # PSP emulator
+    unstable.rpcs3                  # PS3 emulator
+    unstable.ryubing                # Ryujinx fork with updated features
+    unstable.shadps4                # Experimental PS4 emulator
+    unstable.vice                   # Commodore 64-line emulator
+    unstable.xemu                   # OG Xbox emulator
 
     # DOS/x86 emulation
-    _86Box-with-roms
-    dosbox-staging
-    nuked-sc55 # Roland SC-55 emulation
-    pcem
+    _86Box-with-roms  # Low-level retro PC emulator
+    dosbox-staging    # Modern continuation of DOSBox
+    pcem              # Low-level retro PC emulator
     # TODO: Package DBGL?
     
     # RetroArch
     retroarch
+
+    # Custom packages
+    pcsx2-pgs   # PCSX2 build with ParaLLEl-GS
+    nuked-sc55  # Roland SC-55 emulation
+    yuzu        # Final available release, legally available and fetched and built from the Software Heritage Archive
 
     # Tools
     #binaryobjectscanner # TODO: restore
