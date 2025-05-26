@@ -42,6 +42,7 @@ in {
     unstable.duckstation            # PS1 emulator
     unstable.fsuae                  # Commodore Amiga emulator
     unstable.fsuae-launcher         # Commodore Amige emulator (GUI)
+    unstable.fuse-emulator         # ZX Spectrum emulator
     unstable.hatari                 # Atari ST-line emulator
     unstable.pcsx2                  # PS2 emulator
     unstable.ppsspp                 # PSP emulator
