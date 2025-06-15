@@ -103,26 +103,27 @@ in {
     # dosbox-mmwox
 
     # Open source games and engines
-    airshipper  # Veloren launcher
+    airshipper      # Veloren launcher
     # ambermoon-net # TODO: Move to .NET 8
+    arx-libertatis  # Arx Fatalis source port
     dhewm3
-    exult       # Ultima VII engine
-    fheroes2    # Heroes of Might and Magic II engine
-    gemrb       # Infinity Engine
+    exult           # Ultima VII engine
+    fheroes2        # Heroes of Might and Magic II engine
+    gemrb           # Infinity Engine
     gzdoom
-    iortcw
-    openmw      # Morrowind engine 
+    iortcw          # Return to Castle Wolfenstein
+    openmw          # Morrowind engine 
     openttd
-    openxcom    # X-Com engine
+    openxcom        # X-COM engine
     rbdoom-3-bfg
-    rotp        # Remnants of the Precursors
-    runelite    # Runescape client
+    rotp            # Remnants of the Precursors
+    runelite        # Runescape client
     scummvm
-    unstable.shipwright  # Oracina of Time reverse engineered
-    uqm         # The Ur-Quan Masters
-    vcmi        # Heroes of Might and Magic III engine
+    shipwright      # Oracina of Time reverse engineered
+    uqm             # The Ur-Quan Masters
+    vcmi            # Heroes of Might and Magic III engine
     vkquake
-    wesnoth
+    wesnoth         # Battle for Wesnoth
     widelands
     yquake2
     yquake2-ground-zero
