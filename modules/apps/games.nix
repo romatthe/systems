@@ -123,6 +123,7 @@ in {
     uqm             # The Ur-Quan Masters
     vcmi            # Heroes of Might and Magic III engine
     vkquake
+    wargus          # Open source Warcraft II engine on top of Stratagus engine
     wesnoth         # Battle for Wesnoth
     widelands
     yquake2
