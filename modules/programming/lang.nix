@@ -7,7 +7,10 @@
     delve
 
     # Java tools
+    jdk21_headless
+    jdk23_headless
     helidon-cli
+    maven
     quarkus
 
     # Rust (primarily for use with RustRover)
