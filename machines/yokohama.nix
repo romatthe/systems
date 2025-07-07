@@ -21,12 +21,11 @@
   # Enable splash screen on boot
   boot.plymouth.enable = true;
   boot.plymouth.theme = "spinner";
-  boot.kernelParams = [ "quiet" ];
-  boot.initrd.systemd.enable = true; # Necessary to enable the LUKS unlock screen
+  # boot.kernelParams = [ "quiet" ];
+  # boot.initrd.systemd.enable = true; # Necessary to enable the LUKS unlock screen
 
   # Update CPU microcode
   hardware.cpu.amd.updateMicrocode = true;
-
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
