@@ -159,7 +159,7 @@ in {
     libstrangle # Linux OpenGL/Vulkan frame limiter
     
     mangohud
-    opentrack
+    unstable.opentrack # NeuralNet tracker only available for now on unstable
     protonup
     samrewritten
     steam-cleaner
