@@ -39,10 +39,10 @@ in {
     unstable.cemu                   # Wii U emulator
     unstable.dolphin-emu            # Wii emulator
     unstable.dolphin-emu-primehack  # Wii emulator Metroid Prime-specific fixes 
-    unstable.duckstation            # PS1 emulator
+    #unstable.duckstation            # PS1 emulator, currently unavailable because of Stenzek drama
     unstable.fsuae                  # Commodore Amiga emulator
     unstable.fsuae-launcher         # Commodore Amige emulator (GUI)
-    unstable.fuse-emulator         # ZX Spectrum emulator
+    unstable.fuse-emulator          # ZX Spectrum emulator
     unstable.hatari                 # Atari ST-line emulator
     unstable.pcsx2                  # PS2 emulator
     unstable.ppsspp                 # PSP emulator
