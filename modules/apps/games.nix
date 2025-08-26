@@ -106,6 +106,7 @@ in {
     airshipper      # Veloren launcher
     # ambermoon-net # TODO: Move to .NET 8
     arx-libertatis  # Arx Fatalis source port
+    unstable.bolt-launcher  # Open source RuneScape launcher
     dhewm3
     exult           # Ultima VII engine
     fheroes2        # Heroes of Might and Magic II engine
@@ -117,7 +118,7 @@ in {
     openxcom        # X-COM engine
     rbdoom-3-bfg
     rotp            # Remnants of the Precursors
-    runelite        # Runescape client
+    unstable.runelite        # Runescape client
     scummvm
     shipwright      # Oracina of Time reverse engineered
     uqm             # The Ur-Quan Masters
