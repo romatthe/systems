@@ -32,13 +32,8 @@
     echo '${gdm_user_conf}' > /var/lib/AccountsService/users/romatthe
   '';
 
-  # Required for desktop sharing and capturing on wayland
-  # xdg.portal = { 
-  #   enable = true;
-  #   extraPortals = [ 
-  #     pkgs.xdg-desktop-portal-gtk 
-  #     # pkgs.xdg-desktop-portal-wlr 
-  #   ];
-  #   # gtkUsePortal = true;
-  # };
+  environment.systemPackages = with pkgs; [
+    wallutils # Primarily for wayinfo
+    waycheck
+  ];
 }
