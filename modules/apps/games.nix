@@ -6,6 +6,17 @@ let
         --replace "Name=AMDGPU TOP (GUI)" "Name=AMDGPU TOP"
     '';
   });
+  # Gamescope patched so it can run on GNOME wihtouth scRGB support
+  gamescope' = pkgs.unstable.gamescope.overrideAttrs (old: {
+    version = "3.16.17-no-scrgb";
+    src = pkgs.fetchFromGitHub {
+      owner = "ColinKinloch";
+      repo = "gamescope";
+      rev = "e07c32c6684b56bf969e22a9f04e6a2c1dd95061";
+      fetchSubmodules = true;
+      hash = "sha256-VlwBRDfT3T+ykLEWFisHEC85x59rn9iDnk/yey19gog=";
+    };
+  });
   starsector = pkgs.unstable.starsector.overrideAttrs (old: {
     postInstall = old.postInstall + ''
       # Delete the symlink
@@ -156,7 +167,8 @@ in {
     fluidsynth  # For games requiring MIDI playback
     glxinfo
     gamemode
-    gamescope
+    # gamescope
+    gamescope'
     libstrangle # Linux OpenGL/Vulkan frame limiter
     
     mangohud
