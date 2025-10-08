@@ -2,9 +2,18 @@
 {
   environment.systemPackages = with pkgs; [
     # AWS
-    #awscli
     awscli2
     amazon-ecr-credential-helper
+
+    # Tools
+    infracost
+    localstack
+    opentofu
+    opentofu-ls
+    terraform
+    terraform-local
+    terraform-ls
+    terraformer
     
     # Golang
     go
