@@ -51,6 +51,7 @@ in {
     unstable.shadps4                # Experimental PS4 emulator
     unstable.vice                   # Commodore 64-line emulator
     unstable.xemu                   # OG Xbox emulator
+    unstable.xenia-canary           # Fork of Xenia, Xbox 360 emulator
 
     # DOS/x86 emulation
     _86Box-with-roms  # Low-level retro PC emulator
