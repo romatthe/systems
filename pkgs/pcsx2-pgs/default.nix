@@ -32,13 +32,13 @@ let
 in
 llvmPackages.stdenv.mkDerivation (finalAttrs: {
   pname = "pcsx2-pgs";
-  version = "2.3.45";
+  version = "2.5.216";
 
   srcs = [
     (fetchFromGitHub {
       owner = "romatthe";
       repo = "pcsx2-pgs";
-      rev = "3bdc3c5b53dacfd54d8dafa7c0e7ababac8d32b0";
+      rev = "v2.5.216-pgs";
       name = "pcsx2";
       hash = "sha256-Vt9sgK5QnU4zMIPHuvXnVTrChYacgETWcue+N5I8eD8=";
       fetchSubmodules = true;
