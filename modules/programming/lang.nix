@@ -3,7 +3,8 @@
   environment.systemPackages = with pkgs; [
     # AWS
     awscli2
-    amazon-ecr-credential-helper
+    amazon-ecr-credential-helper  # Credentional helper for interacting with docker tooling and AWS ECR
+    ssm-session-manager-plugin    # Session manager plugin for AWS CLI
 
     # Tools
     infracost
