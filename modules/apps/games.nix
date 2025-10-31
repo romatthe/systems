@@ -164,15 +164,16 @@ in {
     })
 
     # Tools
-    fluidsynth  # For games requiring MIDI playback
+    fluidsynth          # For games requiring MIDI playback
     glxinfo
     gamemode
     # gamescope
     gamescope'
-    libstrangle # Linux OpenGL/Vulkan frame limiter
-    
+    libstrangle         # Linux OpenGL/Vulkan frame limiter
+    unstable.lsfg-vk    # Lossless Scaling Frame Generation on Linux
+    unstable.lsfg-vk-ui
     mangohud
-    unstable.opentrack # NeuralNet tracker only available for now on unstable
+    unstable.opentrack  # NeuralNet tracker only available for now on unstable
     protonup
     samrewritten
     steam-cleaner
