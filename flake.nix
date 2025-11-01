@@ -71,6 +71,7 @@
         ./modules/hardware/bluetooth.nix
         ./modules/hardware/ntfs.nix
         ./modules/programming/lang.nix
+        ./modules/services/direnv.nix
         ./modules/services/dbus.nix
         ./modules/services/oom.nix
         ./modules/services/openssh.nix
@@ -84,7 +85,6 @@
         ./modules/apps/vscode.nix
         ./modules/apps/zathura.nix
         ./modules/common/gtk.nix
-        ./modules/services/direnv.nix
         ./modules/services/gpg.nix
         ./modules/terminal/alacritty.nix
         ./modules/terminal/fish.nix
