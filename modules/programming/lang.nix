@@ -1,12 +1,13 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # AWS
+    # AWS CLI
     awscli2
     amazon-ecr-credential-helper  # Credentional helper for interacting with docker tooling and AWS ECR
     ssm-session-manager-plugin    # Session manager plugin for AWS CLI
 
     # Tools
+    dynamodb-local
     infracost
     localstack
     opentofu
