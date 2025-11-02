@@ -7,6 +7,7 @@
     ssm-session-manager-plugin    # Session manager plugin for AWS CLI
 
     # Tools
+    awscli-local
     dynamodb-local
     infracost
     localstack

@@ -1,5 +1,6 @@
 final: prev: {
   # ambermoon-net         = prev.callPackage ./ambermoon-net { }; # TODO: move to .NET 8
+  awscli-local          = prev.callPackage ./awscli-local { };
   binaryobjectscanner   = prev.callPackage ./binaryobjectscanner { };
   dosbox-mmwox          = prev.callPackage ./dosbox-mmwox { };
   helidon-cli           = prev.callPackage ./helidon-cli { };
