@@ -9,8 +9,10 @@
     # Tools
     awscli-local
     dynamodb-local
+    dynein
     infracost
     localstack
+    nosql-workbench
     opentofu
     opentofu-ls
     terraform
