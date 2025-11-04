@@ -26,8 +26,8 @@
     delve
 
     # Java tools
-    jdk21_headless
-    jdk23_headless
+    # jdk21_headless # Switch completely to JDK25 for easier use
+    # jdk23_headless # Switch completely to JDK25 for easier use
     unstable.jdk25_headless
     helidon-cli
     maven
