@@ -21,6 +21,7 @@
     gimp
     imhex
     libreoffice-fresh
+    onlyoffice-desktopeditors
     unstable.protonvpn-gui
     remmina
     qbittorrent
