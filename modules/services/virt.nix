@@ -21,7 +21,8 @@
 
   # Speaking of which...
   environment.systemPackages = with pkgs; [
-    wine-staging
+    # Wine with 32 and 64-bit support + experimental staging features
+    wineWowPackages.staging
     unstable.seabird
 
     qemu
