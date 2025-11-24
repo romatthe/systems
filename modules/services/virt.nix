@@ -25,6 +25,9 @@
     wineWowPackages.staging
     unstable.seabird
 
+    # Podman tool for working with docker-compose.yml
+    podman-compose
+
     qemu
     unstable.quickemu
   ];
