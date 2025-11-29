@@ -44,6 +44,7 @@ in {
     unstable.fsuae-launcher         # Commodore Amige emulator (GUI)
     unstable.fuse-emulator          # ZX Spectrum emulator
     unstable.hatari                 # Atari ST-line emulator
+    unstable.openmsx                # MSX and MSX2 emulator
     unstable.pcsx2                  # PS2 emulator
     unstable.ppsspp                 # PSP emulator
     unstable.rpcs3                  # PS3 emulator
