@@ -3,18 +3,14 @@
   programs.git = {
     enable = true;
     package = pkgs.git;
-
-    # Identity
-    userName = "Robin Mattheussen";
-    userEmail = "me@romatthe.dev";
-
-    # delta, a fancier diff viewer
-    delta.enable = true;
-
-    # Enable git-lfs
-    lfs.enable = true;
-
-    extraConfig = {
+    
+    # Identity and configuration
+    settings = {
+      user = {
+        name = "Robin Mattheussen";
+        email = "me@romatthe.dev";
+      };
+      
       # Use libsecret as the credential helper
       credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
 
@@ -24,10 +20,20 @@
       };
     };
 
+    # Enable git-lfs
+    lfs.enable = true;
+
     # PGP signing
     signing = {
       signByDefault = true;
       key = "8DC3890E89EDE9DF";
     };
   };
+
+  # delta, a fancier diff viewer
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
 }
+

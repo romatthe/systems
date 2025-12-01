@@ -135,7 +135,7 @@ in {
     uqm             # The Ur-Quan Masters
     vcmi            # Heroes of Might and Magic III engine
     vkquake
-    wargus          # Open source Warcraft II engine on top of Stratagus engine
+    #wargus          # Open source Warcraft II engine on top of Stratagus engine # TODO: Restore after CMake fix
     wesnoth         # Battle for Wesnoth
     widelands
     yquake2
@@ -144,7 +144,7 @@ in {
 
     # Roguelikes
     angband
-    brogue
+    brogue-ce
     cataclysm-dda
     crawl
     ivan
@@ -165,7 +165,6 @@ in {
 
     # Tools
     fluidsynth          # For games requiring MIDI playback
-    glxinfo
     gamemode
     # gamescope
     gamescope'
@@ -173,8 +172,9 @@ in {
     unstable.lsfg-vk    # Lossless Scaling Frame Generation on Linux
     unstable.lsfg-vk-ui
     mangohud
-    unstable.opentrack  # NeuralNet tracker only available for now on unstable
-    protonup
+    mesa-demos
+    opentrack  # NeuralNet tracker only available for now on unstable
+    protonup-ng
     samrewritten
     steam-cleaner
     steam-metadata-editor

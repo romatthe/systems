@@ -5,7 +5,7 @@
     fractal
     # nheko
     signal-desktop
-    tdesktop
+    telegram-desktop
     teams-for-linux
   ];
 }

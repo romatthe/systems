@@ -23,6 +23,7 @@
 , vulkan-headers
 , vulkan-loader
 , wayland
+, wrapGAppsHook3
 , zip
 , zstd
 }:  
@@ -70,6 +71,7 @@ llvmPackages.stdenv.mkDerivation (finalAttrs: {
     cmake
     pkg-config
     strip-nondeterminism
+    wrapGAppsHook3
     wrapQtAppsHook
     zip
   ];
@@ -94,7 +96,8 @@ llvmPackages.stdenv.mkDerivation (finalAttrs: {
     vulkan-headers
     wayland
     zstd
-  ] ++ cubeb.passthru.backendLibs;
+    cubeb
+  ];
 
   strictDeps = true;
 
@@ -116,26 +119,29 @@ llvmPackages.stdenv.mkDerivation (finalAttrs: {
 
   qtWrapperArgs =
     let
-      libs = lib.makeLibraryPath (
-        [
-          vulkan-loader
-          shaderc
-        ]
-        ++ cubeb.passthru.backendLibs
-      );
+      libs = lib.makeLibraryPath [
+        vulkan-loader
+        shaderc
+      ];
     in
     [ "--prefix LD_LIBRARY_PATH : ${libs}" ];
 
+  dontWrapGApps = true;
+
+  preFixup = ''
+    qtWrapperArgs+=("''${gappsWrapperArgs[@]}")
+  '';
+
   # https://github.com/PCSX2/pcsx2/pull/10200
   # Can't avoid the double wrapping, the binary wrapper from qtWrapperArgs doesn't support --run
-  postFixup = ''
-    source "${makeWrapper}/nix-support/setup-hook"
+  # postFixup = ''
+  #   source "${makeWrapper}/nix-support/setup-hook"
 
-    mv $out/bin/pcsx2-qt $out/bin/pcsx2-pgs
+  #   mv $out/bin/pcsx2-qt $out/bin/pcsx2-pgs
 
-    wrapProgram $out/bin/pcsx2-pgs \
-      --run 'if [[ -z $I_WANT_A_BROKEN_WAYLAND_UI ]]; then export QT_QPA_PLATFORM=xcb; fi'
-  '';
+  #   wrapProgram $out/bin/pcsx2-pgs \
+  #     --run 'if [[ -z $I_WANT_A_BROKEN_WAYLAND_UI ]]; then export QT_QPA_PLATFORM=xcb; fi'
+  # '';
 
   meta = {
     homepage = "https://pcsx2.net";

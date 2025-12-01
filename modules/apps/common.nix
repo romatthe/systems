@@ -15,19 +15,19 @@
     usbutils
 
     # Apps
-    bitwarden
     bitwarden-cli
+    bitwarden-desktop
     filezilla
     gimp
     imhex
     libreoffice-fresh
     onlyoffice-desktopeditors
-    unstable.protonvpn-gui
+    protonvpn-gui
     remmina
     qbittorrent
     qdirstat
     vlc
     xclicker
-    unstable.zed-editor
+    zed-editor
   ];
 }

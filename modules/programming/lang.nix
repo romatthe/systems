@@ -14,11 +14,11 @@
     localstack
     nosql-workbench
     opentofu
-    opentofu-ls
     terraform
     terraform-local
     terraform-ls
     terraformer
+    tofu-ls
     
     # Golang
     go
@@ -28,8 +28,7 @@
     # Java tools
     # jdk21_headless # Switch completely to JDK25 for easier use
     # jdk23_headless # Switch completely to JDK25 for easier use
-    unstable.jdk25_headless
-    helidon-cli
+    jdk25_headless
     maven
     quarkus
 

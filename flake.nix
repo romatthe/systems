@@ -2,10 +2,10 @@
   description = "NixOS system configurations for all my machines";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-old.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
     nur.inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -27,14 +27,14 @@
           (final: prev: {
             # Unstable nixpkgs
             unstable = import inputs.nixpkgs-unstable {
-              system = final.system;
+              system = final.stdenv.hostPlatform.system;
               config = {
                 allowUnfree = true;
               };
             };
             # Insecure nixpkgs
             insecure = import inputs.nixpkgs-unstable {
-              system = final.system;
+              system = final.stdenv.hostPlatform.system;
               config = {
                 allowUnfree = true;
                 permittedInsecurePackages = [
@@ -45,7 +45,7 @@
             };
             # Old NixOS on 23.11
             old = import inputs.nixpkgs-old {
-              system = final.system;
+              system = final.stdenv.hostPlatform.system;
               config = {
                 allowUnfree = true;
               };
@@ -100,7 +100,6 @@
         # Main home workstation
         yokohama = nixpkgs.lib.nixosSystem {
           inherit pkgs;
-          system = "x86_64-linux";
 
           modules = modules-common ++ [
             # System modules
@@ -128,7 +127,6 @@
         # Personal dev laptop
         matsumoto = nixpkgs.lib.nixosSystem {
           inherit pkgs;
-          system = "x86_64-linux";
 
           modules = modules-common ++ [
             # System modules
@@ -155,7 +153,6 @@
         # Gaming laptop 
         sapporo = nixpkgs.lib.nixosSystem {
           inherit pkgs;
-          system = "x86_64-linux";
 
           modules = modules-common ++ [
             # System modules
@@ -183,7 +180,6 @@
         # AMD Gaming laptop 
         fuji = nixpkgs.lib.nixosSystem {
           inherit pkgs;
-          system = "x86_64-linux";
 
           modules = modules-common ++ [
             # System modules

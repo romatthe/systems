@@ -64,7 +64,7 @@ in {
     retroarch
 
     # Custom packages
-    pcsx2-pgs   # PCSX2 build with ParaLLEl-GS
+    # pcsx2-pgs   # PCSX2 build with ParaLLEl-GS
     nuked-sc55  # Roland SC-55 emulation
     yuzu        # Final available release, legally available and fetched and built from the Software Heritage Archive
 
