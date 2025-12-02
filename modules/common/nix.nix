@@ -16,5 +16,10 @@
 
   # Auto garbage collect generations older than 10 days
   nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 10d";
+  
+  # Service to automaticall invalidate GC roots of direnv projects
+  services.angrr = {
+    enable = true;
+    period = "3weeks";
+  };
 }
