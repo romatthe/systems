@@ -26,7 +26,7 @@
     delve
 
     # Java tools
-    # jdk21_headless # Switch completely to JDK25 for easier use
+    jdk21_headless # Switch completely to JDK25 for easier use
     # jdk23_headless # Switch completely to JDK25 for easier use
     jdk25_headless
     maven
