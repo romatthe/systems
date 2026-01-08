@@ -1,6 +1,9 @@
 { lib
 , stdenv
+, copyDesktopItems
+, makeDesktopItem
 , dosbox-staging
+, fetchzip
 , imagemagick
 , innoextract
 , nuked-sc55
@@ -36,20 +39,41 @@ let
     wait $pid_dosbox
     kill $pid_nuked
   '';
-in stdenv.mkDerivation {
+in stdenv.mkDerivation rec {
   pname = "dosbox-bak";
   version = "1.0.0";
 
   src = installer;
 
+  # MIDI music and sound patch
+  patch = fetchzip {
+    url = "https://archive.org/download/bak-midifix/bak-midifix.zip";
+    hash = "sha256-Z8jXsN8bUSr1dmM6L/vKabeFnAH6r1sNbXIBED67OaA=";
+    stripRoot = false;
+  };
+
   dontUnpack = true;
 
   nativeBuildInputs = [
+    copyDesktopItems
     imagemagick
     innoextract
   ];
 
+  desktopItems = [ 
+    (makeDesktopItem {
+      name = "dosbox-bak";
+      desktopName = "Betrayal at Krondor";
+      exec = "${placeholder "out"}/bin/${launcher.name}";
+      icon = "dosbox-bak";
+      comment = "Betrayal at Krondor running in DOSBox Staging";
+      categories = [ "Game" "RolePlaying" ];
+    })
+  ];
+
   buildPhase = ''
+    runHook preBuild
+
     innoextract $src
 
     mv app/* ./
@@ -63,9 +87,13 @@ in stdenv.mkDerivation {
 
     substituteInPlace bak.cue \
       --replace "bak.gog" "bak.bin"
+
+    runHook postBuild
   '';
 
   installPhase = ''
+    runHook preInstall
+
     mkdir -p $out/share/bak/drives/c/
     mkdir -p $out/share/bak/cd/music
 
@@ -78,23 +106,31 @@ in stdenv.mkDerivation {
 
     install -Dm644 *.DRV        $out/share/bak/drives/c/
     install -Dm644 *.CFG        $out/share/bak/drives/c/
-    install -Dm644 *.OVL        $out/share/bak/drives/c/
-    install -Dm644 FRP.SX       $out/share/bak/drives/c/
+    # install -Dm644 FRP.SX       $out/share/bak/drives/c/
     install -Dm644 INSTALL.EXE  $out/share/bak/drives/c/
     install -Dm644 INSTALL.HLP  $out/share/bak/drives/c/
     install -Dm644 INSTALL.SCR  $out/share/bak/drives/c/
     install -Dm644 INSTALL.SCR  $out/share/bak/drives/c/
     install -Dm644 KRONDOR.001  $out/share/bak/drives/c/
-    install -Dm644 KRONDOR.EXE  $out/share/bak/drives/c/
+    # install -Dm644 KRONDOR.EXE  $out/share/bak/drives/c/
     install -Dm644 KRONDOR.RMF  $out/share/bak/drives/c/
     install -Dm644 STARTUP.GAM  $out/share/bak/drives/c/
+    install -Dm644 VMCODE.OVL   $out/share/bak/drives/c/
 
+    # Patch to fix combined MIDI + sound playback
+    install -Dm644 ${patch}/FRP.SX       $out/share/bak/drives/c/
+    install -Dm644 ${patch}/KRONDOR.EXE  $out/share/bak/drives/c/
+    install -Dm644 ${patch}/RESOURCE.CFG $out/share/bak/drives/c/
+    install -Dm644 ${patch}/SX.OVL       $out/share/bak/drives/c/
+
+    # Extract icon for different sizes
     for size in 16 24 32 48 64 128 256 ; do
       mkdir -p $out/share/icons/hicolor/"$size"x"$size"/apps
-      magick bak.ico[5] -resize "$size"x"$size" \
+      magick "bak.ico[5]" -resize "$size"x"$size" \
         $out/share/icons/hicolor/"$size"x"$size"/apps/dosbox-bak.png
     done;
 
+    # DOSBox Staging configuration
     cat > $out/share/bak/dosbox.conf <<EOF
     [sdl]
     fullscreen = true
@@ -127,5 +163,7 @@ in stdenv.mkDerivation {
     c:
     cls
     EOF
+
+    runHook postInstall
   '';
 }
