@@ -111,6 +111,7 @@ in {
     insecure.vintagestory # TODO: VS has to move to supported runtime
     
     # Commercial dosbox games
+    dosbox-bak
     # dosbox-mmwox
 
     # Open source games and engines
