@@ -2,9 +2,9 @@
 let 
   # Some wrappers to include Node on the path of Jetbrains IDEs because Amazon Q 
   # needs it for some reason
-  idea-ultimate = pkgs.unstable.jetbrains.idea-ultimate.overrideAttrs (old: {
+  idea = pkgs.unstable.jetbrains.idea.overrideAttrs (old: {
     postInstall = ''
-      wrapProgram $out/bin/idea-ultimate \
+      wrapProgram $out/bin/idea \
         --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.nodejs ]}
     '';
   });
@@ -16,10 +16,10 @@ let
   });
 in {
   environment.systemPackages = with pkgs; [
-    unstable.jetbrains.clion
-    idea-ultimate
-    unstable.jetbrains.goland
-    unstable.jetbrains.rider
+    jetbrains.clion
+    idea
+    jetbrains.goland
+    jetbrains.rider
     rust-rover
   ];
 }
