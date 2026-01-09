@@ -1,6 +1,5 @@
 { lib
 , stdenv
-, copyDesktopItems
 , makeDesktopItem
 , dosbox-staging
 , fetchzip
@@ -55,21 +54,18 @@ in stdenv.mkDerivation rec {
   dontUnpack = true;
 
   nativeBuildInputs = [
-    copyDesktopItems
     imagemagick
     innoextract
   ];
 
-  desktopItems = [ 
-    (makeDesktopItem {
-      name = "dosbox-bak";
-      desktopName = "Betrayal at Krondor";
-      exec = "${placeholder "out"}/bin/${launcher.name}";
-      icon = "dosbox-bak";
-      comment = "Betrayal at Krondor running in DOSBox Staging";
-      categories = [ "Game" "RolePlaying" ];
-    })
-  ];
+  desktopItem = makeDesktopItem {
+    name = "dosbox-bak";
+    desktopName = "Betrayal at Krondor";
+    icon = "dosbox-bak";
+    comment = "Betrayal at Krondor running in DOSBox Staging";
+    categories = [ "Game" "RolePlaying" ];
+    exec = "@out@/bin/${launcher.name}";
+  };
 
   buildPhase = ''
     runHook preBuild
@@ -95,10 +91,14 @@ in stdenv.mkDerivation rec {
     runHook preInstall
 
     mkdir -p $out/share/bak/drives/c/
-    mkdir -p $out/share/bak/cd/music
+    mkdir -p $out/share/bak/cd/music/
+    mkdir -p $out/share/applications/
 
     install -Dm755 ${launcher} $out/bin/${launcher.name}
+    install -Dm644 ${desktopItem}/share/applications/* $out/share/applications
+
     substituteInPlace $out/bin/${launcher.name} --subst-var out
+    substituteInPlace $out/share/applications/dosbox-bak.desktop --subst-var out
 
     install -Dm644 bak.bin      $out/share/bak/cd/
     install -Dm644 bak.cue      $out/share/bak/cd/
@@ -106,13 +106,11 @@ in stdenv.mkDerivation rec {
 
     install -Dm644 *.DRV        $out/share/bak/drives/c/
     install -Dm644 *.CFG        $out/share/bak/drives/c/
-    # install -Dm644 FRP.SX       $out/share/bak/drives/c/
     install -Dm644 INSTALL.EXE  $out/share/bak/drives/c/
     install -Dm644 INSTALL.HLP  $out/share/bak/drives/c/
     install -Dm644 INSTALL.SCR  $out/share/bak/drives/c/
     install -Dm644 INSTALL.SCR  $out/share/bak/drives/c/
     install -Dm644 KRONDOR.001  $out/share/bak/drives/c/
-    # install -Dm644 KRONDOR.EXE  $out/share/bak/drives/c/
     install -Dm644 KRONDOR.RMF  $out/share/bak/drives/c/
     install -Dm644 STARTUP.GAM  $out/share/bak/drives/c/
     install -Dm644 VMCODE.OVL   $out/share/bak/drives/c/
