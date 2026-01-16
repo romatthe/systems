@@ -37,6 +37,7 @@ in {
     unstable.ares                   # Mutli-system emulator
     unstable.azahar                 # 3DS emulator
     unstable.cemu                   # Wii U emulator
+    unstable.deniseemu              # C64 Emulator
     unstable.dolphin-emu            # Wii emulator
     unstable.dolphin-emu-primehack  # Wii emulator Metroid Prime-specific fixes 
     #unstable.duckstation            # PS1 emulator, currently unavailable because of Stenzek drama
@@ -50,7 +51,7 @@ in {
     unstable.rpcs3                  # PS3 emulator
     unstable.ryubing                # Ryujinx fork with updated features
     unstable.shadps4                # Experimental PS4 emulator
-    unstable.vice                   # Commodore 64-line emulator
+    unstable.vice                   # C64-line emulator
     unstable.xemu                   # OG Xbox emulator
     unstable.xenia-canary           # Fork of Xenia, Xbox 360 emulator
 
