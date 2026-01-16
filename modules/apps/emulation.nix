@@ -36,6 +36,7 @@ in {
     # Standalone emulators
     unstable.ares                   # Mutli-system emulator
     unstable.azahar                 # 3DS emulator
+    unstable.basiliskii             # Macintosh 68k emulator
     unstable.cemu                   # Wii U emulator
     unstable.deniseemu              # C64 Emulator
     unstable.dolphin-emu            # Wii emulator
