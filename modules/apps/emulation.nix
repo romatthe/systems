@@ -41,7 +41,7 @@ in {
     unstable.deniseemu              # C64 Emulator
     unstable.dolphin-emu            # Wii emulator
     unstable.dolphin-emu-primehack  # Wii emulator Metroid Prime-specific fixes 
-    #unstable.duckstation            # PS1 emulator, currently unavailable because of Stenzek drama
+    unstable.duckstation            # PS1 emulator, currently unavailable because of Stenzek drama
     unstable.fsuae                  # Commodore Amiga emulator
     unstable.fsuae-launcher         # Commodore Amige emulator (GUI)
     unstable.fuse-emulator          # ZX Spectrum emulator
