@@ -43,7 +43,8 @@ in {
     unstable.dolphin-emu-primehack  # Wii emulator Metroid Prime-specific fixes 
     unstable.duckstation            # PS1 emulator, currently unavailable because of Stenzek drama
     unstable.fsuae                  # Commodore Amiga emulator
-    unstable.fsuae-launcher         # Commodore Amige emulator (GUI)
+    # unstable.fsuae-launcher         # Commodore Amige emulator GUI
+    fsuae-launcher-ng               # Commodore Amige emulator GUI (my updated package)
     unstable.fuse-emulator          # ZX Spectrum emulator
     unstable.hatari                 # Atari ST-line emulator
     unstable.openmsx                # MSX and MSX2 emulator

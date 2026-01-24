@@ -2,6 +2,7 @@ final: prev: {
   # ambermoon-net         = prev.callPackage ./ambermoon-net { }; # TODO: move to .NET 8
   awscli-local          = prev.callPackage ./awscli-local { };
   binaryobjectscanner   = prev.callPackage ./binaryobjectscanner { };
+  fsuae-launcher-ng     = prev.callPackage ./fsuae-launcher-ng { };
   helidon-cli           = prev.callPackage ./helidon-cli { };
   luxtorpeda            = prev.callPackage ./luxtorpeda { };
   nuked-sc55            = prev.callPackage ./nuked-sc55 { };
