@@ -34,6 +34,7 @@ in {
   # Note: most cutting edge emulators almost never get their versions backported to stable
   environment.systemPackages = with pkgs; [
     # Standalone emulators
+    applewin
     unstable.ares                   # Mutli-system emulator
     unstable.azahar                 # 3DS emulator
     unstable.basiliskii             # Macintosh 68k emulator

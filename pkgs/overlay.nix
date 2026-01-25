@@ -1,4 +1,5 @@
 final: prev: {
+  applewin              = prev.callPackage ./applewin { };
   # ambermoon-net         = prev.callPackage ./ambermoon-net { }; # TODO: move to .NET 8
   awscli-local          = prev.callPackage ./awscli-local { };
   binaryobjectscanner   = prev.callPackage ./binaryobjectscanner { };
