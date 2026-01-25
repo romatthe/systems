@@ -1,13 +1,33 @@
 { lib
 , fetchFromGitHub
+, fetchPypi
 , fsuae
 , gettext
-, python3Packages
+# , python3Packages
+, python3
+, qt6
 , stdenv
-, libsForQt5
 , nix-update-script
 }:
+let
+  lhafile = python3.pkgs.buildPythonPackage rec {
+    pname = "lhafile";
+    version = "0.3.1";
 
+    src = fetchPypi {
+      inherit pname version;
+      sha256 = "sha256-pmoJHmGvVpOEhE7XS/dhecV15dKLyIv5v1R2ozl9B30=";
+    };
+
+    pyproject = true;
+
+    build-system = with python3.pkgs; [
+      setuptools
+    ];
+
+    doCheck = false;
+  };
+in
 stdenv.mkDerivation (finalAttrs: {
   pname = "fs-uae-launcher-ng";
   version = "3.2.20";
@@ -19,25 +39,27 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-JuCwcVKuc0EzsKQiPXobH9tiIWEFD3tjcXneRXzjsH0=";
   };
 
-  nativeBuildInputs = [
-    gettext
-    python3Packages.python
-    libsForQt5.wrapQtAppsHook
+  buildInputs = [
+    qt6.qtbase
   ];
 
-  # buildInputs = with python3Packages; [
-  #   pyqt6
-  #   requests
-  #   setuptools
-  # ];
+  nativeBuildInputs = [
+    gettext
+    python3.pkgs.python
+    qt6.wrapQtAppsHook
+  ];
 
-  propagatedBuildInputs = with python3Packages; [
+  propagatedBuildInputs = with python3.pkgs; [
+    lhafile
+    macholib
+    pillow
+    pyopengl
     pyqt6
     requests
-    setuptools
-    # lhafile TODO: Needed?
-    pyopengl
-    dbus-python
+    sentry-sdk
+    typing-extensions
+  ] ++ [
+    lhafile
   ];
 
   strictDeps = true;
