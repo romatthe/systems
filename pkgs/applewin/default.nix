@@ -65,10 +65,18 @@ stdenv.mkDerivation rec {
   ];
 
   postPatch = ''
+    # Resolve issues finding libslirp
     sed -i 's/pkg_search_module(SLIRP slirp)/find_package(libslirp CONFIG QUIET)/' \
       source/CMakeLists.txt
 
     sed -i 's/SLIRP_FOUND/libslirp_FOUND/g' \
       source/CMakeLists.txt
+
+    # Change argument group name from `sa2` to `sdl`
+    sed -i 's|{"sa2",|{"sdl",|g' \
+      source/frontends/common2/argparser.cpp
+
+    # Change binary name from `sa2` to `applewin`
+    sed -i 's|^add_executable(sa2)$|add_executable(sa2)\n\nset_target_properties(sa2 PROPERTIES\n    OUTPUT_NAME "applewin"\n)|' source/frontends/sdl/CMakeLists.txt
   '';
 }
