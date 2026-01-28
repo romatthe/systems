@@ -1,6 +1,7 @@
 { lib
 , fetchFromGitea
 , stdenv
+, bash
 , boron
 , libglvnd
 , libpng
@@ -8,7 +9,6 @@
 , libvorbis
 , libX11
 , libxcursor
-, mesa
 , zlib
 }:
 
@@ -22,15 +22,27 @@ let
       owner = "wickedsmoke";
       repo = "faun";
       tag = "v${version}";
-      sha256 = lib.fakeSha256l;
+      hash = "sha256-fUYKrs4nSIh/l3UQ+PA7F0RJ5hPBd99sjhex7LZ/Lik=";
     };
+
+    nativeBuildInputs = [ 
+      bash
+    ];
 
     buildInputs = [
       libpulseaudio
       libvorbis
     ];
 
-    configureFlags = [ "--no_flac" ];
+    dontAddPrefix = true;
+
+    postPatch = ''
+      patchShebangs . 
+    '';
+
+    configurePhase = ''
+      ./configure --no_flac --prefix $out
+    '';
   };
 in
   stdenv.mkDerivation rec {
@@ -58,8 +70,6 @@ in
       libvorbis
       libX11
       libxcursor
-      # libXext
-      # mesa
       zlib
     ];
 
