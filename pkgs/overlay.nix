@@ -14,6 +14,7 @@ final: prev: {
   steam-metadata-editor = prev.callPackage ./steam-metadata-editor { };
   waybackpack           = prev.callPackage ./waybackpack { };
   xdvdfs-cli            = prev.callPackage ./xdvdfs-cli { };
+  xu4                   = prev.callPackage ./xu4 { };
   yuzu                  = prev.callPackage ./yuzu { };
   
   # Pre-packaged DOSBOX games
