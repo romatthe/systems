@@ -33,6 +33,7 @@ stdenv.mkDerivation rec {
     fetchSubmodules = true;
   };
 
+  # We're only building the SDL frontend
   cmakeFlags = [
     "-DBUILD_APPLEN=OFF"
     "-DBUILD_QAPPLE=OFF"
