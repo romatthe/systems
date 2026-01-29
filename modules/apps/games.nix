@@ -139,6 +139,7 @@ in {
     #wargus          # Open source Warcraft II engine on top of Stratagus engine # TODO: Restore after CMake fix
     wesnoth         # Battle for Wesnoth
     widelands
+    xu4
     yquake2
     yquake2-ground-zero
     yquake2-the-reckoning

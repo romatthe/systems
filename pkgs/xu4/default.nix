@@ -1,5 +1,6 @@
 { lib
 , fetchFromGitea
+, fetchurl
 , stdenv
 , bash
 , boron
@@ -34,6 +35,7 @@ let
       libvorbis
     ];
 
+    # This is a custom configure script that doesn't follow the autotools argument parsing conventions
     dontAddPrefix = true;
 
     postPatch = ''
@@ -44,6 +46,10 @@ let
       ./configure --no_flac --prefix $out
     '';
   };
+  # u4Upgrade = fetchurl {
+  #   url = "https://downloads.sourceforge.net/project/xu4/Ultima%204%20VGA%20Upgrade/1.3/u4upgrad.zip";
+  #   hash = "sha256-QArDcxHzvnTBsteDZWGy6tKxRvUWJYaGWw9IgSJcylg=";
+  # };
 in
   stdenv.mkDerivation rec {
     pname = "xu4";
@@ -76,4 +82,18 @@ in
     hardeningDisable = [ "format" ];
 
     dontAddPrefix = true;
+
+    # preInstall = ''
+    #   cp ${u4Upgrade} ./u4upgrad.zip
+    #   ls -lah .
+    # '';
+
+    # The `install` make target fetches the U4 VGA patch, so we manually install instead
+    installPhase = ''
+      mkdir -p $out/bin $out/share/xu4
+      install -m 755 -s src/xu4 $out/bin/xu4
+      install -m 644 -t $out/share/xu4 render.pak Ultima-IV.mod U4-Upgrade.mod
+      install -D -m 644 icons/shield.png $out/share/icons/hicolor/48x48/apps/xu4.png
+      install -D -m 644 dist/xu4.desktop $out/share/applications/xu4.desktop
+    '';
 }
