@@ -50,7 +50,7 @@
     description = "Robin Mattheussen";
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = [ "wheel" "networkmanager" "podman" "cdrom" "libvirtd" "input" ];
+    extraGroups = [ "wheel" "networkmanager" "podman" "cdrom" "libvirtd" "input" "video" "render" ];
     hashedPassword = "$6$3jnb5.ogAjaHO7t$.bz.QVZVPTPUe75.0HuTPhThVgrH9GFyuvqUwyTvtNvKFumw3WckiOnEfmoy/Ojewf2HwH0PLnc4Hc7bKqw57/";
   };
   
