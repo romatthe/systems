@@ -35,5 +35,9 @@
     # Rust (primarily for use with RustRover)
     rustup
     gcc
+
+    # I guess you can't avoid this stuff these days
+    goose-cli
+    opencode
   ];
 }
