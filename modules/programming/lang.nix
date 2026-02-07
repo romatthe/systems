@@ -39,5 +39,19 @@
     # I guess you can't avoid this stuff these days
     goose-cli
     opencode
+
   ];
+
+  # Ollama service with ROCm
+  services.ollama = {
+    enable = true;
+    # acceleration = "rocm";
+    acceleration = "vulkan";
+    
+    environmentVariables = {
+      # HSA_OVERRIDE_GFX_VERSION = "11.0.0";  # For RX 7900 XTX
+      # OLLAMA_NUM_GPU = "999";
+      # OLLAMA_NUM_CTX = "196608";
+    };
+  };
 }
