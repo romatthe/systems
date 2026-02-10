@@ -28,8 +28,9 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "audetto";
     repo = pname;
-    rev = "60df032b933db97e253c6f5948eea9ee895e25a0";
-    hash = "sha256-lMu+OGEB/k7zjCBBqz6I8KVyhxgYM6EQTj+8pfd18Ow=";
+    rev = "e8eca6285c8f6a239959cc204760204e0bc17b1c";
+    hash = "sha256-sG/n02kqzo2pQWcyR6ZYkSa3iK+NPZc6fqxtVqBdRWU=";
+    # sha256 = lib.fakeSha256;
     fetchSubmodules = true;
   };
 
