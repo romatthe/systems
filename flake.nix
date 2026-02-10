@@ -62,16 +62,16 @@
         ./modules/apps/chat.nix
         ./modules/apps/common.nix
         ./modules/apps/emacs.nix
-        ./modules/apps/jetbrains.nix
         ./modules/apps/media.nix
         ./modules/common/console.nix
         ./modules/common/nix.nix
         ./modules/common/qt.nix
         ./modules/common/xdg.nix
+        ./modules/dev
+        ./modules/dev/jetbrains.nix
         ./modules/common/xorg.nix
         ./modules/hardware/bluetooth.nix
         ./modules/hardware/ntfs.nix
-        ./modules/programming/lang.nix
         ./modules/services/direnv.nix
         ./modules/services/dbus.nix
         ./modules/services/oom.nix
@@ -106,6 +106,7 @@
             ./machines/yokohama.nix
             ./modules/apps/emulation.nix
             ./modules/apps/games.nix
+            ./modules/dev/llm.nix
             ./modules/hardware/amdgpu.nix
             ./modules/hardware/ssd.nix
             ./modules/services/clam.nix
