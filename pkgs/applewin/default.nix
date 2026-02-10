@@ -30,7 +30,6 @@ stdenv.mkDerivation rec {
     repo = pname;
     rev = "e8eca6285c8f6a239959cc204760204e0bc17b1c";
     hash = "sha256-sG/n02kqzo2pQWcyR6ZYkSa3iK+NPZc6fqxtVqBdRWU=";
-    # sha256 = lib.fakeSha256;
     fetchSubmodules = true;
   };
 
