@@ -6,6 +6,7 @@
     git
     glances
     htop
+    jq
     procs
     vim
     wget
