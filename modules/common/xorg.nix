@@ -33,7 +33,8 @@
   '';
 
   environment.systemPackages = with pkgs; [
-    wallutils # Primarily for wayinfo
+    file-roller # Not part of GNOME anymore, but provides nice integration with Nautilus
+    wallutils   # Primarily for wayinfo
     waycheck
   ];
 }
