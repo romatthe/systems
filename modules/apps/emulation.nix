@@ -42,7 +42,7 @@ in {
     unstable.deniseemu              # C64 Emulator
     unstable.dolphin-emu            # Wii emulator
     unstable.dolphin-emu-primehack  # Wii emulator Metroid Prime-specific fixes 
-    unstable.duckstation            # PS1 emulator, currently unavailable because of Stenzek drama
+    # unstable.duckstation            # PS1 emulator, basically unmaintained after many off-and-on Stenzek drama as usual
     unstable.fsuae                  # Commodore Amiga emulator
     # unstable.fsuae-launcher         # Commodore Amige emulator GUI
     fsuae-launcher-ng               # Commodore Amige emulator GUI (my updated package)
