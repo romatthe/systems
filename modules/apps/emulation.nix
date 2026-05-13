@@ -27,7 +27,7 @@ let
 in {
   # For dealing with ISOs
   programs.cdemu = {
-    enable = true;
+    enable = false; # TODO: re-enable
     gui = true;
   };
 
@@ -44,8 +44,8 @@ in {
     unstable.dolphin-emu-primehack  # Wii emulator Metroid Prime-specific fixes 
     # unstable.duckstation            # PS1 emulator, basically unmaintained after many off-and-on Stenzek drama as usual
     unstable.fsuae                  # Commodore Amiga emulator
-    # unstable.fsuae-launcher         # Commodore Amige emulator GUI
-    fsuae-launcher-ng               # Commodore Amige emulator GUI (my updated package)
+    # unstable.fsuae-launcher         # Commodore Amiga emulator GUI
+    fsuae-launcher-ng               # Commodore Amiga emulator GUI (my updated package)
     unstable.fuse-emulator          # ZX Spectrum emulator
     unstable.hatari                 # Atari ST-line emulator
     unstable.openmsx                # MSX and MSX2 emulator
