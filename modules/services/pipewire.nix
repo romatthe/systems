@@ -17,7 +17,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    helvum      # Patchbay for PipeWire
+    crosspipe   # Patchbay for PipeWire
     pulseaudio  # Only for cli tools
   ];
 }

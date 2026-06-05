@@ -2,9 +2,9 @@
 {
   # VSCodium
   programs = {
-    vscode = {
+    vscodium = {
       enable = true;
-      package = pkgs.vscodium;
+      # package = pkgs.vscodium;
       profiles.default = {
         keybindings = builtins.fromJSON (builtins.readFile ../../configs/vscode/keybindings.json);
         userSettings = builtins.fromJSON (builtins.readFile ../../configs/vscode/settings.json);

@@ -1,11 +1,7 @@
 { pkgs, config, ... }:
 {
-  # services.xserver.enable = true;
-  # services.xserver.autorun = true;
-
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
-  services.displayManager.gdm.wayland = true;
   services.desktopManager.gnome.enable = true;
 
   # Here we're adding Mutter so the schema gets picked up for use in dconf

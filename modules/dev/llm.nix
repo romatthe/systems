@@ -3,7 +3,8 @@
   # Ollama service with ROCm
   services.ollama = {
     enable = true;
-    acceleration = "rocm";
+    package = pkgs.ollama-rocm; # Acceleration method happens through package selection
+    # package = pkgs.ollama-vulkan;
     
     environmentVariables = {
       # HSA_OVERRIDE_GFX_VERSION = "11.0.0";  # For RX 7900 XTX

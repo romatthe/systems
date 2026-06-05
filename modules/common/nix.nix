@@ -18,8 +18,9 @@
   nix.gc.automatic = true;
   
   # Service to automaticall invalidate GC roots of direnv projects
-  services.angrr = {
-    enable = true;
-    period = "3weeks";
-  };
+  # TODO: Figure out how to properly configure this
+  # services.angrr = {
+  #   enable = true;
+  #   period = "3weeks";
+  # };
 }

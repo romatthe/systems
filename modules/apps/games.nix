@@ -17,7 +17,7 @@ let
       hash = "sha256-VlwBRDfT3T+ykLEWFisHEC85x59rn9iDnk/yey19gog=";
     };
   });
-  starsector = pkgs.unstable.starsector.overrideAttrs (old: {
+  starsector' = pkgs.unstable.starsector.overrideAttrs (old: {
     postInstall = old.postInstall + ''
       # Delete the symlink
       rm $out/share/icons/hicolor/64x64/apps/starsector.png
@@ -105,10 +105,9 @@ in {
     # luxtorpeda
 
     # Commercial games
-    # unstable.minecraft # Prism Launcher doesn't work at the moment so we're back on the classic launcher, TODO reanable
-    unstable.starsector
-    #unstable.vintagestory
-    insecure.vintagestory # TODO: VS has to move to supported runtime
+    prismlauncher # Minecraft launcher
+    starsector
+    vintagestory
     
     # Commercial dosbox games
     dosbox-bak
@@ -118,7 +117,7 @@ in {
     airshipper      # Veloren launcher
     # ambermoon-net # TODO: Move to .NET 8
     arx-libertatis  # Arx Fatalis source port
-    unstable.bolt-launcher  # Open source RuneScape launcher
+    bolt-launcher   # Open source RuneScape launcher
     dhewm3
     exult           # Ultima VII engine
     fheroes2        # Heroes of Might and Magic II engine
@@ -134,9 +133,9 @@ in {
     scummvm
     shipwright      # Oracina of Time reverse engineered
     uqm             # The Ur-Quan Masters
-    vcmi            # Heroes of Might and Magic III engine
+    # vcmi            # Heroes of Might and Magic III engine # TODO: Hash mismatch, pretty strange 
     vkquake
-    #wargus          # Open source Warcraft II engine on top of Stratagus engine # TODO: Restore after CMake fix
+    # wargus          # Open source Warcraft II engine on top of Stratagus engine # TODO: Download is gone from archive.org
     wesnoth         # Battle for Wesnoth
     widelands
     xu4
@@ -153,29 +152,30 @@ in {
 
     # Dwarf Fotress
     # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/dwarf-fortress/default.nix for more information
-    (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
-      theme = "vettlingr";
-      enableDFHack = true;
-      enableTWBT = true;
-      enableSoundSense = false;
-      enableStoneSense = true;
-      enableDwarfTherapist = true;
-      enableLegendsBrowser = true;
-      enableIntro = true;
-      enableFPS = true;
-    })
+    # TODO: Get rid of?
+    # (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
+    #   theme = "vettlingr";
+    #   enableDFHack = true;
+    #   enableTWBT = true;
+    #   enableSoundSense = false;
+    #   enableStoneSense = true;
+    #   enableDwarfTherapist = true;
+    #   enableLegendsBrowser = true;
+    #   enableIntro = true;
+    #   enableFPS = true;
+    # })
 
     # Tools
     fluidsynth          # For games requiring MIDI playback
     gamemode
-    # gamescope
-    gamescope'
+    gamescope
+    # gamescope'        # TODO: Still necessary?
     libstrangle         # Linux OpenGL/Vulkan frame limiter
-    unstable.lsfg-vk    # Lossless Scaling Frame Generation on Linux
-    unstable.lsfg-vk-ui
+    lsfg-vk             # Lossless Scaling Frame Generation on Linux
+    lsfg-vk-ui
     mangohud
     mesa-demos
-    opentrack  # NeuralNet tracker only available for now on unstable
+    opentrack
     protonup-ng
     samrewritten
     steam-cleaner

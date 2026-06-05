@@ -27,7 +27,7 @@ let
 in {
   # For dealing with ISOs
   programs.cdemu = {
-    enable = false; # TODO: re-enable
+    enable = true;
     gui = true;
   };
 
@@ -59,7 +59,7 @@ in {
     unstable.xenia-canary           # Fork of Xenia, Xbox 360 emulator
 
     # DOS/x86 emulation
-    _86Box-with-roms  # Low-level retro PC emulator
+    _86box-with-roms  # Low-level retro PC emulator
     dosbox-staging    # Modern continuation of DOSBox
     pcem              # Low-level retro PC emulator
     # TODO: Package DBGL?

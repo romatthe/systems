@@ -22,13 +22,13 @@
   # Speaking of which...
   environment.systemPackages = with pkgs; [
     # Wine with 32 and 64-bit support + experimental staging features
-    wineWowPackages.staging
+    wineWow64Packages.staging
     unstable.seabird
 
     # Podman tool for working with docker-compose.yml
     podman-compose
 
     qemu
-    unstable.quickemu
+    quickemu
   ];
 }

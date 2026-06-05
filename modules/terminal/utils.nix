@@ -3,9 +3,9 @@
   home.packages = with pkgs; [
     aria2
     chafa
+    fastfetch
     killall
     libgen-cli
-    neofetch
     p7zip
     pandoc
     pavucontrol
@@ -23,15 +23,12 @@
     pciutils
 
     # Nix
-    nixfmt-classic
-    # nixfmt-rfc-style
+    nixfmt
     nixpkgs-fmt
     nixpkgs-review
     nix-index
     nix-prefetch-git
     nix-prefetch-github
-    #rnix-lsp  # LSP
-    #nil       # LSP
 
     # TUI apps
     lazygit

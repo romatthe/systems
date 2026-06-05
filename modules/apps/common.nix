@@ -17,13 +17,13 @@
 
     # Apps
     bitwarden-cli
-    bitwarden-desktop
+    # bitwarden-desktop # Packaged with insecure Electron because of course lol
     filezilla
     gimp
     imhex
     libreoffice-fresh
     onlyoffice-desktopeditors
-    protonvpn-gui
+    proton-vpn
     remmina
     qbittorrent
     qdirstat
