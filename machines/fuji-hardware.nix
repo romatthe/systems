@@ -10,7 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" "amdgpu" ];
+  boot.kernelModules = [ "kvm-amd" "amdgpu" "ntsync" ];
   boot.extraModulePackages = [ ];
 
   boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/b2dde52d-d09a-4c30-8af0-9a6a941eed92";

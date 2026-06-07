@@ -10,7 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" "amdgpu" ];
+  boot.kernelModules = [ "kvm-amd" "amdgpu" "ntsync" ];
   boot.extraModulePackages = [ ];
 
   boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/e3bc00e6-9b21-4e6d-aaae-d425920e5f6f";   # Boot disk including OS install
