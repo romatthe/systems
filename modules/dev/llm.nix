@@ -14,6 +14,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    claude-code
     goose-cli
     opencode
   ];
