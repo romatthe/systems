@@ -188,7 +188,7 @@
             ./modules/apps/emulation.nix
             ./modules/apps/games.nix
             ./modules/hardware/amdgpu.nix
-            ./modules/hardware/asus.nix
+            # ./modules/hardware/asus.nix
             ./modules/hardware/ssd.nix
             ./modules/services/clam.nix
 
