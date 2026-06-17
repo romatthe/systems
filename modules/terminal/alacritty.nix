@@ -60,6 +60,11 @@
       mods = "Control|Shift";
       action = "ScrollPageDown";
     }
+    { 
+      key = "Return";
+      mods = "Shift";
+      chars = "\n"; 
+    }
   ];
   
   # Nord theme
