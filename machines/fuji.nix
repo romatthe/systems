@@ -6,8 +6,7 @@
   ];
 
   # Get the latest stable kernel
-  # boot.kernelPackages = pkgs.linuxPackages_latest; # TODO: Switch back to latest once issues with bluetooth are resolved
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
