@@ -187,6 +187,7 @@
             ./machines/fuji.nix
             ./modules/apps/emulation.nix
             ./modules/apps/games.nix
+            ./modules/dev/llm.nix
             ./modules/hardware/amdgpu.nix
             # ./modules/hardware/asus.nix
             ./modules/hardware/ssd.nix
