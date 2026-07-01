@@ -98,7 +98,7 @@ in {
     lutris
     minigalaxy
     prismlauncher
-    unstable.umu-launcher
+    umu-launcher
 
     # Steam    
     # steamtinkerlaunch # Patched to better work with the Steam compat tools
@@ -108,6 +108,7 @@ in {
     prismlauncher # Minecraft launcher
     starsector
     vintagestory
+    wowup-cf      # WoW mod manager
     
     # Commercial dosbox games
     dosbox-bak
