@@ -54,7 +54,8 @@ in {
     unstable.rpcs3                  # PS3 emulator
     unstable.ryubing                # Ryujinx fork with updated features
     unstable.shadps4                # Experimental PS4 emulator
-    unstable.vice                   # C64-line emulator
+    # unstable.vice                   # C64-line emulator
+    vice                   # C64-line emulator
     unstable.xemu                   # OG Xbox emulator
     unstable.xenia-canary           # Fork of Xenia, Xbox 360 emulator
 

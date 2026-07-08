@@ -14,8 +14,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    claude-code
-    goose-cli
-    opencode
+    unstable.claude-code
+    unstable.goose-cli
+    unstable.opencode
   ];
 }
