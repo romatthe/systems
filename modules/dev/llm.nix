@@ -14,7 +14,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    unstable.claude-code
+    claude.claude-code # Seperate nixpkgs-unstable input to not affect all other packages
     unstable.goose-cli
     unstable.opencode
   ];

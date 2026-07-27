@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-old.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable-claude.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nur.url = "github:nix-community/NUR";
@@ -32,19 +33,15 @@
                 allowUnfree = true;
               };
             };
-            # Insecure nixpkgs
-            insecure = import inputs.nixpkgs-unstable {
+            # Old NixOS on 23.11
+            old = import inputs.nixpkgs-old {
               system = final.stdenv.hostPlatform.system;
               config = {
                 allowUnfree = true;
-                permittedInsecurePackages = [
-                  "dotnet-runtime-7.0.20"
-                  "dotnet-runtime-wrapped-7.0.20"
-                ];
               };
             };
-            # Old NixOS on 23.11
-            old = import inputs.nixpkgs-old {
+            # Unstable nixpkgs only updated for new versions of Claude Code (lame but handy for not updating the system 24/7)
+            claude = import inputs.nixpkgs-unstable-claude {
               system = final.stdenv.hostPlatform.system;
               config = {
                 allowUnfree = true;
