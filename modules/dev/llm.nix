@@ -13,6 +13,13 @@
     };
   };
 
+   # Enable Open WebUI service
+  services.open-webui = {
+    enable = true;
+    host = "0.0.0.0";
+    port = 9000;
+  };
+
   environment.systemPackages = with pkgs; [
     claude.claude-code # Seperate nixpkgs-unstable input to not affect all other packages
     unstable.goose-cli
