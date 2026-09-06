@@ -30,7 +30,7 @@
 
   environment.systemPackages = with pkgs; [
     file-roller # Not part of GNOME anymore, but provides nice integration with Nautilus
-    wallutils   # Primarily for wayinfo
+    # wallutils   # Primarily for wayinfo TODO: RESTORE
     waycheck
   ];
 }
