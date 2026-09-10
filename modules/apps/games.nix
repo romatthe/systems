@@ -178,7 +178,8 @@ in {
     mesa-demos
     opentrack
     protonup-ng
-    samrewritten
+    # samrewritten
+    unstable.samrewritten
     steam-cleaner
     steam-metadata-editor
     vkbasalt

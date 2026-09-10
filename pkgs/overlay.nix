@@ -38,16 +38,16 @@ final: prev: {
     openssl           = final.old.openssl;
     zlib              = final.old.zlib;
   };
-  samrewritten      = prev.callPackage ./samrewritten { 
-    stdenv          = final.old.stdenv;
-    lib             = final.old.lib;
-    fetchFromGitHub = final.old.fetchFromGitHub;
-    curl            = final.old.curl;
-    gnumake         = final.old.gnumake;
-    gnutls          = final.old.gnutls;
-    gtk3            = final.old.gtk3;
-    gtkmm3          = final.old.gtkmm3;
-    pkg-config      = final.old.pkg-config;
-    yajl            = final.old.yajl;
-  };
+  # samrewritten      = prev.callPackage ./samrewritten { 
+  #   stdenv          = final.old.stdenv;
+  #   lib             = final.old.lib;
+  #   fetchFromGitHub = final.old.fetchFromGitHub;
+  #   curl            = final.old.curl;
+  #   gnumake         = final.old.gnumake;
+  #   gnutls          = final.old.gnutls;
+  #   gtk3            = final.old.gtk3;
+  #   gtkmm3          = final.old.gtkmm3;
+  #   pkg-config      = final.old.pkg-config;
+  #   yajl            = final.old.yajl;
+  # };
 }
