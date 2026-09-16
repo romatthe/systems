@@ -17,6 +17,21 @@ let
       hash = "sha256-VlwBRDfT3T+ykLEWFisHEC85x59rn9iDnk/yey19gog=";
     };
   });
+  samrewritten = pkgs.unstable.samrewritten.overrideAttrs (old: {
+    nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.imagemagick ];
+    postInstall = old.postInstall + ''
+      install -Dm644 package/samrewritten.desktop $out/share/applications/samrewritten.desktop
+
+      substituteInPlace $out/share/applications/samrewritten.desktop \
+        --replace "Exec=/usr/bin/samrewritten" "Exec=$out/bin/samrewritten"
+
+      for size in 16 24 32 48 64 128 256 ; do
+        mkdir -p $out/share/icons/hicolor/"$size"x"$size"/apps
+        convert -resize "$size"x"$size" assets/icon_256.png \
+          $out/share/icons/hicolor/"$size"x"$size"/apps/samrewritten.png
+      done;
+    '';
+  });
   starsector' = pkgs.unstable.starsector.overrideAttrs (old: {
     postInstall = old.postInstall + ''
       # Delete the symlink
@@ -178,8 +193,8 @@ in {
     mesa-demos
     opentrack
     protonup-ng
-    # samrewritten
-    unstable.samrewritten
+    samrewritten
+    # unstable.samrewritten
     steam-cleaner
     steam-metadata-editor
     vkbasalt
