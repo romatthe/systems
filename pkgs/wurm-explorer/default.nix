@@ -41,6 +41,15 @@ stdenv.mkDerivation (finalAttrs: {
     ./writable-user-configs.patch
   ];
 
+  # The executable is installed as `wurm-explorer`, so the usage output should
+  # not advertise the upstream name
+  postPatch = ''
+    substituteInPlace src/main.cpp \
+      --replace-fail "Run 'wurm_explorer --help'" "Run 'wurm-explorer --help'"
+    substituteInPlace src/core/CliOptions.cpp \
+      --replace-fail "  wurm_explorer [options]" "  wurm-explorer [options]"
+  '';
+
   strictDeps = true;
 
   nativeBuildInputs = [
@@ -75,10 +84,11 @@ stdenv.mkDerivation (finalAttrs: {
   dontWrapQtApps = true;
 
   # The application resolves its bundled configs and resources relative to the
-  # directory of its own binary, so both live together in `libexec`
+  # directory of its own binary, so both live together in `libexec`. Upstream
+  # builds it as `wurm_explorer`, which gets renamed on the way in
   postInstall = ''
     install -d $out/libexec/wurm-explorer
-    mv $out/bin/wurm_explorer $out/libexec/wurm-explorer/wurm_explorer
+    mv $out/bin/wurm_explorer $out/libexec/wurm-explorer/wurm-explorer
 
     install -Dm444 -t $out/libexec/wurm-explorer/configs \
       $src/configs/*.json \
@@ -102,7 +112,7 @@ stdenv.mkDerivation (finalAttrs: {
     chmod +x $out/bin/wurm-explorer-fetch-maps
 
     substituteInPlace $out/share/applications/wurmexplorer.desktop \
-      --replace-fail "Exec=wurm_explorer" "Exec=$out/bin/wurm_explorer"
+      --replace-fail "Exec=wurm_explorer" "Exec=$out/bin/wurm-explorer"
 
     desktop-file-validate $out/share/applications/wurmexplorer.desktop
   '';
@@ -112,7 +122,7 @@ stdenv.mkDerivation (finalAttrs: {
   # `org.gtk.Settings.ColorChooser` schema and GLib aborts the process when it
   # is missing, so the schemas have to be on `XDG_DATA_DIRS`
   preFixup = ''
-    makeQtWrapper $out/libexec/wurm-explorer/wurm_explorer $out/bin/wurm_explorer \
+    makeQtWrapper $out/libexec/wurm-explorer/wurm-explorer $out/bin/wurm-explorer \
       --set-default TESSDATA_PREFIX ${tesseract}/share/tessdata \
       --prefix XDG_DATA_DIRS : ${glib.getSchemaDataDirPath gtk3}
   '';
@@ -123,7 +133,7 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Map, navigation, breeding and skill tracking companion for Wurm Online";
     homepage = "https://github.com/bnorthern42/WurmExplorer";
     license = lib.licenses.mit;
-    mainProgram = "wurm_explorer";
+    mainProgram = "wurm-explorer";
     platforms = lib.platforms.linux;
   };
 })
