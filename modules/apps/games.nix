@@ -124,7 +124,8 @@ in {
     starsector
     vintagestory
     wowup-cf      # WoW mod manager
-    
+    wurm-explorer # Wurm Online swiss army knife
+
     # Commercial dosbox games
     dosbox-bak
     # dosbox-mmwox
