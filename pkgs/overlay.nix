@@ -13,6 +13,7 @@ final: prev: {
   steam-cleaner         = prev.callPackage ./steam-cleaner { };
   steam-metadata-editor = prev.callPackage ./steam-metadata-editor { };
   waybackpack           = prev.callPackage ./waybackpack { };
+  wurm-explorer         = prev.callPackage ./wurm-explorer { };
   xdvdfs-cli            = prev.callPackage ./xdvdfs-cli { };
   xu4                   = prev.callPackage ./xu4 { };
   yuzu                  = prev.callPackage ./yuzu { };

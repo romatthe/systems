@@ -1,0 +1,39 @@
+diff --git a/src/core/PathUtils.hpp b/src/core/PathUtils.hpp
+index 9e3ad7c..5f18ef5 100644
+--- a/src/core/PathUtils.hpp
++++ b/src/core/PathUtils.hpp
+@@ -24,6 +24,14 @@ inline QString getAppVersion() {
+     return ver;
+ }
+ 
++// QFile::copy() carries the permissions of the source file over to the copy,
++// so a template that ships read-only (as everything installed into the Nix
++// store does) would leave the user with an unwritable store file.
++inline void makeUserWritable(const QString& path) {
++    QFile::setPermissions(path, QFileDevice::ReadOwner | QFileDevice::WriteOwner
++                                | QFileDevice::ReadGroup | QFileDevice::ReadOther);
++}
++
+ inline std::string resolveStorePath(const QString& filename) {
+     QString configDir = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
+     QDir().mkpath(configDir);
+@@ -38,11 +46,17 @@ inline std::string resolveStorePath(const QString& filename) {
+ 
+     if (QFile::exists(appConfig)) {
+         QFile::copy(appConfig, targetPath);
+-        if (QFile::exists(targetPath)) return targetPath.toStdString();
++        if (QFile::exists(targetPath)) {
++            makeUserWritable(targetPath);
++            return targetPath.toStdString();
++        }
+         return appConfig.toStdString();
+     } else if (QFile::exists(cwdConfig)) {
+         QFile::copy(cwdConfig, targetPath);
+-        if (QFile::exists(targetPath)) return targetPath.toStdString();
++        if (QFile::exists(targetPath)) {
++            makeUserWritable(targetPath);
++            return targetPath.toStdString();
++        }
+         return cwdConfig.toStdString();
+     }
+ 
