@@ -10,6 +10,7 @@
     awscli-local
     dynamodb-local
     dynein
+    gh
     infracost
     localstack
     nosql-workbench
