@@ -43,6 +43,7 @@ in {
     unstable.dolphin-emu            # Wii emulator
     unstable.dolphin-emu-primehack  # Wii emulator Metroid Prime-specific fixes 
     # unstable.duckstation            # PS1 emulator, basically unmaintained after many off-and-on Stenzek drama as usual
+    unstable.eden                   # Yuzu lives, again!
     unstable.fsuae                  # Commodore Amiga emulator
     # unstable.fsuae-launcher         # Commodore Amiga emulator GUI
     fsuae-launcher-ng               # Commodore Amiga emulator GUI (my updated package)
