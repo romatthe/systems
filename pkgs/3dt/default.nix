@@ -2,6 +2,9 @@
 , stdenv
 , fetchFromGitHub
 , nix-update-script
+, cli11
+, fmt
+, nlohmann_json
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -17,7 +20,21 @@ stdenv.mkDerivation (finalAttrs: {
 
   strictDeps = true;
 
-  # Every dependency is vendored, so stdenv is all that is needed
+  buildInputs = [
+    cli11
+    fmt
+    nlohmann_json
+  ];
+
+  # Use nixpkgs' copies of the header-only libraries. The vendored `fmt.hpp`
+  # wrapper stays, as it adds a formatter for `std::filesystem::path` and keeps
+  # fmt header-only. The remaining vendored libraries are not in nixpkgs
+  postPatch = ''
+    rm -r vendored/cli11 vendored/nlohmann-json vendored/fmt/fmt
+    substituteInPlace src/*.cpp src/*.hpp \
+      --replace-quiet '"CLI11.hpp"' '<CLI/CLI.hpp>' \
+      --replace-quiet '"json.hpp"' '<nlohmann/json.hpp>'
+  '';
 
   # The default goal is an unoptimized debug build and `NDEBUG=1` links
   # statically, so the optimization flags are set by hand instead. `BINDIR`
