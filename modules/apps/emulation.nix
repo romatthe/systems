@@ -75,6 +75,7 @@ in {
     yuzu        # Final available release, legally available and fetched and built from the Software Heritage Archive
 
     # Tools
+    _3dt                  # For working with 3DO disc images
     #binaryobjectscanner # TODO: restore
     fusee-interfacee-tk   # For sending RCM payloads to Switch
     hactool               # For verifying Switch cart dumps 
