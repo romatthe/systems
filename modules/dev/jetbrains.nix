@@ -19,7 +19,7 @@ let
 
   idea = pkgs.unstable.jetbrains.idea.overrideAttrs (old: {
     postInstall = ''
-      wrapProgram $out/bin/idea \
+      wrapProgram $out/bin/${old.meta.mainProgram} \
         --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.jdk21 pkgs.jdk25 pkgs.nodejs ]}
     '';
   });

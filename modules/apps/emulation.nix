@@ -24,6 +24,11 @@ let
     snes9x
     swanstation
   ]));
+  # GCC 16 defaults to C++20, whose std::numbers clashes with a global in
+  # fs-uae's statusline.cpp. Build as C++17 until upstream fixes it.
+  fsuae = pkgs.unstable.fsuae.overrideAttrs (old: {
+    env = (old.env or { }) // { CXXFLAGS = "-O2 -std=gnu++17"; };
+  });
 in {
   # For dealing with ISOs
   programs.cdemu = {
@@ -44,7 +49,7 @@ in {
     unstable.dolphin-emu-primehack  # Wii emulator Metroid Prime-specific fixes 
     # unstable.duckstation            # PS1 emulator, basically unmaintained after many off-and-on Stenzek drama as usual
     unstable.eden                   # Yuzu lives, again!
-    unstable.fsuae                  # Commodore Amiga emulator
+    fsuae                           # Commodore Amiga emulator (unstable, C++17 override)
     # unstable.fsuae-launcher         # Commodore Amiga emulator GUI
     fsuae-launcher-ng               # Commodore Amiga emulator GUI (my updated package)
     unstable.fuse-emulator          # ZX Spectrum emulator
