@@ -1,0 +1,36 @@
+diff --git a/src/UniversalDreamcastPatcher.Core/AppSettings.cs b/src/UniversalDreamcastPatcher.Core/AppSettings.cs
+index 79df872..951946d 100644
+--- a/src/UniversalDreamcastPatcher.Core/AppSettings.cs
++++ b/src/UniversalDreamcastPatcher.Core/AppSettings.cs
+@@ -8,9 +8,9 @@ using System.Text.Json;
+ 
+ namespace UniversalDreamcastPatcher.Core;
+ 
+-// Settings file. Lives next to the executable on Windows/Linux,
+-// and in ~/Library/Application Support/UniversalDreamcastPatcher/ on macOS
+-// (since .app bundles are read-only).
++// Settings file. Lives next to the executable on Windows, in
++// ~/Library/Application Support/UniversalDreamcastPatcher/ on macOS and in the
++// XDG configuration directory on Linux (both of those are read-only installs).
+ public class AppSettings
+ {
+     public double WindowLeft { get; set; } = double.NaN;
+@@ -48,6 +48,18 @@ public class AppSettings
+             string home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+             return Path.Combine(home, "Library", "Application Support", Constants.AppExecutableBase);
+         }
++
++        // The published application directory sits in the read-only Nix store,
++        // so settings.json can neither be created nor rewritten there. Save()
++        // swallows the resulting IOException, which would silently discard the
++        // window position, the DAT source and every registered external DAT
++        // path on every exit.
++        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
++        {
++            string config = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
++            return Path.Combine(config, Constants.AppExecutableBase);
++        }
++
+         return GetAppDirectory();
+     }
+ 

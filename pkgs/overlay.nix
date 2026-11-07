@@ -13,6 +13,7 @@ final: prev: {
   redumper              = prev.callPackage ./redumper { };
   steam-cleaner         = prev.callPackage ./steam-cleaner { };
   steam-metadata-editor = prev.callPackage ./steam-metadata-editor { };
+  universal-dreamcast-patcher = prev.callPackage ./universal-dreamcast-patcher { };
   waybackpack           = prev.callPackage ./waybackpack { };
   wurm-explorer         = prev.callPackage ./wurm-explorer { };
   xdvdfs-cli            = prev.callPackage ./xdvdfs-cli { };
