@@ -4,6 +4,7 @@
 , dotnetCorePackages
 , fetchFromGitHub
 , autoPatchelfHook
+, cmake
 , copyDesktopItems
 , libicns
 , makeDesktopItem
@@ -31,6 +32,10 @@ let
     tag = version;
     hash = "sha256-Ozce0vVgK8sg+coTpRxQZ1JqIe3Tbq3nrG2q9UsvDTc=";
   };
+
+  # `native/` in the application's own tree carries the sources for the two
+  # libraries it P/Invokes that are not packaged anywhere else
+  native = "${src}/native";
 
   # nixpkgs packages xdelta as the `xdelta3` command line tool only, so the
   # shared library the app imports is compiled here out of the xdelta3 source
@@ -80,6 +85,81 @@ let
       description = "xdelta3 VCDIFF codec as a shared library, for Universal Dreamcast Patcher";
       homepage = "https://github.com/jmacd/xdelta";
       license = lib.licenses.asl20;
+      platforms = [ "x86_64-linux" ];
+    };
+  };
+
+  # MAME 0.238 reduced to a standalone CMake build of chdman, which is the tree
+  # `native/libchdw/build-libchdw.sh` clones. It carries no tags, so the
+  # revision upstream built against is pinned by hash
+  chdman = fetchFromGitHub {
+    owner = "charlesthobe";
+    repo = "chdman";
+    rev = "64e7213902c24e02f44ff9c3cf66ac8c4a8fdc05";
+    hash = "sha256-yo6eqcysZanfxTF78A9H8MIms9dr7JGAAT0nJifWeWk=";
+  };
+
+  # `libchdw_api.cpp` is upstream's C ABI over MAME's `chd_file_compressor`, so
+  # it has to be compiled against that tree. Upstream does this by hand and
+  # commits the result; `build-libchdw.sh` is the same build, run here instead
+  libchdw = stdenv.mkDerivation {
+    pname = "libchdw";
+    inherit version;
+
+    src = chdman;
+
+    # The script's `#include <mutex>` fixups for `unzip.cpp` and `un7z.cpp` are
+    # not applied: this revision already has them. What is left is the target
+    # definition, reduced to the branch that builds on Linux
+    patches = [ ./libchdw-target.patch ];
+
+    nativeBuildInputs = [ cmake ];
+
+    # expat, 7-Zip, zlib, FLAC and utf8proc are all vendored under `3rdparty/`.
+    # They build as static libraries, so the position independent code flag has
+    # to be set for the whole project before the shared `chdw` target can link
+    cmakeFlags = [
+      (lib.cmakeBool "CMAKE_POSITION_INDEPENDENT_CODE" true)
+      (lib.cmakeFeature "LIBCHDW_SOURCE_DIR" "${native}/libchdw")
+    ];
+
+    # The default target would build the chdman command line tool as well
+    buildFlags = [
+      "chdw"
+      "chdw_smoke"
+    ];
+
+    doCheck = true;
+
+    # Upstream's own smoke test, run over a 64 sector MODE1/2352 track. What is
+    # on the track does not matter, only that the CUE parses and that the hunks
+    # come back out of the codec stack, so any non-uniform filler will do
+    checkPhase = ''
+      runHook preCheck
+
+      seq 0 40000 > filler
+      head -c 150528 filler > track01.bin
+      printf 'FILE "track01.bin" BINARY\n  TRACK 01 MODE1/2352\n    INDEX 01 00:00:00\n' > track01.cue
+      ./chdw_smoke track01.cue track01.chd
+
+      runHook postCheck
+    '';
+
+    installPhase = ''
+      runHook preInstall
+      install -Dm555 -t $out/lib libchdw.so
+      runHook postInstall
+    '';
+
+    meta = {
+      description = "CHD writer of MAME 0.238 as a shared library, for Universal Dreamcast Patcher";
+      homepage = "https://github.com/charlesthobe/chdman";
+      # MAME is GPL-2.0-or-later, the wrapper around it comes from the
+      # GPL-3.0-only application
+      license = with lib.licenses; [
+        gpl2Plus
+        gpl3Only
+      ];
       platforms = [ "x86_64-linux" ];
     };
   };
@@ -135,7 +215,6 @@ buildDotnetModule {
     icu
     krb5
     openssl
-    # The prebuilt `libchdw.so` is C++ and wants the matching runtime
     (lib.getLib stdenv.cc.cc)
   ];
 
@@ -150,17 +229,13 @@ buildDotnetModule {
   ];
 
   # .NET resolves `DllImport` names against the application directory, so
-  # putting the libraries there is all the `UdpNatives` package did. libchdr is
-  # a stock build of rtissera/libchdr, so nixpkgs' copy serves; the hardcoded
-  # `chd_header` offsets in `ChdReader.cs` agree with its headers.
-  #
-  # libchdw stays prebuilt. It is upstream's own C ABI over the
-  # `chd_file_compressor` of a MAME 0.238 chdman fork, and nothing in nixpkgs
-  # exposes that as a library
+  # linking the libraries in there is all the `UdpNatives` package did. The
+  # prebuilt copies under `runtimes/linux-x64/` go unused: libchdr is a stock
+  # build of rtissera/libchdr, so nixpkgs' own serves, and the other two are
+  # built from source above
   postInstall = ''
-    install -Dm755 -t $out/lib/${pname} \
-      src/UniversalDreamcastPatcher.Core/runtimes/linux-x64/native/libchdw.so
     ln -s ${lib.getLib libchdr}/lib/libchdr.so $out/lib/${pname}/libchdr.so
+    ln -s ${libchdw}/lib/libchdw.so $out/lib/${pname}/libchdw.so
     ln -s ${libxdelta3}/lib/libxdelta3.so $out/lib/${pname}/libxdelta3.so
 
     icns2png -x -s 256 -o . src/UniversalDreamcastPatcher.App/Assets/icon.icns
@@ -193,7 +268,8 @@ buildDotnetModule {
     homepage = "https://github.com/DerekPascarella/UniversalDreamcastPatcher";
     license = lib.licenses.gpl3Only;
     mainProgram = "UniversalDreamcastPatcher";
-    # The prebuilt libchdw is only vendored for linux-x64
+    # `libxdelta3` hardcodes the 64 bit `SIZEOF_*` values that configure would
+    # otherwise detect, and nothing but x86_64 has been exercised
     platforms = [ "x86_64-linux" ];
   };
 }

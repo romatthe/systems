@@ -1,0 +1,38 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index eb85a99..f766438 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -85,3 +85,33 @@ add_compile_definitions(
+   _CRT_STDIO_LEGACY_WIDE_SPECIFIERS
+ )
+ endif()
++
++# libchdw target
++set(CMAKE_POSITION_INDEPENDENT_CODE ON)
++if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
++  add_compile_options("$<$<COMPILE_LANGUAGE:CXX>:SHELL:-include mutex>")
++  add_compile_options("$<$<COMPILE_LANGUAGE:CXX>:SHELL:-include cstdint>")
++endif()
++if(DEFINED LIBCHDW_SOURCE_DIR)
++  add_library(chdw SHARED ${LIBCHDW_SOURCE_DIR}/libchdw_api.cpp)
++  target_include_directories(chdw PRIVATE
++    ${CMAKE_SOURCE_DIR}/src/osd
++    ${CMAKE_SOURCE_DIR}/src/lib/util
++    ${CMAKE_SOURCE_DIR}/3rdparty
++    ${CMAKE_SOURCE_DIR}/3rdparty/libflac/include
++    ${LIBCHDW_SOURCE_DIR}
++  )
++  set_property(TARGET chdw PROPERTY CXX_STANDARD 17)
++  set_target_properties(chdw PROPERTIES PREFIX "lib" OUTPUT_NAME "chdw"
++                                        POSITION_INDEPENDENT_CODE ON)
++  target_link_libraries(chdw PRIVATE utils expat 7z ocore_sdl zlib flac utf8proc)
++  if(UNIX)
++    target_link_libraries(chdw PRIVATE pthread)
++    if(NOT APPLE)
++      target_link_libraries(chdw PRIVATE util)
++    endif()
++  endif()
++  add_executable(chdw_smoke ${LIBCHDW_SOURCE_DIR}/tests/chdw_smoke.c)
++  target_include_directories(chdw_smoke PRIVATE ${LIBCHDW_SOURCE_DIR})
++  target_link_libraries(chdw_smoke PRIVATE chdw)
++endif()
