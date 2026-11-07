@@ -1,15 +1,6 @@
 { pkgs, ... }:
 let 
 
-  # Some wrappers to include Node on the path of Jetbrains IDEs because Amazon Q needs it
-  # intellij = pkgs.unstable.jetbrains.idea.overrideAttrs (old: {
-  #   postInstall = ''
-  #     wrapProgram $out/bin/idea \
-  #       --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.nodejs ]} \
-  #       --add-flags "-Didea.config.path=$HOME/.config/JetBrains/IntelliJ"
-  #   '';
-  # });
-
   clion = pkgs.unstable.jetbrains.clion.overrideAttrs (old: {
     postInstall = ''
       wrapProgram $out/bin/clion \
@@ -30,13 +21,6 @@ let
         --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.nodejs ]}
     '';
   });
-
-  # rider = pkgs.unstable.jetbrains.rider.overrideAttrs (old: {
-  #   postInstall = ''
-  #     wrapProgram $out/bin/rider \
-  #       --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.nodejs pkgs.openssl]}
-  #   '';
-  # });
 
   rider = pkgs.unstable.jetbrains.rider;
 
