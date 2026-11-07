@@ -1,24 +1,24 @@
 final: prev: {
-  _3dt                  = prev.callPackage ./3dt { };
-  applewin              = prev.callPackage ./applewin { };
+  _3dt                        = prev.callPackage ./3dt { };
+  applewin                    = prev.callPackage ./applewin { };
   # ambermoon-net         = prev.callPackage ./ambermoon-net { }; # TODO: move to .NET 8
-  awscli-local          = prev.callPackage ./awscli-local { };
-  binaryobjectscanner   = prev.callPackage ./binaryobjectscanner { };
-  fsuae-launcher-ng     = prev.callPackage ./fsuae-launcher-ng { };
-  helidon-cli           = prev.callPackage ./helidon-cli { };
-  luxtorpeda            = prev.callPackage ./luxtorpeda { };
-  nuked-sc55            = prev.callPackage ./nuked-sc55 { };
-  nxdumpclient          = prev.callPackage ./nxdumpclient { };
-  pcsx2-pgs             = prev.callPackage ./pcsx2-pgs { };
-  redumper              = prev.callPackage ./redumper { };
-  steam-cleaner         = prev.callPackage ./steam-cleaner { };
-  steam-metadata-editor = prev.callPackage ./steam-metadata-editor { };
+  awscli-local                = prev.callPackage ./awscli-local { };
+  binaryobjectscanner         = prev.callPackage ./binaryobjectscanner { };
+  fsuae-launcher-ng           = prev.callPackage ./fsuae-launcher-ng { };
+  helidon-cli                 = prev.callPackage ./helidon-cli { };
+  luxtorpeda                  = prev.callPackage ./luxtorpeda { };
+  nuked-sc55                  = prev.callPackage ./nuked-sc55 { };
+  nxdumpclient                = prev.callPackage ./nxdumpclient { };
+  pcsx2-pgs                   = prev.callPackage ./pcsx2-pgs { };
+  redumper                    = prev.callPackage ./redumper { };
+  steam-cleaner               = prev.callPackage ./steam-cleaner { };
+  steam-metadata-editor       = prev.callPackage ./steam-metadata-editor { };
   universal-dreamcast-patcher = prev.callPackage ./universal-dreamcast-patcher { };
-  waybackpack           = prev.callPackage ./waybackpack { };
-  wurm-explorer         = prev.callPackage ./wurm-explorer { };
-  xdvdfs-cli            = prev.callPackage ./xdvdfs-cli { };
-  xu4                   = prev.callPackage ./xu4 { };
-  yuzu                  = prev.callPackage ./yuzu { };
+  waybackpack                 = prev.callPackage ./waybackpack { };
+  wurm-explorer               = prev.callPackage ./wurm-explorer { };
+  xdvdfs-cli                  = prev.callPackage ./xdvdfs-cli { };
+  xu4                         = prev.callPackage ./xu4 { };
+  yuzu                        = prev.callPackage ./yuzu { };
   
   # Pre-packaged DOSBOX games
   dosbox-bak            = prev.callPackage ./dosbox-bak { };
@@ -41,16 +41,4 @@ final: prev: {
     openssl           = final.old.openssl;
     zlib              = final.old.zlib;
   };
-  # samrewritten      = prev.callPackage ./samrewritten { 
-  #   stdenv          = final.old.stdenv;
-  #   lib             = final.old.lib;
-  #   fetchFromGitHub = final.old.fetchFromGitHub;
-  #   curl            = final.old.curl;
-  #   gnumake         = final.old.gnumake;
-  #   gnutls          = final.old.gnutls;
-  #   gtk3            = final.old.gtk3;
-  #   gtkmm3          = final.old.gtkmm3;
-  #   pkg-config      = final.old.pkg-config;
-  #   yajl            = final.old.yajl;
-  # };
 }

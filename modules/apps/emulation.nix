@@ -75,16 +75,17 @@ in {
     yuzu        # Final available release, legally available and fetched and built from the Software Heritage Archive
 
     # Tools
-    _3dt                  # For working with 3DO disc images
-    #binaryobjectscanner # TODO: restore
-    fusee-interfacee-tk   # For sending RCM payloads to Switch
-    hactool               # For verifying Switch cart dumps 
-    mame.tools            # Primarily for chdman
-    mpf-check             # Helper tool for creating preservation submissions
-    nxdumpclient          # Client for dumping Switch games directly to a PC
-    ps3-disc-dumper       # For dumping PS3 blu-rays
-    redumper              # All purpose disc-dumping tool
-    xdvdfs-cli            # For dealing with OG Xbox ISOs
+    _3dt                        # For working with 3DO disc images
+    #binaryobjectscanner        # TODO: restore
+    fusee-interfacee-tk         # For sending RCM payloads to Switch
+    hactool                     # For verifying Switch cart dumps 
+    mame.tools                  # Primarily for chdman
+    mpf-check                   # Helper tool for creating preservation submissions
+    nxdumpclient                # Client for dumping Switch games directly to a PC
+    ps3-disc-dumper             # For dumping PS3 blu-rays
+    redumper                    # All purpose disc-dumping tool
+    universal-dreamcast-patcher
+    xdvdfs-cli                  # For dealing with OG Xbox ISOs
   ];
 
   # NXDumpClient needs to wire up USB udev rules
