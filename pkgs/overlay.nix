@@ -2,6 +2,9 @@ final: prev: {
   _3dt                        = prev.callPackage ./3dt { };
   applewin                    = prev.callPackage ./applewin { };
   # ambermoon-net         = prev.callPackage ./ambermoon-net { }; # TODO: move to .NET 8
+  aws-emulator                = prev.callPackage ./aws-emulator {
+    rustPlatform = final.unstable.rustPlatform; # Needs rustc >= 1.96
+  };
   awscli-local                = prev.callPackage ./awscli-local { };
   binaryobjectscanner         = prev.callPackage ./binaryobjectscanner { };
   fsuae-launcher-ng           = prev.callPackage ./fsuae-launcher-ng { };
